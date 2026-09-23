@@ -22,12 +22,12 @@ body {
 }
 
 
-/* =====================================================
+/* ==============================
    NAVBAR
-===================================================== */
+============================== */
 
 .navbar {
-    height: 68px;
+    height: 70px;
     background: #ffffff;
     display: flex;
     align-items: center;
@@ -52,42 +52,32 @@ body {
     gap: 25px;
 }
 
-.menu-left a {
+.menu-left a,
+.menu-right a {
     text-decoration: none;
     color: #6b5b56;
     font-size: 13px;
-    transition: 0.2s;
+    transition: 0.25s;
 }
 
-.menu-left a:hover {
+.menu-left a:hover,
+.menu-right a:hover {
     color: #d79595;
 }
 
 .menu-right {
     position: absolute;
     right: 40px;
-    display: flex;
-    gap: 20px;
-}
-
-.menu-right a {
-    text-decoration: none;
-    color: #6b5b56;
-    font-size: 13px;
-}
-
-.menu-right a:hover {
-    color: #d79595;
 }
 
 
-/* =====================================================
+/* ==============================
    HEADER
-===================================================== */
+============================== */
 
 .products-header {
     text-align: center;
-    padding: 55px 20px 40px;
+    padding: 60px 20px 45px;
     background: #fff9f7;
 }
 
@@ -99,21 +89,21 @@ body {
 }
 
 .products-header p {
-    margin-top: 10px;
+    margin-top: 12px;
     font-size: 14px;
     color: #9b8982;
 }
 
 
-/* =====================================================
+/* ==============================
    PRODUCT SECTION
-===================================================== */
+============================== */
 
 .product-section {
     width: 100%;
     max-width: 1400px;
     margin: auto;
-    padding: 50px 5% 70px;
+    padding: 55px 5% 70px;
 }
 
 .product-grid {
@@ -123,44 +113,49 @@ body {
 }
 
 
-/* =====================================================
+/* ==============================
    PRODUCT CARD
-===================================================== */
+============================== */
 
 .product-card {
-    background: white;
+    background: #ffffff;
     text-align: center;
-    border-radius: 14px;
+    border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
     transition: 0.3s;
-    padding-bottom: 25px;
+    padding-bottom: 28px;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 22px rgba(0,0,0,0.10);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.10);
 }
 
 
-/* =====================================================
+/* ==============================
    PRODUCT IMAGE
-===================================================== */
+============================== */
 
 .product-image {
     width: 100%;
-    height: 360px;
+    height: 350px;
     object-fit: contain;
     object-position: center;
     display: block;
     background: #ffffff;
     padding: 20px;
+    transition: 0.3s;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.03);
 }
 
 
-/* =====================================================
-   TEXT
-===================================================== */
+/* ==============================
+   PRODUCT TEXT
+============================== */
 
 .product-card h2 {
     font-family: Georgia, serif;
@@ -174,20 +169,21 @@ body {
     color: #9b8982;
     font-size: 14px;
     margin: 8px 15px;
-    line-height: 1.6;
+    line-height: 1.7;
+    min-height: 48px;
 }
 
 .price {
     color: #c77b7b;
     font-size: 20px;
     font-weight: 600;
-    margin: 12px 0 20px;
+    margin: 15px 0 20px;
 }
 
 
-/* =====================================================
+/* ==============================
    BUTTON
-===================================================== */
+============================== */
 
 .detail-button {
     display: inline-block;
@@ -195,8 +191,8 @@ body {
     color: #c77b7b;
     background: white;
     text-decoration: none;
-    padding: 10px 25px;
-    border-radius: 22px;
+    padding: 10px 28px;
+    border-radius: 25px;
     font-size: 13px;
     transition: 0.3s;
 }
@@ -204,12 +200,13 @@ body {
 .detail-button:hover {
     background: #d98d8d;
     color: white;
+    transform: translateY(-2px);
 }
 
 
-/* =====================================================
+/* ==============================
    BACK BUTTON
-===================================================== */
+============================== */
 
 .back-section {
     text-align: center;
@@ -233,9 +230,9 @@ body {
 }
 
 
-/* =====================================================
+/* ==============================
    FOOTER
-===================================================== */
+============================== */
 
 footer {
     text-align: center;
@@ -246,9 +243,9 @@ footer {
 }
 
 
-/* =====================================================
+/* ==============================
    RESPONSIVE
-===================================================== */
+============================== */
 
 @media (max-width: 1000px) {
 
@@ -259,8 +256,8 @@ footer {
     .product-image {
         height: 320px;
     }
-
 }
+
 
 @media (max-width: 650px) {
 
@@ -268,7 +265,7 @@ footer {
         height: auto;
         padding: 15px;
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
     }
 
     .logo {
@@ -297,6 +294,10 @@ footer {
         font-size: 34px;
     }
 
+    .product-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
 </style>
@@ -307,9 +308,9 @@ footer {
 <body>
 
 
-<!-- =====================================================
+<!-- ==============================
      NAVBAR
-===================================================== -->
+============================== -->
 
 <header class="navbar">
 
@@ -326,10 +327,10 @@ footer {
     </nav>
 
 
-    <!-- รูป MELLY อยู่หน้า Repository -->
+    <!-- โลโก้จากโฟลเดอร์ images -->
 
     <img
-        src="MELLY.png"
+        src="images/MELLY.png"
         class="logo"
         alt="MELLY"
     >
@@ -346,9 +347,10 @@ footer {
 </header>
 
 
-<!-- =====================================================
+
+<!-- ==============================
      HEADER
-===================================================== -->
+============================== -->
 
 <section class="products-header">
 
@@ -363,9 +365,10 @@ footer {
 </section>
 
 
-<!-- =====================================================
+
+<!-- ==============================
      PRODUCTS
-===================================================== -->
+============================== -->
 
 <section class="product-section">
 
@@ -377,7 +380,7 @@ footer {
 <div class="product-card">
 
     <img
-        src="ตุ๊กตาหมี.jpg"
+        src="images/ตุ๊กตาหมี.jpg"
         class="product-image"
         alt="Melly Teddy Bear"
     >
@@ -401,12 +404,13 @@ footer {
 </div>
 
 
+
 <!-- PRODUCT 2 -->
 
 <div class="product-card">
 
     <img
-        src="กระต่าย.webp"
+        src="images/กระต่าย.webp"
         class="product-image"
         alt="Melly Bunny"
     >
@@ -430,12 +434,13 @@ footer {
 </div>
 
 
+
 <!-- PRODUCT 3 -->
 
 <div class="product-card">
 
     <img
-        src="เป็ด.jpg"
+        src="images/เป็ด.jpg"
         class="product-image"
         alt="Melly Duck"
     >
@@ -459,12 +464,13 @@ footer {
 </div>
 
 
+
 <!-- PRODUCT 4 -->
 
 <div class="product-card">
 
     <img
-        src="เท็ดดี้.jpeg"
+        src="images/เท็ดดี้.jpeg"
         class="product-image"
         alt="Pink Teddy"
     >
@@ -488,12 +494,13 @@ footer {
 </div>
 
 
+
 <!-- PRODUCT 5 -->
 
 <div class="product-card">
 
     <img
-        src="ม้า.jpg"
+        src="images/ม้า.jpg"
         class="product-image"
         alt="White Horse"
     >
@@ -517,12 +524,13 @@ footer {
 </div>
 
 
+
 <!-- PRODUCT 6 -->
 
 <div class="product-card">
 
     <img
-        src="แมว.jpeg"
+        src="images/แมว.jpeg"
         class="product-image"
         alt="Little Cat"
     >
@@ -546,12 +554,13 @@ footer {
 </div>
 
 
+
 <!-- PRODUCT 7 -->
 
 <div class="product-card">
 
     <img
-        src="ยีราฟ.jpg"
+        src="images/ยีราฟ.jpg"
         class="product-image"
         alt="Cream Giraffe"
     >
@@ -575,12 +584,13 @@ footer {
 </div>
 
 
+
 <!-- PRODUCT 8 -->
 
 <div class="product-card">
 
     <img
-        src="เสือ.webp"
+        src="images/เสือ.webp"
         class="product-image"
         alt="Tiger Plush"
     >
@@ -604,12 +614,13 @@ footer {
 </div>
 
 
+
 <!-- PRODUCT 9 -->
 
 <div class="product-card">
 
     <img
-        src="หมา.jpg"
+        src="images/หมา.jpg"
         class="product-image"
         alt="Melly Dog"
     >
@@ -638,9 +649,10 @@ footer {
 </section>
 
 
-<!-- =====================================================
-     BACK
-===================================================== -->
+
+<!-- ==============================
+     BACK HOME
+============================== -->
 
 <div class="back-section">
 
@@ -652,6 +664,7 @@ footer {
     </a>
 
 </div>
+
 
 
 <footer>
