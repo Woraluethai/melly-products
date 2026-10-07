@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -9,14 +9,14 @@
 
     <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #fff7f9;
+            background: #fff7f9;
             color: #333;
         }
 
@@ -25,35 +25,31 @@
         ========================= */
         nav {
             height: 80px;
-            background-color: white;
+            background: white;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 50px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
 
         .nav-left,
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 20px;
         }
 
         .logo {
             width: 100px;
             height: auto;
-            margin-right: 20px;
+            margin-right: 15px;
         }
 
         nav a {
             text-decoration: none;
             color: #444;
             font-size: 15px;
-            transition: 0.3s;
         }
 
         nav a:hover {
@@ -61,62 +57,61 @@
         }
 
         /* =========================
-           PRODUCT DETAIL
+           PRODUCT
         ========================= */
-        .product-detail {
+        .container {
             max-width: 1100px;
-            margin: 70px auto;
-            padding: 0 30px;
+            margin: 50px auto;
+            padding: 20px;
         }
 
-        .back-button {
+        .back {
             display: inline-block;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             padding: 10px 20px;
-            background-color: #f3d4dc;
+            background: #f3d4dc;
             color: #555;
             text-decoration: none;
             border-radius: 25px;
-            transition: 0.3s;
         }
 
-        .back-button:hover {
-            background-color: #e8b8c5;
+        .back:hover {
+            background: #e8b8c5;
             color: white;
         }
 
-        .product-container {
+        .product {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            background-color: white;
-            padding: 50px;
+            gap: 50px;
+            background: white;
+            padding: 40px;
             border-radius: 25px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
 
         .product-image {
             width: 100%;
-            max-width: 450px;
             height: 450px;
             object-fit: contain;
-            display: block;
-            margin: auto;
-            border-radius: 20px;
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .product-info h1 {
-            font-size: 38px;
-            color: #444;
+            font-size: 36px;
             margin-bottom: 20px;
         }
 
         .price {
             font-size: 28px;
-            color: #e88ca5;
             font-weight: bold;
-            margin-bottom: 25px;
+            color: #e88ca5;
+            margin-bottom: 20px;
         }
 
         .description {
@@ -127,74 +122,39 @@
         }
 
         .add-cart {
-            display: inline-block;
-            padding: 15px 35px;
-            background-color: #e88ca5;
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
+            width: fit-content;
             border: none;
+            padding: 14px 30px;
+            background: #e88ca5;
+            color: white;
+            border-radius: 30px;
             font-size: 16px;
             cursor: pointer;
-            transition: 0.3s;
         }
 
         .add-cart:hover {
-            background-color: #d76f8d;
-            transform: translateY(-2px);
+            background: #d76f8d;
         }
 
         /* =========================
            FOOTER
         ========================= */
         footer {
-            margin-top: 80px;
-            background-color: #f3d4dc;
-            text-align: center;
+            margin-top: 60px;
             padding: 30px;
+            text-align: center;
+            background: #f3d4dc;
             color: #666;
         }
 
         /* =========================
-           RESPONSIVE
+           MOBILE
         ========================= */
-        @media (max-width: 900px) {
-            nav {
-                padding: 0 20px;
-            }
+        @media (max-width: 800px) {
 
-            .nav-left,
-            .nav-right {
-                gap: 12px;
-            }
-
-            nav a {
-                font-size: 13px;
-            }
-
-            .logo {
-                width: 80px;
-                margin-right: 5px;
-            }
-
-            .product-container {
-                grid-template-columns: 1fr;
-                padding: 30px;
-            }
-
-            .product-image {
-                height: 350px;
-            }
-
-            .product-info h1 {
-                font-size: 30px;
-            }
-        }
-
-        @media (max-width: 600px) {
             nav {
                 height: auto;
-                padding: 15px;
+                padding: 20px;
                 flex-direction: column;
                 gap: 15px;
             }
@@ -205,18 +165,13 @@
                 justify-content: center;
             }
 
-            .product-detail {
-                margin: 40px auto;
-                padding: 0 15px;
-            }
-
-            .product-container {
-                padding: 20px;
-                gap: 30px;
+            .product {
+                grid-template-columns: 1fr;
+                padding: 25px;
             }
 
             .product-image {
-                height: 280px;
+                height: 350px;
             }
         }
     </style>
@@ -227,12 +182,16 @@
     <!-- =========================
          NAVBAR
     ========================= -->
+
     <nav>
 
-        <!-- LEFT MENU -->
         <div class="nav-left">
 
-            <img src="images/MELLY.png" alt="MELLY Logo" class="logo">
+            <img
+                src="images/MELLY.png"
+                alt="MELLY"
+                class="logo"
+            >
 
             <a href="index.html">Home</a>
             <a href="products.html">Products</a>
@@ -241,7 +200,7 @@
 
         </div>
 
-        <!-- RIGHT MENU -->
+
         <div class="nav-right">
 
             <a href="orders.html">Orders</a>
@@ -258,43 +217,56 @@
     <!-- =========================
          PRODUCT DETAIL
     ========================= -->
-    <main class="product-detail">
 
-        <!-- BACK TO PRODUCTS -->
-        <a href="products.html" class="back-button">
+    <main class="container">
+
+        <a href="products.html" class="back">
             ← Back to Products
         </a>
 
 
-        <div class="product-container">
+        <div class="product">
 
             <!-- PRODUCT IMAGE -->
+
             <div>
+
                 <img
                     id="productImage"
                     class="product-image"
                     src=""
-                    alt="Product"
+                    alt=""
                 >
+
             </div>
 
 
             <!-- PRODUCT INFORMATION -->
+
             <div class="product-info">
 
                 <h1 id="productName">
-                    Product Name
+                    กำลังโหลด...
                 </h1>
 
-                <div class="price" id="productPrice">
+                <div
+                    id="productPrice"
+                    class="price"
+                >
                     ฿0
                 </div>
 
-                <p class="description" id="productDescription">
-                    Product description
+                <p
+                    id="productDescription"
+                    class="description"
+                >
+                    กำลังโหลดข้อมูลสินค้า...
                 </p>
 
-                <button class="add-cart" onclick="addToCart()">
+                <button
+                    class="add-cart"
+                    onclick="addToCart()"
+                >
                     Add to Cart
                 </button>
 
@@ -308,81 +280,85 @@
     <!-- =========================
          FOOTER
     ========================= -->
+
     <footer>
-        <p>© 2026 MELLY. All Rights Reserved.</p>
+
+        <p>
+            © 2026 MELLY. All Rights Reserved.
+        </p>
+
     </footer>
 
 
     <!-- =========================
          JAVASCRIPT
     ========================= -->
+
     <script>
 
-        /*
-        ==========================================
-        PRODUCT DATA
-        ==========================================
-        */
+        /* --------------------------------
+           สินค้าทั้งหมด
+        -------------------------------- */
 
         const products = {
 
-            1: {
+            "1": {
                 name: "Melly Teddy Bear",
                 price: 490,
                 image: "ตุ๊กตาหมี.jpg",
                 description: "ตุ๊กตาหมี MELLY นุ่มนิ่ม น่ารัก เหมาะสำหรับกอดและเป็นของขวัญสำหรับคนพิเศษ"
             },
 
-            2: {
+            "2": {
                 name: "Melly Bunny",
                 price: 450,
                 image: "กระต่าย.webp",
                 description: "ตุ๊กตากระต่าย MELLY ดีไซน์น่ารัก ขนนุ่ม เหมาะสำหรับตกแต่งห้องหรือมอบเป็นของขวัญ"
             },
 
-            3: {
+            "3": {
                 name: "Melly Duck",
                 price: 590,
                 image: "เป็ด.jpg",
                 description: "ตุ๊กตาเป็ด MELLY สีสันสดใส น่ารักและนุ่ม เหมาะสำหรับเด็กและผู้ที่ชื่นชอบตุ๊กตา"
             },
 
-            4: {
+            "4": {
                 name: "Pink Teddy",
                 price: 520,
                 image: "เท็ดดี้.jpeg",
                 description: "ตุ๊กตาหมีสีชมพูสุดน่ารัก ขนนุ่มและกอดสบาย เหมาะสำหรับเป็นของขวัญในโอกาสพิเศษ"
             },
 
-            5: {
+            "5": {
                 name: "White Horse",
                 price: 480,
                 image: "ม้า.jpg",
                 description: "ตุ๊กตาม้าสีขาว MELLY ดีไซน์สวย น่ารัก และนุ่ม เหมาะสำหรับสะสมและตกแต่งห้อง"
             },
 
-            6: {
+            "6": {
                 name: "Little Cat",
                 price: 350,
                 image: "แมว.jpeg",
                 description: "ตุ๊กตาแมวตัวน้อย MELLY ขนนุ่มน่ากอด ขนาดกำลังพอดี เหมาะสำหรับพกพาและเป็นเพื่อนคู่ใจ"
             },
 
-            7: {
+            "7": {
                 name: "Cream Giraffe",
                 price: 550,
                 image: "ยีราฟ.jpg",
                 description: "ตุ๊กตายีราฟสีครีม MELLY ดีไซน์อบอุ่น น่ารัก และมีเอกลักษณ์ เหมาะสำหรับคนรักสัตว์"
             },
 
-            8: {
+            "8": {
                 name: "Tiger Plush",
                 price: 460,
                 image: "เสือ.webp",
                 description: "ตุ๊กตาเสือ MELLY น่ารัก ไม่ดุ ขนนุ่มและกอดสบาย เหมาะสำหรับสะสมหรือมอบเป็นของขวัญ"
             },
 
-            9: {
+            "9": {
                 name: "Melly Dog",
                 price: 420,
                 image: "หมา.jpg",
@@ -392,134 +368,94 @@
         };
 
 
-        /*
-        ==========================================
-        GET PRODUCT ID FROM URL
-        ==========================================
+        /* --------------------------------
+           อ่าน id จาก URL
+           
+           เช่น:
+           product_detail.html?id=1
+        -------------------------------- */
 
-        ตัวอย่าง URL:
+        const params = new URLSearchParams(window.location.search);
 
-        product_detail.html?id=1
-        product_detail.html?id=2
-        product_detail.html?id=3
-        */
-
-        const urlParams = new URLSearchParams(window.location.search);
-
-        const productId = urlParams.get("id") || "1";
+        const id = params.get("id") || "1";
 
 
-        /*
-        ==========================================
-        FIND PRODUCT
-        ==========================================
-        */
+        /* --------------------------------
+           หาสินค้า
+        -------------------------------- */
 
-        const product = products[productId];
+        const product = products[id];
 
 
-        /*
-        ==========================================
-        DISPLAY PRODUCT
-        ==========================================
-        */
+        /* --------------------------------
+           แสดงข้อมูลสินค้า
+        -------------------------------- */
 
         if (product) {
 
-            // เปลี่ยนชื่อหน้าเว็บ
             document.title = "MELLY - " + product.name;
 
-
-            // รูปสินค้า
             document.getElementById("productImage").src =
                 "images/" + product.image;
 
             document.getElementById("productImage").alt =
                 product.name;
 
-
-            // ชื่อสินค้า
             document.getElementById("productName").textContent =
                 product.name;
 
-
-            // ราคา
             document.getElementById("productPrice").textContent =
                 "฿" + product.price.toLocaleString("th-TH");
 
-
-            // รายละเอียดสินค้า
             document.getElementById("productDescription").textContent =
                 product.description;
 
         } else {
 
-            /*
-            ==========================================
-            IF PRODUCT ID DOES NOT EXIST
-            ==========================================
-            */
-
             document.getElementById("productName").textContent =
-                "ไม่พบสินค้านี้";
+                "ไม่พบสินค้า";
 
             document.getElementById("productPrice").textContent =
                 "";
 
             document.getElementById("productDescription").textContent =
-                "ขออภัย ไม่พบสินค้าที่คุณกำลังค้นหา";
+                "ไม่พบสินค้าที่ต้องการ";
 
-            document.getElementById("productImage").style.display =
+            document.querySelector(".add-cart").style.display =
                 "none";
-
         }
 
 
-        /*
-        ==========================================
-        ADD TO CART
-        ==========================================
-        */
+        /* --------------------------------
+           เพิ่มสินค้าลงตะกร้า
+        -------------------------------- */
 
         function addToCart() {
 
             if (!product) {
-                alert("ไม่พบสินค้า");
                 return;
             }
 
 
-            /*
-            ------------------------------------------
-            อ่านข้อมูลตะกร้าจาก localStorage
-            ------------------------------------------
-            */
-
-            let cart =
-                JSON.parse(localStorage.getItem("mellyCart")) || [];
+            let cart = JSON.parse(
+                localStorage.getItem("mellyCart")
+            ) || [];
 
 
-            /*
-            ------------------------------------------
-            ตรวจสอบว่าสินค้านี้อยู่ในตะกร้าหรือยัง
-            ------------------------------------------
-            */
-
-            const existingProduct =
-                cart.find(item => item.id === productId);
+            const existing = cart.find(
+                item => item.id === id
+            );
 
 
-            if (existingProduct) {
+            if (existing) {
 
-                // ถ้ามีสินค้าอยู่แล้ว เพิ่มจำนวน
-                existingProduct.quantity++;
+                existing.quantity++;
 
             } else {
 
-                // ถ้ายังไม่มี ให้เพิ่มสินค้าใหม่
                 cart.push({
 
-                    id: productId,
+                    id: id,
 
                     name: product.name,
 
@@ -534,34 +470,16 @@
             }
 
 
-            /*
-            ------------------------------------------
-            บันทึกข้อมูลลง localStorage
-            ------------------------------------------
-            */
-
             localStorage.setItem(
                 "mellyCart",
                 JSON.stringify(cart)
             );
 
 
-            /*
-            ------------------------------------------
-            แจ้งเตือน
-            ------------------------------------------
-            */
-
             alert(
-                product.name + " ถูกเพิ่มลงในตะกร้าแล้ว"
+                product.name + " เพิ่มลงในตะกร้าแล้ว"
             );
 
-
-            /*
-            ------------------------------------------
-            ไปหน้าตะกร้า
-            ------------------------------------------
-            */
 
             window.location.href = "cart.html";
 
