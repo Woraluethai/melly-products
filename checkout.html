@@ -1,0 +1,1162 @@
+
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>MELLY | Checkout</title>
+
+
+<style>
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+body {
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: #fffdfc;
+
+    color: #554742;
+
+    min-height: 100vh;
+
+}
+
+
+.navbar {
+
+    height: 68px;
+
+    background: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    box-shadow:
+        0 1px 8px rgba(0,0,0,0.05);
+
+}
+
+
+.logo {
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    height: 52px;
+
+    width: auto;
+
+    object-fit: contain;
+
+}
+
+
+.menu-left {
+
+    position: absolute;
+
+    left: 40px;
+
+    display: flex;
+
+    gap: 25px;
+
+}
+
+
+.menu-left a {
+
+    text-decoration: none;
+
+    color: #6b5b56;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+
+}
+
+
+.menu-left a:hover {
+
+    color: #d79595;
+
+}
+
+
+.menu-right {
+
+    position: absolute;
+
+    right: 40px;
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+
+.menu-right a {
+
+    text-decoration: none;
+
+    color: #6b5b56;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+
+}
+
+
+.menu-right a:hover {
+
+    color: #d79595;
+
+}
+
+
+.checkout-header {
+
+    text-align: center;
+
+    padding: 55px 20px 45px;
+
+    background: #fff9f7;
+
+}
+
+
+.checkout-header h1 {
+
+    font-family: Georgia, serif;
+
+    font-size: 42px;
+
+    font-weight: 400;
+
+    color: #594944;
+
+}
+
+
+.checkout-header p {
+
+    margin-top: 10px;
+
+    color: #9b8982;
+
+    font-size: 14px;
+
+}
+
+
+.checkout-section {
+
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    padding: 50px 20px 70px;
+
+}
+
+
+.checkout-box {
+
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    padding: 35px 40px;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.06);
+
+}
+
+
+.checkout-box h2 {
+
+    font-family: Georgia, serif;
+
+    font-weight: 400;
+
+    font-size: 27px;
+
+    color: #594944;
+
+    margin-bottom: 8px;
+
+}
+
+
+.item-count {
+
+    font-size: 13px;
+
+    color: #9b8982;
+
+    margin-bottom: 20px;
+
+}
+
+
+.order-product {
+
+    display: grid;
+
+    grid-template-columns:
+        85px
+        1fr
+        auto;
+
+    gap: 18px;
+
+    align-items: center;
+
+    padding: 18px 0;
+
+    border-bottom:
+        1px solid #f0e4e0;
+
+}
+
+
+.order-product:first-of-type {
+
+    padding-top: 8px;
+
+}
+
+
+.order-product img {
+
+    width: 75px;
+
+    height: 75px;
+
+    object-fit: contain;
+
+    background: #fffafa;
+
+    border-radius: 10px;
+
+}
+
+
+.order-product h3 {
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    font-weight: 400;
+
+    color: #594944;
+
+    margin-bottom: 6px;
+
+}
+
+
+.order-product p {
+
+    font-size: 13px;
+
+    color: #9b8982;
+
+}
+
+
+.product-price {
+
+    color: #c77b7b;
+
+    font-weight: 600;
+
+    font-size: 16px;
+
+    white-space: nowrap;
+
+}
+
+
+.order-total {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 25px;
+
+    padding-top: 22px;
+
+    border-top:
+        1px solid #eadbd6;
+
+}
+
+
+.order-total span:first-child {
+
+    font-weight: 600;
+
+    font-size: 18px;
+
+    color: #594944;
+
+}
+
+
+.order-total span:last-child {
+
+    color: #c77b7b;
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+}
+
+
+.checkout-actions {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 15px;
+
+    margin-top: 30px;
+
+}
+
+
+.checkout-button {
+
+    width: 100%;
+
+    border: none;
+
+    background: #d88e91;
+
+    color: white;
+
+    padding: 14px 20px;
+
+    border-radius: 28px;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.checkout-button:hover {
+
+    background: #c77679;
+
+    transform: translateY(-2px);
+
+}
+
+
+.back-button {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    color: #c77b7b;
+
+    border: 1px solid #d98d8d;
+
+    padding: 13px 20px;
+
+    border-radius: 28px;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+
+}
+
+
+.back-button:hover {
+
+    background: #d98d8d;
+
+    color: white;
+
+    transform: translateY(-2px);
+
+}
+
+
+.error-message {
+
+    background: #fff0f0;
+
+    color: #c45f63;
+
+    padding: 13px 16px;
+
+    border-radius: 9px;
+
+    margin-bottom: 20px;
+
+    font-size: 13px;
+
+    text-align: center;
+
+}
+
+
+footer {
+
+    text-align: center;
+
+    padding: 25px;
+
+    background: #fff9f7;
+
+    color: #9b8982;
+
+    font-size: 12px;
+
+}
+
+
+@media (max-width: 750px) {
+
+
+    .navbar {
+
+        height: auto;
+
+        padding: 15px;
+
+        flex-direction: column;
+
+    }
+
+
+    .logo {
+
+        position: static;
+
+        transform: none;
+
+        margin-bottom: 12px;
+
+    }
+
+
+    .menu-left,
+    .menu-right {
+
+        position: static;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 12px;
+
+    }
+
+
+    .checkout-header {
+
+        padding: 40px 20px 35px;
+
+    }
+
+
+    .checkout-header h1 {
+
+        font-size: 34px;
+
+    }
+
+
+    .checkout-section {
+
+        padding: 30px 15px 50px;
+
+    }
+
+
+    .checkout-box {
+
+        padding: 25px 20px;
+
+    }
+
+
+    .order-product {
+
+        grid-template-columns:
+            65px
+            1fr;
+
+        gap: 12px;
+
+    }
+
+
+    .order-product img {
+
+        width: 60px;
+
+        height: 60px;
+
+    }
+
+
+    .product-price {
+
+        grid-column: 2;
+
+        margin-top: -5px;
+
+    }
+
+
+    .checkout-actions {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+
+    <nav class="menu-left">
+
+        <a href="index.html">
+            หน้าแรก
+        </a>
+
+
+        <a href="products.html">
+            สินค้า
+        </a>
+
+
+        <a href="cart.html">
+            🛒 ตะกร้า
+        </a>
+
+
+        <a href="checkout.html">
+            สั่งซื้อ
+        </a>
+
+    </nav>
+
+
+    <img
+        src="images/MELLY.png"
+        class="logo"
+        alt="MELLY"
+    >
+
+
+    <nav class="menu-right">
+
+        <a href="orders.html">
+            ประวัติการซื้อ
+        </a>
+
+
+        <a href="profile.html">
+            โปรไฟล์
+        </a>
+
+
+        <a href="login.html">
+            ออกจากระบบ
+        </a>
+
+    </nav>
+
+</header>
+
+
+<section class="checkout-header">
+
+    <h1>
+        Checkout
+    </h1>
+
+
+    <p>
+        ตรวจสอบรายการสินค้าและยืนยันการสั่งซื้อ
+    </p>
+
+</section>
+
+
+<section class="checkout-section">
+
+
+<div
+    class="error-message"
+    id="errorMessage"
+    style="display:none;"
+></div>
+
+
+<div class="checkout-box">
+
+
+    <h2>
+        รายการสั่งซื้อ
+    </h2>
+
+
+    <div class="item-count">
+
+        สินค้าทั้งหมด
+        <span id="totalItems">0</span>
+        ชิ้น
+
+    </div>
+
+
+    <div id="orderProducts"></div>
+
+
+    <div class="order-total">
+
+
+        <span>
+            ยอดรวมทั้งหมด
+        </span>
+
+
+        <span id="orderTotal">
+            ฿0
+        </span>
+
+
+    </div>
+
+
+    <div class="checkout-actions">
+
+
+        <a
+            href="cart.html"
+            class="back-button"
+        >
+
+            ← กลับไปตะกร้า
+
+        </a>
+
+
+        <button
+            type="button"
+            class="checkout-button"
+            id="confirmOrderButton"
+        >
+
+            ยืนยันการสั่งซื้อ →
+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+</section>
+
+
+<footer>
+
+    © 2026 MELLY Doll Shop
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   โหลดตะกร้า
+===================================================== */
+
+let cart = JSON.parse(
+    localStorage.getItem("mellyCart") || "[]"
+);
+
+
+/* =====================================================
+   ตรวจสอบตะกร้า
+===================================================== */
+
+function checkCart() {
+
+    if (!Array.isArray(cart) || cart.length === 0) {
+
+        window.location.href = "cart.html";
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+
+/* =====================================================
+   คำนวณตะกร้า
+===================================================== */
+
+function calculateCart() {
+
+    let total = 0;
+
+    let totalItems = 0;
+
+    const validItems = [];
+
+
+    cart.forEach(function(item) {
+
+        const quantity =
+            Number(item.quantity || 0);
+
+        const price =
+            Number(item.price || 0);
+
+
+        if (
+            quantity > 0 &&
+            price >= 0 &&
+            item.name
+        ) {
+
+            const subtotal =
+                price * quantity;
+
+
+            total += subtotal;
+
+            totalItems += quantity;
+
+
+            validItems.push({
+
+                id: item.id,
+
+                name: item.name,
+
+                price: price,
+
+                image: item.image || "",
+
+                quantity: quantity,
+
+                subtotal: subtotal
+
+            });
+
+        }
+
+    });
+
+
+    return {
+
+        items: validItems,
+
+        total: total,
+
+        totalItems: totalItems
+
+    };
+
+}
+
+
+/* =====================================================
+   แสดงรายการสินค้า
+===================================================== */
+
+function displayCheckout() {
+
+    const result =
+        calculateCart();
+
+
+    if (result.items.length === 0) {
+
+        window.location.href =
+            "cart.html";
+
+        return;
+
+    }
+
+
+    document.getElementById("totalItems")
+        .textContent =
+        result.totalItems.toLocaleString();
+
+
+    document.getElementById("orderTotal")
+        .textContent =
+        "฿" + result.total.toLocaleString();
+
+
+    const container =
+        document.getElementById("orderProducts");
+
+
+    container.innerHTML = "";
+
+
+    result.items.forEach(function(item) {
+
+        const product =
+            document.createElement("div");
+
+
+        product.className =
+            "order-product";
+
+
+        product.innerHTML = `
+
+            <img
+                src="images/${escapeHTML(item.image)}"
+                alt="${escapeHTML(item.name)}"
+            >
+
+            <div>
+
+                <h3>
+                    ${escapeHTML(item.name)}
+                </h3>
+
+                <p>
+
+                    จำนวน
+                    ${item.quantity.toLocaleString()}
+                    ชิ้น
+
+                    ×
+
+                    ฿${item.price.toLocaleString()}
+
+                </p>
+
+            </div>
+
+            <div class="product-price">
+
+                ฿${item.subtotal.toLocaleString()}
+
+            </div>
+
+        `;
+
+
+        container.appendChild(product);
+
+    });
+
+}
+
+
+/* =====================================================
+   Escape HTML
+===================================================== */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =====================================================
+   สร้าง Order ID
+===================================================== */
+
+function generateOrderId() {
+
+    const orders =
+        JSON.parse(
+            localStorage.getItem("mellyOrders") || "[]"
+        );
+
+
+    if (orders.length === 0) {
+
+        return 1;
+
+    }
+
+
+    const ids = orders
+        .map(function(order) {
+
+            return Number(order.id) || 0;
+
+        });
+
+
+    return Math.max(...ids) + 1;
+
+}
+
+
+/* =====================================================
+   ยืนยันคำสั่งซื้อ
+===================================================== */
+
+function confirmOrder() {
+
+    const result =
+        calculateCart();
+
+
+    if (result.items.length === 0) {
+
+        window.location.href =
+            "cart.html";
+
+        return;
+
+    }
+
+
+    const confirmed =
+        confirm(
+            "ยืนยันการสั่งซื้อหรือไม่?"
+        );
+
+
+    if (!confirmed) {
+
+        return;
+
+    }
+
+
+    try {
+
+        /* =============================================
+           โหลด Orders เดิม
+        ============================================= */
+
+        let orders =
+            JSON.parse(
+                localStorage.getItem("mellyOrders") || "[]"
+            );
+
+
+        if (!Array.isArray(orders)) {
+
+            orders = [];
+
+        }
+
+
+        /* =============================================
+           สร้าง Order
+        ============================================= */
+
+        const orderId =
+            generateOrderId();
+
+
+        const order = {
+
+            id: orderId,
+
+            user_id:
+                localStorage.getItem("mellyUserId") || "guest",
+
+            total_amount:
+                result.total,
+
+            status:
+                "รอดำเนินการ",
+
+            created_at:
+                new Date().toISOString(),
+
+            items:
+                result.items.map(function(item) {
+
+                    return {
+
+                        id: item.id,
+
+                        product_id: item.id,
+
+                        name: item.name,
+
+                        price: item.price,
+
+                        quantity: item.quantity,
+
+                        subtotal: item.subtotal,
+
+                        image: item.image
+
+                    };
+
+                })
+
+        };
+
+
+        /* =============================================
+           บันทึก Order
+        ============================================= */
+
+        orders.push(order);
+
+
+        localStorage.setItem(
+            "mellyOrders",
+            JSON.stringify(orders)
+        );
+
+
+        /* =============================================
+           ล้างตะกร้า
+        ============================================= */
+
+        localStorage.removeItem(
+            "mellyCart"
+        );
+
+
+        /* =============================================
+           ไปหน้าประวัติการซื้อ
+        ============================================= */
+
+        window.location.href =
+            "orders.html?success=1";
+
+
+    } catch (error) {
+
+        const errorMessage =
+            document.getElementById("errorMessage");
+
+
+        errorMessage.textContent =
+            "ไม่สามารถบันทึกคำสั่งซื้อได้ กรุณาลองใหม่อีกครั้ง";
+
+
+        errorMessage.style.display =
+            "block";
+
+
+        console.error(error);
+
+    }
+
+}
+
+
+/* =====================================================
+   ปุ่มยืนยัน
+===================================================== */
+
+document
+    .getElementById("confirmOrderButton")
+    .addEventListener(
+        "click",
+        confirmOrder
+    );
+
+
+/* =====================================================
+   เริ่มต้น
+===================================================== */
+
+checkCart();
+
+displayCheckout();
+
+</script>
+
+
+</body>
+
+</html>
+
