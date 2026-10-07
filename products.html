@@ -4,851 +4,952 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MELLY | สินค้า</title>
+<title>MELLY | สินค้า</title>
 
-    <style>
+<style>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: "Segoe UI", Arial, sans-serif;
-            background: #fffdfc;
-            color: #554742;
-        }
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #fffdfc;
+    color: #554742;
+}
 
-        /* =====================================================
-           NAVBAR
-        ===================================================== */
 
-        .navbar {
-            height: 68px;
-            background: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            box-shadow: 0 1px 8px rgba(0,0,0,0.05);
-            z-index: 10;
-        }
+/* =====================================================
+   NAVBAR
+===================================================== */
 
-        .logo {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            height: 52px;
-            width: auto;
-            object-fit: contain;
-        }
+.navbar {
+    height: 80px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+    z-index: 10;
+}
 
-        .menu-left {
-            position: absolute;
-            left: 40px;
-            display: flex;
-            gap: 25px;
-        }
 
-        .menu-left a {
-            text-decoration: none;
-            color: #6b5b56;
-            font-size: 13px;
-            transition: 0.2s;
-        }
+/* LOGO */
 
-        .menu-left a:hover {
-            color: #d79595;
-        }
+.logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 70px;
+    object-fit: contain;
+}
 
-        .menu-right {
-            position: absolute;
-            right: 40px;
-            display: flex;
-            gap: 20px;
-        }
 
-        .menu-right a {
-            text-decoration: none;
-            color: #6b5b56;
-            font-size: 13px;
-        }
+/* MENU LEFT */
 
-        .menu-right a:hover {
-            color: #d79595;
-        }
+.menu-left {
+    position: absolute;
+    left: 40px;
+    display: flex;
+    gap: 25px;
+}
 
-        /* =====================================================
-           CART
-        ===================================================== */
+.menu-left a {
+    text-decoration: none;
+    color: #6b5b56;
+    font-size: 13px;
+    transition: 0.2s;
+}
 
-        .cart-link {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
+.menu-left a:hover {
+    color: #d79595;
+}
 
-        .cart-count {
-            min-width: 19px;
-            height: 19px;
-            padding: 0 5px;
-            background: #d88e91;
-            color: #ffffff;
-            border-radius: 50px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            font-weight: 600;
-            line-height: 1;
-        }
 
-        /* =====================================================
-           HEADER
-        ===================================================== */
+/* MENU RIGHT */
 
-        .products-header {
-            text-align: center;
-            padding: 55px 20px 40px;
-            background: #fff9f7;
-        }
+.menu-right {
+    position: absolute;
+    right: 40px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
 
-        .products-header h1 {
-            font-family: Georgia, serif;
-            font-size: 42px;
-            font-weight: 400;
-            color: #594944;
-        }
+.menu-right a {
+    text-decoration: none;
+    color: #6b5b56;
+    font-size: 13px;
+}
 
-        .products-header p {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #9b8982;
-        }
+.menu-right a:hover {
+    color: #d79595;
+}
 
-        /* =====================================================
-           PRODUCT SECTION
-        ===================================================== */
 
-        .product-section {
-            width: 100%;
-            max-width: 1400px;
-            margin: auto;
-            padding: 50px 5% 70px;
-        }
+/* SUBSCRIBE */
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 35px;
-        }
+.subscribe-button {
+    text-decoration: none;
+    color: #c77b7b !important;
+    border: 1px solid #d98d8d;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 13px !important;
+    transition: 0.3s;
+    white-space: nowrap;
+}
 
-        /* =====================================================
-           PRODUCT CARD
-        ===================================================== */
+.subscribe-button:hover {
+    background: #d98d8d;
+    color: white !important;
+}
 
-        .product-card {
-            background: white;
-            text-align: center;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
-            transition: 0.3s;
-            padding-bottom: 25px;
-        }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 22px rgba(0,0,0,0.10);
-        }
+/* =====================================================
+   HEADER
+===================================================== */
 
-        /* =====================================================
-           PRODUCT IMAGE
-        ===================================================== */
+.products-header {
+    text-align: center;
+    padding: 55px 20px 40px;
+    background: #fff9f7;
+}
 
-        .product-image {
-            width: 100%;
-            height: 360px;
-            object-fit: contain;
-            object-position: center;
-            display: block;
-            background: #ffffff;
-            padding: 20px;
-        }
+.products-header h1 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    font-weight: 400;
+    color: #594944;
+}
 
-        /* =====================================================
-           TEXT
-        ===================================================== */
+.products-header p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #9b8982;
+}
 
-        .product-card h2 {
-            font-family: Georgia, serif;
-            font-size: 22px;
-            font-weight: 400;
-            color: #594944;
-            margin: 15px 15px 0;
-        }
 
-        .product-description {
-            color: #9b8982;
-            font-size: 14px;
-            margin: 8px 15px;
-            line-height: 1.6;
-        }
+/* =====================================================
+   PRODUCT SECTION
+===================================================== */
 
-        .price {
-            color: #c77b7b;
-            font-size: 20px;
-            font-weight: 600;
-            margin: 12px 0 20px;
-        }
+.product-section {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 50px 5% 70px;
+}
 
-        /* =====================================================
-           BUTTONS
-        ===================================================== */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
 
-        .product-buttons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            padding: 0 15px;
-        }
 
-        .detail-button {
-            display: inline-block;
-            border: 1px solid #d98d8d;
-            color: #c77b7b;
-            background: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 22px;
-            font-size: 13px;
-            transition: 0.3s;
-        }
+/* =====================================================
+   PRODUCT CARD
+===================================================== */
 
-        .detail-button:hover {
-            background: #d98d8d;
-            color: white;
-        }
+.product-card {
+    background: white;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+    transition: 0.3s;
+    padding-bottom: 25px;
+}
 
-        .cart-button {
-            display: inline-block;
-            border: 1px solid #d88e91;
-            color: white;
-            background: #d88e91;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 22px;
-            font-size: 13px;
-            transition: 0.3s;
-        }
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.10);
+}
 
-        .cart-button:hover {
-            background: #c77679;
-            border-color: #c77679;
-            transform: translateY(-2px);
-        }
 
-        /* =====================================================
-           BACK
-        ===================================================== */
+/* =====================================================
+   PRODUCT IMAGE
+===================================================== */
 
-        .back-section {
-            text-align: center;
-            padding: 0 20px 60px;
-        }
+.product-image {
+    width: 100%;
+    height: 360px;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    background: #ffffff;
+    padding: 20px;
+}
 
-        .back-button {
-            display: inline-block;
-            background: #d88e91;
-            color: white;
-            text-decoration: none;
-            padding: 12px 32px;
-            border-radius: 25px;
-            font-size: 13px;
-            transition: 0.3s;
-        }
 
-        .back-button:hover {
-            background: #c77679;
-            transform: translateY(-2px);
-        }
+/* =====================================================
+   TEXT
+===================================================== */
 
-        /* =====================================================
-           FOOTER
-        ===================================================== */
+.product-card h2 {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #594944;
+    margin: 15px 15px 0;
+}
 
-        footer {
-            text-align: center;
-            padding: 25px;
-            background: #fff9f7;
-            color: #9b8982;
-            font-size: 12px;
-        }
+.product-description {
+    color: #9b8982;
+    font-size: 14px;
+    margin: 8px 15px;
+    line-height: 1.6;
+}
 
-        /* =====================================================
-           RESPONSIVE
-        ===================================================== */
+.price {
+    color: #c77b7b;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 12px 0 20px;
+}
 
-        @media (max-width: 1000px) {
 
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+/* =====================================================
+   BUTTONS
+===================================================== */
 
-            .product-image {
-                height: 320px;
-            }
+.product-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 0 15px;
+}
 
-        }
+.detail-button {
+    display: inline-block;
+    border: 1px solid #d98d8d;
+    color: #c77b7b;
+    background: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 22px;
+    font-size: 13px;
+    transition: 0.3s;
+}
 
-        @media (max-width: 650px) {
+.detail-button:hover {
+    background: #d98d8d;
+    color: white;
+}
 
-            .navbar {
-                height: auto;
-                padding: 15px;
-                flex-direction: column;
-            }
+.cart-button {
+    display: inline-block;
+    border: 1px solid #d88e91;
+    color: white;
+    background: #d88e91;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 22px;
+    font-size: 13px;
+    transition: 0.3s;
+}
 
-            .logo {
-                position: static;
-                transform: none;
-                margin-bottom: 10px;
-            }
+.cart-button:hover {
+    background: #c77679;
+    border-color: #c77679;
+    transform: translateY(-2px);
+}
 
-            .menu-left,
-            .menu-right {
-                position: static;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 12px;
-            }
 
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
+/* =====================================================
+   BACK
+===================================================== */
 
-            .product-image {
-                height: 350px;
-            }
+.back-section {
+    text-align: center;
+    padding: 0 20px 60px;
+}
 
-            .product-buttons {
-                flex-direction: column;
-            }
+.back-button {
+    display: inline-block;
+    background: #d88e91;
+    color: white;
+    text-decoration: none;
+    padding: 12px 32px;
+    border-radius: 25px;
+    font-size: 13px;
+    transition: 0.3s;
+}
 
-            .detail-button,
-            .cart-button {
-                width: 80%;
-            }
+.back-button:hover {
+    background: #c77679;
+    transform: translateY(-2px);
+}
 
-        }
 
-    </style>
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #fff9f7;
+    color: #9b8982;
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .menu-left {
+        left: 20px;
+        gap: 15px;
+    }
+
+    .menu-right {
+        right: 20px;
+        gap: 12px;
+    }
+
+}
+
+
+@media (max-width: 1000px) {
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-image {
+        height: 320px;
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .menu-left {
+        left: 15px;
+        gap: 10px;
+    }
+
+    .menu-right {
+        right: 15px;
+        gap: 8px;
+    }
+
+    .subscribe-button {
+        padding: 6px 10px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .navbar {
+        height: auto;
+        padding: 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo {
+        position: static;
+        transform: none;
+        margin-bottom: 5px;
+    }
+
+    .menu-left,
+    .menu-right {
+        position: static;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 350px;
+    }
+
+    .product-buttons {
+        flex-direction: column;
+    }
+
+    .detail-button,
+    .cart-button {
+        width: 80%;
+    }
+
+}
+
+</style>
 
 </head>
 
 
 <body>
 
-    <!-- =====================================================
-         NAVBAR
-    ===================================================== -->
 
-    <header class="navbar">
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
-        <nav class="menu-left">
+<header class="navbar">
 
-            <a href="index.html">
-                หน้าแรก
-            </a>
 
-            <a href="products.html">
-                สินค้า
-            </a>
+    <!-- เมนูด้านซ้าย -->
 
-            <a href="cart.html" class="cart-link">
-                🛒 ตะกร้า
-            </a>
+    <nav class="menu-left">
 
-            <a href="cart.html">
-                สั่งซื้อ
-            </a>
+        <a href="index.html">
+            หน้าแรก
+        </a>
 
-        </nav>
+        <a href="products.html">
+            สินค้า
+        </a>
 
+        <a href="cart.html">
+            ตะกร้า
+        </a>
 
-        <img
-            src="images/MELLY.png"
-            class="logo"
-            alt="MELLY"
-        >
+        <a href="orders.html">
+            สั่งซื้อ
+        </a>
 
+    </nav>
 
-        <nav class="menu-right">
 
-            <a href="#">
-                ประวัติการซื้อ
-            </a>
+    <!-- LOGO -->
 
-            <a href="#">
-                โปรไฟล์
-            </a>
+    <img
+        src="images/MELLY.png"
+        class="logo"
+        alt="MELLY"
+    >
 
-            <a href="#">
-                เข้าสู่ระบบ
-            </a>
 
-        </nav>
+    <!-- เมนูด้านขวา -->
 
-    </header>
+    <nav class="menu-right">
 
+        <a href="orders.html">
+            ประวัติการซื้อ
+        </a>
 
-    <!-- =====================================================
-         HEADER
-    ===================================================== -->
-
-    <section class="products-header">
-
-        <h1>
-            Our Collection
-        </h1>
-
-        <p>
-            เลือกตุ๊กตาตัวโปรดของคุณ
-        </p>
-
-    </section>
-
-
-    <!-- =====================================================
-         PRODUCT SECTION
-    ===================================================== -->
-
-    <section class="product-section">
-
-        <div class="product-grid">
-
-
-            <!-- PRODUCT 1 -->
-
-            <div class="product-card">
-
-                <img
-                    src="images/ตุ๊กตาหมี.jpg"
-                    class="product-image"
-                    alt="Melly Teddy Bear"
-                >
-
-                <h2>
-                    Melly Teddy Bear
-                </h2>
-
-                <p class="product-description">
-                    ตุ๊กตาหมีสีขาวแสนน่ารัก นุ่มนิ่มน่ากอด
-                </p>
-
-                <div class="price">
-                    ฿290
-                </div>
-
-                <div class="product-buttons">
-
-                    <a
-                        href="product_detail.html?id=1"
-                        class="detail-button"
-                    >
-                        ดูรายละเอียด
-                    </a>
-
-                    <a
-                        href="cart.html"
-                        class="cart-button"
-                    >
-                        🛒 เพิ่มลงตะกร้า
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT 2 -->
-
-            <div class="product-card">
-
-                <img
-                    src="images/กระต่าย.webp"
-                    class="product-image"
-                    alt="Melly Bunny"
-                >
-
-                <h2>
-                    Melly Bunny
-                </h2>
-
-                <p class="product-description">
-                    ตุ๊กตากระต่ายสีเทา หูยาว นุ่มนิ่มน่ากอด
-                </p>
-
-                <div class="price">
-                    ฿350
-                </div>
-
-                <div class="product-buttons">
-
-                    <a
-                        href="product_detail.html?id=2"
-                        class="detail-button"
-                    >
-                        ดูรายละเอียด
-                    </a>
-
-                    <a
-                        href="cart.html"
-                        class="cart-button"
-                    >
-                        🛒 เพิ่มลงตะกร้า
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT 3 -->
-
-            <div class="product-card">
-
-                <img
-                    src="images/เป็ด.jpg"
-                    class="product-image"
-                    alt="Melly Duck"
-                >
-
-                <h2>
-                    Melly Duck
-                </h2>
-
-                <p class="product-description">
-                    ตุ๊กตาเป็ดสีเหลืองสดใส แสนน่ารัก
-                </p>
-
-                <div class="price">
-                    ฿590
-                </div>
-
-                <div class="product-buttons">
-
-                    <a
-                        href="product_detail.html?id=3"
-                        class="detail-button"
-                    >
-                        ดูรายละเอียด
-                    </a>
-
-                    <a
-                        href="cart.html"
-                        class="cart-button"
-                    >
-                        🛒 เพิ่มลงตะกร้า
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT 4 -->
-
-            <div class="product-card">
-
-                <img
-                    src="images/เท็ดดี้.jpeg"
-                    class="product-image"
-                    alt="Pink Teddy"
-                >
-
-                <h2>
-                    Pink Teddy
-                </h2>
-
-                <p class="product-description">
-                    ตุ๊กตาหมีสีชมพูแสนน่ารัก นุ่มนิ่มน่ากอด
-                </p>
-
-                <div class="price">
-                    ฿420
-                </div>
-
-                <div class="product-buttons">
-
-                    <a
-                        href="product_detail.html?id=4"
-                        class="detail-button"
-                    >
-                        ดูรายละเอียด
-                    </a>
-
-                    <a
-                        href="cart.html"
-                        class="cart-button"
-                    >
-                        🛒 เพิ่มลงตะกร้า
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT 5 -->
-
-            <div class="product-card">
-
-                <img
-                    src="images/ม้า.jpg"
-                    class="product-image"
-                    alt="White Horse"
-                >
-
-                <h2>
-                    White Horse
-                </h2>
-
-                <p class="product-description">
-                    ตุ๊กตาม้าสีขาวแสนน่ารัก ขนนุ่มฟูน่าสัมผัส
-                </p>
-
-                <div class="price">
-                    ฿480
-                </div>
-
-                <div class="product-buttons">
-
-                    <a
-                        href="product_detail.html?id=5"
-                        class="detail-button"
-                    >
-                        ดูรายละเอียด
-                    </a>
-
-                    <a
-                        href="cart.html"
-                        class="cart-button"
-                    >
-                        🛒 เพิ่มลงตะกร้า
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT 6 -->
-
-            <div class="product-card">
-
-                <img
-                    src="images/แมว.jpeg"
-                    class="product-image"
-                    alt="Little Cat"
-                >
-
-                <h2>
-                    Little Cat
-                </h2>
-
-                <p class="product-description">
-                    ตุ๊กตาแมวตัวเล็กแสนน่ารัก ขนนุ่มนิ่มน่ากอด
-                </p>
-
-                <div class="price">
-                    ฿350
-                </div>
-
-                <div class="product-buttons">
-
-                    <a
-                        href="product_detail.html?id=6"
-                        class="detail-button"
-                    >
-                        ดูรายละเอียด
-                    </a>
-
-                    <a
-                        href="cart.html"
-                        class="cart-button"
-                    >
-                        🛒 เพิ่มลงตะกร้า
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT 7 -->
-
-            <div class="product-card">
-
-                <img
-                    src="images/ยีราฟ.jpg"
-                    class="product-image"
-                    alt="Cream Giraffe"
-                >
-
-                <h2>
-                    Cream Giraffe
-                </h2>
-
-                <p class="product-description">
-                    ตุ๊กตายีราฟสีครีม ลวดลายน่ารัก นุ่มนิ่มน่ากอด
-                </p>
-
-                <div class="price">
-                    ฿350
-                </div>
-
-                <div class="product-buttons">
-
-                    <a
-                        href="product_detail.html?id=7"
-                        class="detail-button"
-                    >
-                        ดูรายละเอียด
-                    </a>
-
-                    <a
-                        href="cart.html"
-                        class="cart-button"
-                    >
-                        🛒 เพิ่มลงตะกร้า
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT 8 -->
-
-            <div class="product-card">
-
-                <img
-                    src="images/เสือ.webp"
-                    class="product-image"
-                    alt="Tiger Plush"
-                >
-
-                <h2>
-                    Tiger Plush
-                </h2>
-
-                <p class="product-description">
-                    ตุ๊กตาเสือแสนน่ารัก ลายโดดเด่น นุ่มนิ่มน่ากอด
-                </p>
-
-                <div class="price">
-                    ฿460
-                </div>
-
-                <div class="product-buttons">
-
-                    <a
-                        href="product_detail.html?id=8"
-                        class="detail-button"
-                    >
-                        ดูรายละเอียด
-                    </a>
-
-                    <a
-                        href="cart.html"
-                        class="cart-button"
-                    >
-                        🛒 เพิ่มลงตะกร้า
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT 9 -->
-
-            <div class="product-card">
-
-                <img
-                    src="images/หมา.jpg"
-                    class="product-image"
-                    alt="Melly Dog"
-                >
-
-                <h2>
-                    Melly Dog
-                </h2>
-
-                <p class="product-description">
-                    ตุ๊กตาสุนัขแสนน่ารัก ขนนุ่มฟู น่ากอด
-                </p>
-
-                <div class="price">
-                    ฿420
-                </div>
-
-                <div class="product-buttons">
-
-                    <a
-                        href="product_detail.html?id=9"
-                        class="detail-button"
-                    >
-                        ดูรายละเอียด
-                    </a>
-
-                    <a
-                        href="cart.html"
-                        class="cart-button"
-                    >
-                        🛒 เพิ่มลงตะกร้า
-                    </a>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         BACK BUTTON
-    ===================================================== -->
-
-    <div class="back-section">
+        <a href="profile.html">
+            โปรไฟล์
+        </a>
 
         <a
-            href="index.html"
-            class="back-button"
+            href="subscribe.html"
+            class="subscribe-button"
         >
-            ← กลับหน้าแรก
+            💌 สมัครรับข่าวสาร
         </a>
+
+        <a href="login.html">
+            เข้าสู่ระบบ
+        </a>
+
+        <a href="register.html">
+            สมัครสมาชิก
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<section class="products-header">
+
+    <h1>
+        Our Collection
+    </h1>
+
+    <p>
+        เลือกตุ๊กตาตัวโปรดของคุณ
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRODUCTS
+===================================================== -->
+
+<section class="product-section">
+
+<div class="product-grid">
+
+
+    <!-- =================================================
+         PRODUCT 1
+    ================================================= -->
+
+    <div class="product-card">
+
+        <img
+            src="images/ตุ๊กตาหมี.jpg"
+            class="product-image"
+            alt="Melly Teddy Bear"
+        >
+
+        <h2>
+            Melly Teddy Bear
+        </h2>
+
+        <p class="product-description">
+            ตุ๊กตาหมีสีขาวแสนน่ารัก นุ่มนิ่มน่ากอด
+        </p>
+
+        <div class="price">
+            ฿290
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                href="product_detail.html?id=1"
+                class="detail-button"
+            >
+                ดูรายละเอียด
+            </a>
+
+            <a
+                href="cart.html"
+                class="cart-button"
+            >
+                🛒 เพิ่มลงตะกร้า
+            </a>
+
+        </div>
 
     </div>
 
 
-    <!-- =====================================================
-         FOOTER
-    ===================================================== -->
 
-    <footer>
-        © 2026 MELLY Doll Shop
-    </footer>
+    <!-- =================================================
+         PRODUCT 2
+    ================================================= -->
+
+    <div class="product-card">
+
+        <img
+            src="images/กระต่าย.webp"
+            class="product-image"
+            alt="Melly Bunny"
+        >
+
+        <h2>
+            Melly Bunny
+        </h2>
+
+        <p class="product-description">
+            ตุ๊กตากระต่ายสีเทา หูยาว นุ่มนิ่มน่ากอด
+        </p>
+
+        <div class="price">
+            ฿350
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                href="product_detail.html?id=2"
+                class="detail-button"
+            >
+                ดูรายละเอียด
+            </a>
+
+            <a
+                href="cart.html"
+                class="cart-button"
+            >
+                🛒 เพิ่มลงตะกร้า
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         PRODUCT 3
+    ================================================= -->
+
+    <div class="product-card">
+
+        <img
+            src="images/เป็ด.jpg"
+            class="product-image"
+            alt="Melly Duck"
+        >
+
+        <h2>
+            Melly Duck
+        </h2>
+
+        <p class="product-description">
+            ตุ๊กตาเป็ดสีเหลืองสดใส แสนน่ารัก
+        </p>
+
+        <div class="price">
+            ฿590
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                href="product_detail.html?id=3"
+                class="detail-button"
+            >
+                ดูรายละเอียด
+            </a>
+
+            <a
+                href="cart.html"
+                class="cart-button"
+            >
+                🛒 เพิ่มลงตะกร้า
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         PRODUCT 4
+    ================================================= -->
+
+    <div class="product-card">
+
+        <img
+            src="images/เท็ดดี้.jpeg"
+            class="product-image"
+            alt="Pink Teddy"
+        >
+
+        <h2>
+            Pink Teddy
+        </h2>
+
+        <p class="product-description">
+            ตุ๊กตาหมีสีชมพูแสนน่ารัก นุ่มนิ่มน่ากอด
+        </p>
+
+        <div class="price">
+            ฿420
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                href="product_detail.html?id=4"
+                class="detail-button"
+            >
+                ดูรายละเอียด
+            </a>
+
+            <a
+                href="cart.html"
+                class="cart-button"
+            >
+                🛒 เพิ่มลงตะกร้า
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         PRODUCT 5
+    ================================================= -->
+
+    <div class="product-card">
+
+        <img
+            src="images/ม้า.jpg"
+            class="product-image"
+            alt="White Horse"
+        >
+
+        <h2>
+            White Horse
+        </h2>
+
+        <p class="product-description">
+            ตุ๊กตาม้าสีขาวแสนน่ารัก ขนนุ่มฟูน่าสัมผัส
+        </p>
+
+        <div class="price">
+            ฿480
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                href="product_detail.html?id=5"
+                class="detail-button"
+            >
+                ดูรายละเอียด
+            </a>
+
+            <a
+                href="cart.html"
+                class="cart-button"
+            >
+                🛒 เพิ่มลงตะกร้า
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         PRODUCT 6
+    ================================================= -->
+
+    <div class="product-card">
+
+        <img
+            src="images/แมว.jpeg"
+            class="product-image"
+            alt="Little Cat"
+        >
+
+        <h2>
+            Little Cat
+        </h2>
+
+        <p class="product-description">
+            ตุ๊กตาแมวตัวเล็กแสนน่ารัก ขนนุ่มนิ่มน่ากอด
+        </p>
+
+        <div class="price">
+            ฿350
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                href="product_detail.html?id=6"
+                class="detail-button"
+            >
+                ดูรายละเอียด
+            </a>
+
+            <a
+                href="cart.html"
+                class="cart-button"
+            >
+                🛒 เพิ่มลงตะกร้า
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         PRODUCT 7
+    ================================================= -->
+
+    <div class="product-card">
+
+        <img
+            src="images/ยีราฟ.jpg"
+            class="product-image"
+            alt="Cream Giraffe"
+        >
+
+        <h2>
+            Cream Giraffe
+        </h2>
+
+        <p class="product-description">
+            ตุ๊กตายีราฟสีครีม ลวดลายน่ารัก นุ่มนิ่มน่ากอด
+        </p>
+
+        <div class="price">
+            ฿350
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                href="product_detail.html?id=7"
+                class="detail-button"
+            >
+                ดูรายละเอียด
+            </a>
+
+            <a
+                href="cart.html"
+                class="cart-button"
+            >
+                🛒 เพิ่มลงตะกร้า
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         PRODUCT 8
+    ================================================= -->
+
+    <div class="product-card">
+
+        <img
+            src="images/เสือ.webp"
+            class="product-image"
+            alt="Tiger Plush"
+        >
+
+        <h2>
+            Tiger Plush
+        </h2>
+
+        <p class="product-description">
+            ตุ๊กตาเสือแสนน่ารัก ลายโดดเด่น นุ่มนิ่มน่ากอด
+        </p>
+
+        <div class="price">
+            ฿460
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                href="product_detail.html?id=8"
+                class="detail-button"
+            >
+                ดูรายละเอียด
+            </a>
+
+            <a
+                href="cart.html"
+                class="cart-button"
+            >
+                🛒 เพิ่มลงตะกร้า
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         PRODUCT 9
+    ================================================= -->
+
+    <div class="product-card">
+
+        <img
+            src="images/หมา.jpg"
+            class="product-image"
+            alt="Melly Dog"
+        >
+
+        <h2>
+            Melly Dog
+        </h2>
+
+        <p class="product-description">
+            ตุ๊กตาสุนัขแสนน่ารัก ขนนุ่มฟู น่ากอด
+        </p>
+
+        <div class="price">
+            ฿420
+        </div>
+
+        <div class="product-buttons">
+
+            <a
+                href="product_detail.html?id=9"
+                class="detail-button"
+            >
+                ดูรายละเอียด
+            </a>
+
+            <a
+                href="cart.html"
+                class="cart-button"
+            >
+                🛒 เพิ่มลงตะกร้า
+            </a>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BACK TO HOME
+===================================================== -->
+
+<div class="back-section">
+
+    <a
+        href="index.html"
+        class="back-button"
+    >
+        ← กลับหน้าแรก
+    </a>
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    © 2026 MELLY Doll Shop
+
+</footer>
 
 
 </body>
