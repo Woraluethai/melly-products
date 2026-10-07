@@ -1,0 +1,1057 @@
+
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>MELLY | ประวัติการซื้อ</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: #fffdfc;
+
+    color: #554742;
+
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+
+    height: 68px;
+
+    background: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    box-shadow:
+        0 1px 8px rgba(0,0,0,0.05);
+
+}
+
+
+.logo {
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    height: 52px;
+
+    width: auto;
+
+    object-fit: contain;
+
+}
+
+
+.menu-left {
+
+    position: absolute;
+
+    left: 40px;
+
+    display: flex;
+
+    gap: 25px;
+
+}
+
+
+.menu-left a,
+.menu-right a {
+
+    text-decoration: none;
+
+    color: #6b5b56;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+
+}
+
+
+.menu-left a:hover,
+.menu-right a:hover {
+
+    color: #d79595;
+
+}
+
+
+.menu-right {
+
+    position: absolute;
+
+    right: 40px;
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+
+    text-align: center;
+
+    padding: 55px 20px 40px;
+
+    background: #fff9f7;
+
+}
+
+
+.header h1 {
+
+    font-family: Georgia, serif;
+
+    font-size: 40px;
+
+    font-weight: 400;
+
+    color: #594944;
+
+}
+
+
+.header p {
+
+    margin-top: 10px;
+
+    color: #9b8982;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 50px 20px 70px;
+
+}
+
+
+/* =====================================================
+   ORDER CARD
+===================================================== */
+
+.order-card {
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    margin-bottom: 30px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.06);
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================================
+   ORDER HEADER
+===================================================== */
+
+.order-header {
+
+    padding: 25px 30px;
+
+    background: #fffafa;
+
+    border-bottom:
+        1px solid #f1e6e2;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.order-number {
+
+    font-family: Georgia, serif;
+
+    font-size: 21px;
+
+    color: #594944;
+
+}
+
+
+.order-date {
+
+    color: #9b8982;
+
+    font-size: 12px;
+
+    margin-top: 5px;
+
+}
+
+
+.status {
+
+    background: #f7dede;
+
+    color: #bd7777;
+
+    padding: 7px 15px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   ORDER BOTTOM
+===================================================== */
+
+.order-bottom {
+
+    padding: 25px 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.total-label {
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: #594944;
+
+}
+
+
+/* =====================================================
+   TOTAL PRICE
+===================================================== */
+
+.total-price {
+
+    color: #c77b7b;
+
+    font-size: 26px;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   BUTTON AREA
+===================================================== */
+
+.button-area {
+
+    margin-top: 18px;
+
+}
+
+
+/* =====================================================
+   DETAIL BUTTON
+===================================================== */
+
+.detail-button {
+
+    display: inline-block;
+
+    padding: 11px 25px;
+
+    border: 1px solid #d98d8d;
+
+    color: #c77b7b;
+
+    text-decoration: none;
+
+    border-radius: 25px;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+
+}
+
+
+.detail-button:hover {
+
+    background: #d98d8d;
+
+    color: white;
+
+}
+
+
+/* =====================================================
+   NO ORDER
+===================================================== */
+
+.no-order {
+
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 70px 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.05);
+
+}
+
+
+.no-order h2 {
+
+    font-family: Georgia, serif;
+
+    font-weight: 400;
+
+    font-size: 24px;
+
+    color: #594944;
+
+    margin-bottom: 10px;
+
+}
+
+
+.no-order p {
+
+    color: #9b8982;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   SHOP BUTTON
+===================================================== */
+
+.shop-button {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 12px 28px;
+
+    background: #d88e91;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 25px;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+
+}
+
+
+.shop-button:hover {
+
+    background: #c77679;
+
+}
+
+
+/* =====================================================
+   SUCCESS MESSAGE
+===================================================== */
+
+.success-message {
+
+    background: #f5f9f4;
+
+    border: 1px solid #d9e8d5;
+
+    color: #71866d;
+
+    padding: 13px 18px;
+
+    border-radius: 8px;
+
+    margin-bottom: 25px;
+
+    font-size: 13px;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    text-align: center;
+
+    padding: 25px;
+
+    background: #fff9f7;
+
+    color: #9b8982;
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 750px) {
+
+
+    .navbar {
+
+        height: auto;
+
+        padding: 15px;
+
+        flex-direction: column;
+
+    }
+
+
+    .logo {
+
+        position: static;
+
+        transform: none;
+
+        margin-bottom: 10px;
+
+    }
+
+
+    .menu-left,
+    .menu-right {
+
+        position: static;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 12px;
+
+    }
+
+
+    .order-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+
+    .order-bottom {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+
+    .order-bottom {
+
+        padding: 22px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+
+    <nav class="menu-left">
+
+        <a href="index.html">
+            หน้าแรก
+        </a>
+
+
+        <a href="products.html">
+            สินค้า
+        </a>
+
+
+        <a href="cart.html">
+            🛒 ตะกร้า
+        </a>
+
+
+        <a href="checkout.html">
+            สั่งซื้อ
+        </a>
+
+    </nav>
+
+
+    <img
+        src="images/MELLY.png"
+        class="logo"
+        alt="MELLY"
+    >
+
+
+    <nav class="menu-right">
+
+        <a href="orders.html">
+            ประวัติการซื้อ
+        </a>
+
+
+        <a href="profile.html">
+            โปรไฟล์
+        </a>
+
+
+        <a href="login.html">
+            เข้าสู่ระบบ
+        </a>
+
+    </nav>
+
+
+</header>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<section class="header">
+
+    <h1>
+        Order History
+    </h1>
+
+
+    <p id="orderCount">
+
+        ประวัติการสั่งซื้อของคุณ
+
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     CONTENT
+===================================================== -->
+
+<section class="section">
+
+    <div id="successMessage"></div>
+
+    <div id="ordersContainer"></div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    © 2026 MELLY Doll Shop
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   LOAD ORDERS
+=====================================================
+
+   รูปแบบข้อมูลที่เก็บใน localStorage:
+
+   mellyOrders = [
+
+       {
+           id: 1,
+           total_amount: 1290,
+           status: "รอดำเนินการ",
+           created_at: "2026-10-07T18:30:00"
+       }
+
+   ]
+
+===================================================== */
+
+
+const orders =
+    JSON.parse(
+        localStorage.getItem("mellyOrders")
+    ) || [];
+
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const ordersContainer =
+    document.getElementById(
+        "ordersContainer"
+    );
+
+
+const orderCount =
+    document.getElementById(
+        "orderCount"
+    );
+
+
+const successMessage =
+    document.getElementById(
+        "successMessage"
+    );
+
+
+
+/* =====================================================
+   ORDER COUNT
+===================================================== */
+
+orderCount.innerHTML = `
+
+    ประวัติการสั่งซื้อของคุณ
+
+    ${orders.length}
+
+    รายการ
+
+`;
+
+
+
+/* =====================================================
+   SUCCESS MESSAGE
+===================================================== */
+
+const urlParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+if (
+    urlParams.get("success") === "1"
+) {
+
+    successMessage.innerHTML = `
+
+        <div class="success-message">
+
+            ✓ สั่งซื้อสินค้าเรียบร้อยแล้ว
+
+        </div>
+
+    `;
+
+}
+
+
+
+/* =====================================================
+   FORMAT DATE
+===================================================== */
+
+function formatDate(dateString) {
+
+    if (!dateString) {
+
+        return "-";
+
+    }
+
+
+    const date =
+        new Date(dateString);
+
+
+    if (isNaN(date.getTime())) {
+
+        return "-";
+
+    }
+
+
+    const day =
+        String(
+            date.getDate()
+        ).padStart(2, "0");
+
+
+    const month =
+        String(
+            date.getMonth() + 1
+        ).padStart(2, "0");
+
+
+    const year =
+        date.getFullYear();
+
+
+    const hours =
+        String(
+            date.getHours()
+        ).padStart(2, "0");
+
+
+    const minutes =
+        String(
+            date.getMinutes()
+        ).padStart(2, "0");
+
+
+    return `
+        ${day}/${month}/${year}
+        ${hours}:${minutes}
+    `;
+
+}
+
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value) {
+
+    if (value === null || value === undefined) {
+
+        return "";
+
+    }
+
+
+    return String(value)
+
+        .replace(/&/g, "&amp;")
+
+        .replace(/</g, "&lt;")
+
+        .replace(/>/g, "&gt;")
+
+        .replace(/"/g, "&quot;")
+
+        .replace(/'/g, "&#039;");
+
+}
+
+
+
+/* =====================================================
+   DISPLAY ORDERS
+===================================================== */
+
+function displayOrders() {
+
+
+    /* ================================================
+       NO ORDER
+    ================================================= */
+
+    if (orders.length === 0) {
+
+        ordersContainer.innerHTML = `
+
+            <div class="no-order">
+
+
+                <h2>
+
+                    ยังไม่มีประวัติการสั่งซื้อ
+
+                </h2>
+
+
+                <p>
+
+                    เมื่อคุณสั่งซื้อสินค้า
+                    รายการสั่งซื้อจะแสดงที่หน้านี้
+
+                </p>
+
+
+                <a
+                    href="products.html"
+                    class="shop-button"
+                >
+
+                    เลือกซื้อสินค้า
+
+                </a>
+
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+
+    /* ================================================
+       ORDER LIST
+    ================================================= */
+
+    let html = "";
+
+
+
+    orders.forEach(function(order) {
+
+
+        const orderId =
+            order.id || "-";
+
+
+        const total =
+            Number(
+                order.total_amount
+            ) || 0;
+
+
+        const status =
+            order.status ||
+            "รอดำเนินการ";
+
+
+        const date =
+            formatDate(
+                order.created_at
+            );
+
+
+
+        html += `
+
+            <!-- ======================================
+                 ORDER CARD
+            ======================================= -->
+
+            <div class="order-card">
+
+
+                <!-- ORDER HEADER -->
+
+                <div class="order-header">
+
+
+                    <div>
+
+                        <div class="order-number">
+
+                            Order #
+
+                            ${escapeHTML(orderId)}
+
+                        </div>
+
+
+                        <div class="order-date">
+
+                            วันที่สั่งซื้อ :
+
+                            ${date}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="status">
+
+                        ${escapeHTML(status)}
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ORDER BOTTOM -->
+
+                <div class="order-bottom">
+
+
+                    <div>
+
+
+                        <div class="total-label">
+
+                            ยอดรวมคำสั่งซื้อ
+
+                        </div>
+
+
+                        <div class="button-area">
+
+                            <a
+                                href="
+                                    order_detail.html?id=${encodeURIComponent(orderId)}
+                                "
+                                class="detail-button"
+                            >
+
+                                ดูรายละเอียด →
+
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="total-price">
+
+                        ฿${total.toLocaleString()}
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        `;
+
+    });
+
+
+
+    ordersContainer.innerHTML = html;
+
+}
+
+
+
+/* =====================================================
+   START
+===================================================== */
+
+displayOrders();
+
+</script>
+
+
+</body>
+
+</html>
+
