@@ -1,492 +1,685 @@
 
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MELLY - Product Detail</title>
+<meta charset="UTF-8">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #fff7f9;
-            color: #333;
-        }
+<title>MELLY | สินค้า</title>
 
-        /* =========================
-           NAVBAR
-        ========================= */
-        nav {
-            height: 80px;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 50px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
 
-        .nav-left,
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
+<style>
 
-        .logo {
-            width: 100px;
-            height: auto;
-            margin-right: 15px;
-        }
+/* =====================================================
+   RESET
+===================================================== */
 
-        nav a {
-            text-decoration: none;
-            color: #444;
-            font-size: 15px;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        nav a:hover {
-            color: #e88ca5;
-        }
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #fffdfc;
+    color: #554742;
+}
 
-        /* =========================
-           PRODUCT
-        ========================= */
-        .container {
-            max-width: 1100px;
-            margin: 50px auto;
-            padding: 20px;
-        }
 
-        .back {
-            display: inline-block;
-            margin-bottom: 25px;
-            padding: 10px 20px;
-            background: #f3d4dc;
-            color: #555;
-            text-decoration: none;
-            border-radius: 25px;
-        }
+/* =====================================================
+   NAVBAR
+===================================================== */
 
-        .back:hover {
-            background: #e8b8c5;
-            color: white;
-        }
+.navbar {
+    height: 68px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+}
 
-        .product {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            background: white;
-            padding: 40px;
-            border-radius: 25px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+}
 
-        .product-image {
-            width: 100%;
-            height: 450px;
-            object-fit: contain;
-        }
+.menu-left {
+    position: absolute;
+    left: 40px;
+    display: flex;
+    gap: 25px;
+}
 
-        .product-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+.menu-left a {
+    text-decoration: none;
+    color: #6b5b56;
+    font-size: 13px;
+}
 
-        .product-info h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
+.menu-left a:hover {
+    color: #d79595;
+}
 
-        .price {
-            font-size: 28px;
-            font-weight: bold;
-            color: #e88ca5;
-            margin-bottom: 20px;
-        }
+.menu-right {
+    position: absolute;
+    right: 40px;
+    display: flex;
+    gap: 20px;
+}
 
-        .description {
-            font-size: 17px;
-            line-height: 1.8;
-            color: #666;
-            margin-bottom: 30px;
-        }
+.menu-right a {
+    text-decoration: none;
+    color: #6b5b56;
+    font-size: 13px;
+}
 
-        .add-cart {
-            width: fit-content;
-            border: none;
-            padding: 14px 30px;
-            background: #e88ca5;
-            color: white;
-            border-radius: 30px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+.menu-right a:hover {
+    color: #d79595;
+}
 
-        .add-cart:hover {
-            background: #d76f8d;
-        }
 
-        /* =========================
-           FOOTER
-        ========================= */
-        footer {
-            margin-top: 60px;
-            padding: 30px;
-            text-align: center;
-            background: #f3d4dc;
-            color: #666;
-        }
+/* =====================================================
+   DETAIL SECTION
+===================================================== */
 
-        /* =========================
-           MOBILE
-        ========================= */
-        @media (max-width: 800px) {
+.detail-section {
+    width: 100%;
+    min-height: calc(100vh - 68px);
+    padding: 70px 7%;
 
-            nav {
-                height: auto;
-                padding: 20px;
-                flex-direction: column;
-                gap: 15px;
-            }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-            .nav-left,
-            .nav-right {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
 
-            .product {
-                grid-template-columns: 1fr;
-                padding: 25px;
-            }
+/* =====================================================
+   DETAIL BOX
+===================================================== */
 
-            .product-image {
-                height: 350px;
-            }
-        }
-    </style>
+.detail-box {
+    width: 100%;
+    max-width: 1200px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 25px rgba(0,0,0,0.07);
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.detail-image-box {
+    min-height: 600px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #fffafa;
+
+    padding: 40px;
+}
+
+.detail-image {
+    width: 100%;
+    height: 520px;
+
+    object-fit: contain;
+    object-position: center;
+}
+
+
+/* =====================================================
+   INFORMATION
+===================================================== */
+
+.detail-info {
+    padding: 70px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detail-small {
+    font-size: 13px;
+    letter-spacing: 3px;
+
+    color: #d08b8d;
+
+    margin-bottom: 15px;
+}
+
+.detail-info h1 {
+    font-family: Georgia, serif;
+
+    font-size: 42px;
+    font-weight: 400;
+
+    color: #594944;
+
+    margin-bottom: 20px;
+}
+
+.detail-price {
+    font-size: 28px;
+    font-weight: 600;
+
+    color: #c77b7b;
+
+    margin-bottom: 25px;
+}
+
+.detail-description-title {
+    font-size: 15px;
+    font-weight: 600;
+
+    color: #594944;
+
+    margin-bottom: 10px;
+}
+
+.detail-description {
+    font-size: 15px;
+    line-height: 1.9;
+
+    color: #8f7e78;
+
+    margin-bottom: 35px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.detail-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.add-cart-button {
+    display: inline-block;
+
+    background: #d88e91;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 13px 30px;
+
+    border-radius: 25px;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.add-cart-button:hover {
+    background: #c77679;
+
+    transform: translateY(-2px);
+}
+
+.back-button {
+    display: inline-block;
+
+    border: 1px solid #d98d8d;
+
+    color: #c77b7b;
+
+    text-decoration: none;
+
+    padding: 13px 30px;
+
+    border-radius: 25px;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    background: #d98d8d;
+    color: white;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    text-align: center;
+
+    padding: 25px;
+
+    background: #fff9f7;
+
+    color: #9b8982;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .detail-box {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-image-box {
+        min-height: 450px;
+    }
+
+    .detail-image {
+        height: 400px;
+    }
+
+    .detail-info {
+        padding: 45px;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .navbar {
+        height: auto;
+        padding: 15px;
+        flex-direction: column;
+    }
+
+    .logo {
+        position: static;
+        transform: none;
+        margin-bottom: 10px;
+    }
+
+    .menu-left,
+    .menu-right {
+        position: static;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .detail-section {
+        padding: 30px 15px;
+    }
+
+    .detail-image-box {
+        min-height: 350px;
+        padding: 20px;
+    }
+
+    .detail-image {
+        height: 320px;
+    }
+
+    .detail-info {
+        padding: 30px 25px;
+    }
+
+    .detail-info h1 {
+        font-size: 32px;
+    }
+
+    .detail-buttons {
+        flex-direction: column;
+    }
+
+    .add-cart-button,
+    .back-button {
+        text-align: center;
+        width: 100%;
+    }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-    <!-- =========================
-         NAVBAR
-    ========================= -->
 
-    <nav>
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
-        <div class="nav-left">
+<header class="navbar">
 
-            <img
-                src="images/MELLY.png"
-                alt="MELLY"
-                class="logo"
-            >
+    <nav class="menu-left">
 
-            <a href="index.html">Home</a>
-            <a href="products.html">Products</a>
-            <a href="cart.html">Cart</a>
-            <a href="orders.html">Orders</a>
+        <a href="index.html">
+            หน้าแรก
+        </a>
 
-        </div>
+        <a href="products.html">
+            สินค้า
+        </a>
 
+        <a href="cart.html">
+            🛒 ตะกร้า
+        </a>
 
-        <div class="nav-right">
-
-            <a href="orders.html">Orders</a>
-            <a href="profile.html">Profile</a>
-            <a href="subscribe.html">Subscribe</a>
-            <a href="login.html">Login</a>
-            <a href="register.html">Register</a>
-
-        </div>
+        <a href="cart.html">
+            สั่งซื้อ
+        </a>
 
     </nav>
 
 
-    <!-- =========================
-         PRODUCT DETAIL
-    ========================= -->
+    <img
+        src="images/MELLY.png"
+        class="logo"
+        alt="MELLY"
+    >
 
-    <main class="container">
 
-        <a href="products.html" class="back">
-            ← Back to Products
+    <nav class="menu-right">
+
+        <a href="orders.html">
+            ประวัติการซื้อ
         </a>
 
+        <a href="profile.html">
+            โปรไฟล์
+        </a>
 
-        <div class="product">
+        <a href="login.html">
+            ออกจากระบบ
+        </a>
 
-            <!-- PRODUCT IMAGE -->
+    </nav>
 
-            <div>
-
-                <img
-                    id="productImage"
-                    class="product-image"
-                    src=""
-                    alt=""
-                >
-
-            </div>
+</header>
 
 
-            <!-- PRODUCT INFORMATION -->
+<!-- =====================================================
+     PRODUCT DETAIL
+===================================================== -->
 
-            <div class="product-info">
+<section class="detail-section">
 
-                <h1 id="productName">
-                    กำลังโหลด...
-                </h1>
+<div class="detail-box">
 
-                <div
-                    id="productPrice"
-                    class="price"
-                >
-                    ฿0
-                </div>
 
-                <p
-                    id="productDescription"
-                    class="description"
-                >
-                    กำลังโหลดข้อมูลสินค้า...
-                </p>
+    <!-- IMAGE -->
 
-                <button
-                    class="add-cart"
-                    onclick="addToCart()"
-                >
-                    Add to Cart
-                </button>
+    <div class="detail-image-box">
 
-            </div>
+        <img
+            id="productImage"
+            src=""
+            class="detail-image"
+            alt=""
+        >
+
+    </div>
+
+
+    <!-- INFORMATION -->
+
+    <div class="detail-info">
+
+        <div class="detail-small">
+            MELLY COLLECTION
+        </div>
+
+
+        <h1 id="productName"></h1>
+
+
+        <div class="detail-price" id="productPrice"></div>
+
+
+        <div class="detail-description-title">
+            รายละเอียดสินค้า
+        </div>
+
+
+        <p
+            class="detail-description"
+            id="productDescription"
+        ></p>
+
+
+        <!-- BUTTONS -->
+
+        <div class="detail-buttons">
+
+            <a
+                href="#"
+                class="add-cart-button"
+                id="addCartButton"
+            >
+                🛒 เพิ่มลงตะกร้า
+            </a>
+
+
+            <a
+                href="products.html"
+                class="back-button"
+            >
+                ← ย้อนกลับ
+            </a>
 
         </div>
 
-    </main>
-
-
-    <!-- =========================
-         FOOTER
-    ========================= -->
-
-    <footer>
-
-        <p>
-            © 2026 MELLY. All Rights Reserved.
-        </p>
+    </div>
 
-    </footer>
+</div>
 
+</section>
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================= -->
 
-    <script>
+<footer>
 
-        /* --------------------------------
-           สินค้าทั้งหมด
-        -------------------------------- */
+    © 2026 MELLY Doll Shop
 
-        const products = {
+</footer>
 
-            "1": {
-                name: "Melly Teddy Bear",
-                price: 490,
-                image: "ตุ๊กตาหมี.jpg",
-                description: "ตุ๊กตาหมี MELLY นุ่มนิ่ม น่ารัก เหมาะสำหรับกอดและเป็นของขวัญสำหรับคนพิเศษ"
-            },
 
-            "2": {
-                name: "Melly Bunny",
-                price: 450,
-                image: "กระต่าย.webp",
-                description: "ตุ๊กตากระต่าย MELLY ดีไซน์น่ารัก ขนนุ่ม เหมาะสำหรับตกแต่งห้องหรือมอบเป็นของขวัญ"
-            },
+<script>
 
-            "3": {
-                name: "Melly Duck",
-                price: 590,
-                image: "เป็ด.jpg",
-                description: "ตุ๊กตาเป็ด MELLY สีสันสดใส น่ารักและนุ่ม เหมาะสำหรับเด็กและผู้ที่ชื่นชอบตุ๊กตา"
-            },
+/* =====================================================
+   ข้อมูลสินค้า
+===================================================== */
 
-            "4": {
-                name: "Pink Teddy",
-                price: 520,
-                image: "เท็ดดี้.jpeg",
-                description: "ตุ๊กตาหมีสีชมพูสุดน่ารัก ขนนุ่มและกอดสบาย เหมาะสำหรับเป็นของขวัญในโอกาสพิเศษ"
-            },
+const products = {
 
-            "5": {
-                name: "White Horse",
-                price: 480,
-                image: "ม้า.jpg",
-                description: "ตุ๊กตาม้าสีขาว MELLY ดีไซน์สวย น่ารัก และนุ่ม เหมาะสำหรับสะสมและตกแต่งห้อง"
-            },
+    1: {
+        name: "Melly Teddy Bear",
+        price: 490,
+        image: "ตุ๊กตาหมี.jpg",
+        description: "ตุ๊กตาหมีสีขาวแสนน่ารัก นุ่มนิ่มน่ากอด ผลิตจากวัสดุคุณภาพดี เหมาะสำหรับกอด เล่น หรือนำไปตกแต่งห้อง"
+    },
 
-            "6": {
-                name: "Little Cat",
-                price: 350,
-                image: "แมว.jpeg",
-                description: "ตุ๊กตาแมวตัวน้อย MELLY ขนนุ่มน่ากอด ขนาดกำลังพอดี เหมาะสำหรับพกพาและเป็นเพื่อนคู่ใจ"
-            },
+    2: {
+        name: "Melly Bunny",
+        price: 450,
+        image: "กระต่าย.webp",
+        description: "ตุ๊กตากระต่ายสีเทา หูยาว นุ่มนิ่มน่ากอด ดีไซน์น่ารัก เหมาะสำหรับเป็นเพื่อนคู่ใจและมอบเป็นของขวัญ"
+    },
 
-            "7": {
-                name: "Cream Giraffe",
-                price: 550,
-                image: "ยีราฟ.jpg",
-                description: "ตุ๊กตายีราฟสีครีม MELLY ดีไซน์อบอุ่น น่ารัก และมีเอกลักษณ์ เหมาะสำหรับคนรักสัตว์"
-            },
+    3: {
+        name: "Melly Duck",
+        price: 590,
+        image: "เป็ด.jpg",
+        description: "ตุ๊กตาเป็ดสีเหลืองสดใส แสนน่ารัก เหมาะสำหรับกอด เล่น หรือนำไปตกแต่งห้อง"
+    },
 
-            "8": {
-                name: "Tiger Plush",
-                price: 460,
-                image: "เสือ.webp",
-                description: "ตุ๊กตาเสือ MELLY น่ารัก ไม่ดุ ขนนุ่มและกอดสบาย เหมาะสำหรับสะสมหรือมอบเป็นของขวัญ"
-            },
+    4: {
+        name: "Pink Teddy",
+        price: 520,
+        image: "เท็ดดี้.jpeg",
+        description: "ตุ๊กตาหมีสีชมพูแสนน่ารัก นุ่มนิ่มน่ากอด เหมาะสำหรับกอดและเป็นเพื่อนในทุกวัน"
+    },
 
-            "9": {
-                name: "Melly Dog",
-                price: 420,
-                image: "หมา.jpg",
-                description: "ตุ๊กตาสุนัข MELLY แสนน่ารัก ขนนุ่ม น่ากอด เหมาะสำหรับทุกวัยและเป็นของขวัญสุดพิเศษ"
-            }
+    5: {
+        name: "White Horse",
+        price: 480,
+        image: "ม้า.jpg",
+        description: "ตุ๊กตาม้าสีขาวแสนน่ารัก ขนนุ่มฟูน่าสัมผัส เหมาะสำหรับกอด เล่น หรือนำไปตกแต่งห้อง"
+    },
 
-        };
+    6: {
+        name: "Little Cat",
+        price: 350,
+        image: "แมว.jpeg",
+        description: "ตุ๊กตาแมวตัวเล็กแสนน่ารัก ขนนุ่มนิ่มน่ากอด เหมาะสำหรับตั้งโต๊ะ ตกแต่งห้อง หรือเป็นเพื่อนตัวเล็ก"
+    },
 
+    7: {
+        name: "Cream Giraffe",
+        price: 550,
+        image: "ยีราฟ.jpg",
+        description: "ตุ๊กตายีราฟสีครีม ลวดลายน่ารัก นุ่มนิ่มน่ากอด เหมาะสำหรับตกแต่งห้องหรือมอบเป็นของขวัญ"
+    },
 
-        /* --------------------------------
-           อ่าน id จาก URL
-           
-           เช่น:
-           product_detail.html?id=1
-        -------------------------------- */
+    8: {
+        name: "Tiger Plush",
+        price: 460,
+        image: "เสือ.webp",
+        description: "ตุ๊กตาเสือแสนน่ารัก ลายโดดเด่น นุ่มนิ่มน่ากอด เหมาะสำหรับกอด เล่น และตกแต่งห้อง"
+    },
 
-        const params = new URLSearchParams(window.location.search);
+    9: {
+        name: "Melly Dog",
+        price: 420,
+        image: "หมา.jpg",
+        description: "ตุ๊กตาสุนัขแสนน่ารัก ขนนุ่มฟู น่ากอด เหมาะสำหรับเป็นเพื่อนตัวเล็กและใช้ตกแต่งห้อง"
+    }
 
-        const id = params.get("id") || "1";
+};
 
 
-        /* --------------------------------
-           หาสินค้า
-        -------------------------------- */
+/* =====================================================
+   รับ ID สินค้าจาก URL
+===================================================== */
 
-        const product = products[id];
+const params = new URLSearchParams(window.location.search);
 
+let id = parseInt(params.get("id"), 10);
 
-        /* --------------------------------
-           แสดงข้อมูลสินค้า
-        -------------------------------- */
+if (!products[id]) {
+    id = 1;
+}
 
-        if (product) {
 
-            document.title = "MELLY - " + product.name;
+/* =====================================================
+   สินค้าที่เลือก
+===================================================== */
 
-            document.getElementById("productImage").src =
-                "images/" + product.image;
+const product = products[id];
 
-            document.getElementById("productImage").alt =
-                product.name;
 
-            document.getElementById("productName").textContent =
-                product.name;
+/* =====================================================
+   แสดงข้อมูลสินค้า
+===================================================== */
 
-            document.getElementById("productPrice").textContent =
-                "฿" + product.price.toLocaleString("th-TH");
+document.title = "MELLY | " + product.name;
 
-            document.getElementById("productDescription").textContent =
-                product.description;
+document.getElementById("productImage").src =
+    "images/" + product.image;
 
-        } else {
+document.getElementById("productImage").alt =
+    product.name;
 
-            document.getElementById("productName").textContent =
-                "ไม่พบสินค้า";
+document.getElementById("productName").textContent =
+    product.name;
 
-            document.getElementById("productPrice").textContent =
-                "";
+document.getElementById("productPrice").textContent =
+    "฿" + product.price.toLocaleString();
 
-            document.getElementById("productDescription").textContent =
-                "ไม่พบสินค้าที่ต้องการ";
+document.getElementById("productDescription").textContent =
+    product.description;
 
-            document.querySelector(".add-cart").style.display =
-                "none";
-        }
 
+/* =====================================================
+   เพิ่มสินค้าลงตะกร้า
+===================================================== */
 
-        /* --------------------------------
-           เพิ่มสินค้าลงตะกร้า
-        -------------------------------- */
+document.getElementById("addCartButton").addEventListener("click", function(event) {
 
-        function addToCart() {
+    event.preventDefault();
 
-            if (!product) {
-                return;
-            }
+    let cart = JSON.parse(
+        localStorage.getItem("mellyCart") || "[]"
+    );
 
+    const existingItem = cart.find(
+        item => String(item.id) === String(id)
+    );
 
-            let cart = JSON.parse(
-                localStorage.getItem("mellyCart")
-            ) || [];
 
+    if (existingItem) {
 
-            const existing = cart.find(
-                item => item.id === id
-            );
+        existingItem.quantity =
+            Number(existingItem.quantity || 0) + 1;
 
+    } else {
 
-            if (existing) {
+        cart.push({
 
-                existing.quantity++;
+            id: id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            quantity: 1
 
-            } else {
+        });
 
-                cart.push({
+    }
 
-                    id: id,
 
-                    name: product.name,
+    localStorage.setItem(
+        "mellyCart",
+        JSON.stringify(cart)
+    );
 
-                    price: product.price,
 
-                    image: product.image,
+    alert("เพิ่ม " + product.name + " ลงในตะกร้าแล้ว");
 
-                    quantity: 1
+});
 
-                });
+</script>
 
-            }
-
-
-            localStorage.setItem(
-                "mellyCart",
-                JSON.stringify(cart)
-            );
-
-
-            alert(
-                product.name + " เพิ่มลงในตะกร้าแล้ว"
-            );
-
-
-            window.location.href = "cart.html";
-
-        }
-
-    </script>
 
 </body>
 </html>
-```
+
