@@ -1,0 +1,1161 @@
+
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>MELLY | รายละเอียดคำสั่งซื้อ</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: #fffdfc;
+
+    color: #554742;
+
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+
+    height: 68px;
+
+    background: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    box-shadow:
+        0 1px 8px rgba(0,0,0,0.05);
+
+}
+
+
+.logo {
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    height: 52px;
+
+    width: auto;
+
+    object-fit: contain;
+
+}
+
+
+.menu-left {
+
+    position: absolute;
+
+    left: 40px;
+
+    display: flex;
+
+    gap: 25px;
+
+}
+
+
+.menu-left a,
+.menu-right a {
+
+    text-decoration: none;
+
+    color: #6b5b56;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+
+}
+
+
+.menu-left a:hover,
+.menu-right a:hover {
+
+    color: #d79595;
+
+}
+
+
+.menu-right {
+
+    position: absolute;
+
+    right: 40px;
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+
+    text-align: center;
+
+    padding: 55px 20px 40px;
+
+    background: #fff9f7;
+
+}
+
+
+.header h1 {
+
+    font-family: Georgia, serif;
+
+    font-size: 40px;
+
+    font-weight: 400;
+
+    color: #594944;
+
+}
+
+
+.header p {
+
+    margin-top: 10px;
+
+    color: #9b8982;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 50px 20px 70px;
+
+}
+
+
+/* =====================================================
+   BOX
+===================================================== */
+
+.box {
+
+    background: white;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.06);
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================================
+   ORDER HEADER
+===================================================== */
+
+.order-header {
+
+    padding: 25px;
+
+    background: #fffafa;
+
+    border-bottom:
+        1px solid #f1e6e2;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.order-number {
+
+    font-family: Georgia, serif;
+
+    font-size: 21px;
+
+    color: #594944;
+
+}
+
+
+.order-date {
+
+    color: #9b8982;
+
+    font-size: 12px;
+
+    margin-top: 5px;
+
+}
+
+
+.status {
+
+    background: #f7dede;
+
+    color: #bd7777;
+
+    padding: 7px 15px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   ITEMS
+===================================================== */
+
+.items {
+
+    padding: 10px 25px;
+
+}
+
+
+/* =====================================================
+   ITEM
+===================================================== */
+
+.item {
+
+    display: grid;
+
+    grid-template-columns:
+        70px
+        1fr
+        auto
+        auto
+        auto;
+
+    gap: 18px;
+
+    align-items: center;
+
+    padding: 18px 0;
+
+    border-bottom:
+        1px solid #f1e6e2;
+
+}
+
+
+/* =====================================================
+   PRODUCT IMAGE
+===================================================== */
+
+.item-image {
+
+    width: 65px;
+
+    height: 65px;
+
+    object-fit: contain;
+
+    background: #fffafa;
+
+    border-radius: 9px;
+
+}
+
+
+/* =====================================================
+   PRODUCT NAME
+===================================================== */
+
+.item-name {
+
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+
+    color: #594944;
+
+}
+
+
+/* =====================================================
+   PRICE
+===================================================== */
+
+.item-price,
+.item-quantity {
+
+    color: #9b8982;
+
+    font-size: 13px;
+
+    white-space: nowrap;
+
+}
+
+
+/* =====================================================
+   TOTAL PRICE
+===================================================== */
+
+.item-total {
+
+    color: #c77b7b;
+
+    font-weight: 600;
+
+    font-size: 14px;
+
+    white-space: nowrap;
+
+}
+
+
+/* =====================================================
+   TOTAL
+===================================================== */
+
+.total {
+
+    padding: 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-top:
+        1px solid #eadbd6;
+
+}
+
+
+.total span:first-child {
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    color: #594944;
+
+}
+
+
+.total span:last-child {
+
+    color: #c77b7b;
+
+    font-size: 26px;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.back {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 12px 25px;
+
+    border: 1px solid #d98d8d;
+
+    color: #c77b7b;
+
+    text-decoration: none;
+
+    border-radius: 25px;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+
+}
+
+
+.back:hover {
+
+    background: #d98d8d;
+
+    color: white;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    text-align: center;
+
+    padding: 25px;
+
+    background: #fff9f7;
+
+    color: #9b8982;
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+
+    .navbar {
+
+        height: auto;
+
+        padding: 15px;
+
+        flex-direction: column;
+
+    }
+
+
+    .logo {
+
+        position: static;
+
+        transform: none;
+
+        margin-bottom: 10px;
+
+    }
+
+
+    .menu-left,
+    .menu-right {
+
+        position: static;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 12px;
+
+    }
+
+
+    .order-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+
+    .item {
+
+        grid-template-columns:
+            60px
+            1fr;
+
+        gap: 12px;
+
+    }
+
+
+    .item-image {
+
+        width: 55px;
+
+        height: 55px;
+
+    }
+
+
+    .item-price {
+
+        grid-column: 2;
+
+    }
+
+
+    .item-quantity {
+
+        grid-column: 2;
+
+    }
+
+
+    .item-total {
+
+        grid-column: 2;
+
+    }
+
+
+    .total {
+
+        padding: 20px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+
+    <nav class="menu-left">
+
+        <a href="index.html">
+            หน้าแรก
+        </a>
+
+
+        <a href="products.html">
+            สินค้า
+        </a>
+
+
+        <a href="cart.html">
+            🛒 ตะกร้า
+        </a>
+
+
+        <a href="checkout.html">
+            สั่งซื้อ
+        </a>
+
+    </nav>
+
+
+    <img
+        src="images/MELLY.png"
+        class="logo"
+        alt="MELLY"
+    >
+
+
+    <nav class="menu-right">
+
+        <a href="orders.html">
+            ประวัติการซื้อ
+        </a>
+
+
+        <a href="profile.html">
+            โปรไฟล์
+        </a>
+
+
+        <a href="login.html">
+            ออกจากระบบ
+        </a>
+
+    </nav>
+
+
+</header>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<section class="header">
+
+    <h1>
+        Order Detail
+    </h1>
+
+
+    <p>
+        รายละเอียดคำสั่งซื้อ
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     CONTENT
+===================================================== -->
+
+<section class="section">
+
+
+    <div class="box">
+
+
+        <!-- =================================================
+             ORDER HEADER
+        ================================================== -->
+
+        <div class="order-header">
+
+
+            <div>
+
+                <div class="order-number">
+
+                    Order #
+
+                    <span id="orderId"></span>
+
+                </div>
+
+
+                <div class="order-date">
+
+                    วันที่สั่งซื้อ :
+
+                    <span id="orderDate"></span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="status"
+                id="orderStatus"
+            ></div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             PRODUCTS
+        ================================================== -->
+
+        <div
+            class="items"
+            id="orderItems"
+        ></div>
+
+
+        <!-- =================================================
+             TOTAL
+        ================================================== -->
+
+        <div class="total">
+
+
+            <span>
+                ยอดรวมทั้งหมด
+            </span>
+
+
+            <span id="orderTotal">
+                ฿0
+            </span>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         BACK
+    ================================================== -->
+
+    <a
+        href="orders.html"
+        class="back"
+    >
+
+        ← กลับประวัติการซื้อ
+
+    </a>
+
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    © 2026 MELLY Doll Shop
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   ข้อมูลสินค้า
+===================================================== */
+
+const products = {
+
+    1: {
+        name: "Melly Teddy Bear",
+        image: "ตุ๊กตาหมี.jpg"
+    },
+
+    2: {
+        name: "Melly Bunny",
+        image: "กระต่าย.webp"
+    },
+
+    3: {
+        name: "Melly Duck",
+        image: "เป็ด.jpg"
+    },
+
+    4: {
+        name: "Pink Teddy",
+        image: "เท็ดดี้.jpeg"
+    },
+
+    5: {
+        name: "White Bunny",
+        image: "ม้า.jpg"
+    },
+
+    6: {
+        name: "Little Duck",
+        image: "แมว.jpeg"
+    },
+
+    7: {
+        name: "Cream Teddy",
+        image: "ยีราฟ.jpg"
+    },
+
+    8: {
+        name: "Pink Bunny",
+        image: "เสือ.webp"
+    },
+
+    9: {
+        name: "Yellow Duck",
+        image: "หมา.jpg"
+    }
+
+};
+
+
+/* =====================================================
+   รับ Order ID จาก URL
+===================================================== */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const orderId =
+    parseInt(
+        params.get("id"),
+        10
+    );
+
+
+/* =====================================================
+   ถ้าไม่มี Order ID
+===================================================== */
+
+if (!orderId || isNaN(orderId)) {
+
+    window.location.href =
+        "orders.html";
+
+}
+
+
+/* =====================================================
+   โหลด Orders
+===================================================== */
+
+let orders =
+    JSON.parse(
+        localStorage.getItem("mellyOrders") || "[]"
+    );
+
+
+if (!Array.isArray(orders)) {
+
+    orders = [];
+
+}
+
+
+/* =====================================================
+   ค้นหา Order
+===================================================== */
+
+const order =
+    orders.find(function(item) {
+
+        return Number(item.id) ===
+            Number(orderId);
+
+    });
+
+
+/* =====================================================
+   ถ้าไม่พบ Order
+===================================================== */
+
+if (!order) {
+
+    window.location.href =
+        "orders.html";
+
+}
+
+
+/* =====================================================
+   แสดงข้อมูล Order
+===================================================== */
+
+document.getElementById("orderId")
+    .textContent =
+    order.id;
+
+
+document.getElementById("orderStatus")
+    .textContent =
+    order.status || "รอดำเนินการ";
+
+
+/* =====================================================
+   วันที่
+===================================================== */
+
+function formatDate(dateString) {
+
+    const date =
+        new Date(dateString);
+
+
+    if (isNaN(date.getTime())) {
+
+        return "-";
+
+    }
+
+
+    const day =
+        String(
+            date.getDate()
+        ).padStart(2, "0");
+
+
+    const month =
+        String(
+            date.getMonth() + 1
+        ).padStart(2, "0");
+
+
+    const year =
+        date.getFullYear();
+
+
+    const hours =
+        String(
+            date.getHours()
+        ).padStart(2, "0");
+
+
+    const minutes =
+        String(
+            date.getMinutes()
+        ).padStart(2, "0");
+
+
+    return (
+        day +
+        "/" +
+        month +
+        "/" +
+        year +
+        " " +
+        hours +
+        ":" +
+        minutes
+    );
+
+}
+
+
+document.getElementById("orderDate")
+    .textContent =
+    formatDate(order.created_at);
+
+
+/* =====================================================
+   แสดงรายการสินค้า
+===================================================== */
+
+const itemsContainer =
+    document.getElementById("orderItems");
+
+
+const orderItems =
+    Array.isArray(order.items)
+        ? order.items
+        : [];
+
+
+if (orderItems.length > 0) {
+
+
+    orderItems.forEach(function(item) {
+
+
+        const productId =
+            Number(
+                item.product_id ??
+                item.id
+            );
+
+
+        const product =
+            products[productId];
+
+
+        const productName =
+            product
+                ? product.name
+                : (
+                    item.name ||
+                    "สินค้า #" + productId
+                );
+
+
+        const productImage =
+            product
+                ? product.image
+                : (
+                    item.image || ""
+                );
+
+
+        const price =
+            Number(
+                item.price || 0
+            );
+
+
+        const quantity =
+            Number(
+                item.quantity || 0
+            );
+
+
+        const subtotal =
+            Number(
+                item.subtotal ||
+                (price * quantity)
+            );
+
+
+        const itemElement =
+            document.createElement("div");
+
+
+        itemElement.className =
+            "item";
+
+
+        itemElement.innerHTML = `
+
+            ${
+                productImage
+                ?
+                `
+                <img
+                    src="images/${escapeHTML(productImage)}"
+                    class="item-image"
+                    alt="${escapeHTML(productName)}"
+                >
+                `
+                :
+                `
+                <div class="item-image"></div>
+                `
+            }
+
+            <div class="item-name">
+
+                ${escapeHTML(productName)}
+
+            </div>
+
+            <div class="item-price">
+
+                ฿${price.toLocaleString()}
+
+            </div>
+
+            <div class="item-quantity">
+
+                × ${quantity.toLocaleString()}
+
+            </div>
+
+            <div class="item-total">
+
+                ฿${subtotal.toLocaleString()}
+
+            </div>
+
+        `;
+
+
+        itemsContainer.appendChild(
+            itemElement
+        );
+
+    });
+
+
+} else {
+
+
+    itemsContainer.innerHTML = `
+
+        <div style="
+            text-align:center;
+            padding:40px;
+            color:#9b8982;
+        ">
+
+            ไม่พบรายการสินค้าในคำสั่งซื้อนี้
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   ยอดรวม
+===================================================== */
+
+const total =
+    Number(
+        order.total_amount || 0
+    );
+
+
+document.getElementById("orderTotal")
+    .textContent =
+    "฿" + total.toLocaleString();
+
+
+/* =====================================================
+   Escape HTML
+===================================================== */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+
