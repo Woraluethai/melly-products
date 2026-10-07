@@ -4,48 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>ตะกร้าสินค้า | MELLY</title>
 
     <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap');
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #fff8f5;
-            color: #333;
+            font-family: 'Kanit', sans-serif;
+            background: #fff7f8;
+            color: #4a4a4a;
+            min-height: 100vh;
         }
 
-        /* Navbar */
+        /* =========================
+           NAVBAR
+        ========================= */
+
         .navbar {
-            height: 80px;
-            background: #ffffff;
+            height: 82px;
+            background: rgba(255,255,255,0.96);
+            border-bottom: 1px solid #f5dfe3;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 50px;
-            border-bottom: 1px solid #eee;
+
+            padding: 0 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            box-shadow: 0 3px 15px rgba(210, 130, 145, 0.08);
         }
 
         .nav-left,
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 24px;
         }
 
         .navbar a {
             text-decoration: none;
-            color: #555;
-            font-size: 16px;
-            transition: 0.2s;
+            color: #666;
+            font-size: 15px;
+            transition: all 0.25s ease;
+            white-space: nowrap;
         }
 
         .navbar a:hover {
-            color: #e89aa8;
+            color: #e78fa0;
         }
 
         .logo {
@@ -55,72 +71,73 @@
         }
 
         .logo img {
-            width: 110px;
-            height: auto;
+            width: 105px;
+            display: block;
         }
 
-        /* Main */
+
+        /* =========================
+           MAIN
+        ========================= */
+
         .container {
-            max-width: 1100px;
-            margin: 50px auto;
-            padding: 0 20px;
+            width: min(1200px, 92%);
+            margin: 55px auto;
         }
 
         .page-title {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 38px;
         }
 
         .page-title h1 {
-            font-size: 32px;
-            color: #444;
-            margin-bottom: 8px;
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 600;
+            color: #4d4d4d;
+            margin-bottom: 6px;
         }
 
         .page-title p {
-            color: #999;
+            color: #aaa;
+            font-size: 15px;
         }
 
-        /* Empty cart */
-        .empty-cart {
-            background: #fff;
-            border-radius: 15px;
-            padding: 70px 20px;
-            text-align: center;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
-        }
 
-        .empty-cart h2 {
-            margin-bottom: 15px;
-            color: #555;
-        }
+        /* =========================
+           CART LAYOUT
+        ========================= */
 
-        .empty-cart p {
-            color: #999;
-            margin-bottom: 25px;
-        }
-
-        /* Cart */
         .cart-wrapper {
             display: grid;
-            grid-template-columns: 1fr 330px;
-            gap: 25px;
+            grid-template-columns: minmax(0, 1fr) 360px;
+            gap: 30px;
             align-items: start;
         }
 
         .cart-items {
-            background: #fff;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            background: white;
+            border-radius: 22px;
+            padding: 10px 28px;
+
+            box-shadow:
+                0 8px 30px rgba(200, 120, 135, 0.08);
+
+            border: 1px solid #f9e7ea;
         }
+
+
+        /* =========================
+           CART ITEM
+        ========================= */
 
         .cart-item {
             display: flex;
             align-items: center;
-            gap: 20px;
-            padding: 20px 0;
-            border-bottom: 1px solid #eee;
+            gap: 22px;
+
+            padding: 25px 0;
+
+            border-bottom: 1px solid #f3eeee;
         }
 
         .cart-item:last-child {
@@ -128,268 +145,617 @@
         }
 
         .cart-item img {
-            width: 110px;
-            height: 110px;
+            width: 125px;
+            height: 125px;
+
             object-fit: cover;
-            border-radius: 12px;
-            background: #f8f8f8;
+
+            border-radius: 18px;
+
+            background: #fff5f6;
+
+            flex-shrink: 0;
         }
 
         .item-info {
             flex: 1;
+            min-width: 0;
         }
 
         .item-info h3 {
-            font-size: 19px;
-            margin-bottom: 8px;
+            font-size: 20px;
+            font-weight: 500;
             color: #444;
+            margin-bottom: 5px;
         }
 
         .item-price {
-            color: #e89aa8;
-            font-weight: bold;
+            color: #e58c9e;
             font-size: 17px;
+            font-weight: 500;
         }
+
+        .item-total {
+            font-size: 18px;
+            font-weight: 600;
+            color: #555;
+            min-width: 100px;
+            text-align: right;
+        }
+
+
+        /* =========================
+           QUANTITY
+        ========================= */
 
         .quantity-box {
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-top: 12px;
+            margin-top: 13px;
         }
 
         .quantity-box button {
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
+
             border: none;
             border-radius: 50%;
-            background: #f3d5db;
+
+            background: #f9e1e5;
             color: #555;
-            cursor: pointer;
+
             font-size: 18px;
+
+            cursor: pointer;
+
+            transition: all 0.2s ease;
         }
 
         .quantity-box button:hover {
-            background: #eab7c1;
+            background: #eaa6b2;
+            color: white;
+            transform: scale(1.05);
         }
 
         .quantity {
-            min-width: 25px;
+            min-width: 30px;
             text-align: center;
-            font-weight: bold;
+            font-weight: 500;
         }
 
         .remove-btn {
-            border: none;
-            background: transparent;
-            color: #d88b96;
-            cursor: pointer;
-            font-size: 14px;
-            margin-left: 10px;
+            width: auto !important;
+            height: auto !important;
+
+            background: transparent !important;
+            color: #c8a0a6 !important;
+
+            border-radius: 0 !important;
+
+            font-size: 13px !important;
+
+            margin-left: 8px;
         }
 
         .remove-btn:hover {
-            color: #c45f6d;
-            text-decoration: underline;
+            color: #d86679 !important;
+            transform: none !important;
         }
 
-        /* Summary */
+
+        /* =========================
+           SUMMARY
+        ========================= */
+
         .summary {
-            background: #fff;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            background: white;
+
+            border-radius: 22px;
+
+            padding: 30px;
+
+            border: 1px solid #f9e7ea;
+
+            box-shadow:
+                0 8px 30px rgba(200, 120, 135, 0.08);
+
             position: sticky;
-            top: 20px;
+            top: 105px;
         }
 
         .summary h2 {
-            margin-bottom: 20px;
+            font-size: 23px;
+            font-weight: 500;
             color: #444;
-            font-size: 22px;
+
+            padding-bottom: 20px;
+
+            border-bottom: 1px solid #f3eeee;
+
+            margin-bottom: 20px;
         }
 
         .summary-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 15px;
-            color: #666;
+
+            color: #888;
+
+            margin-bottom: 14px;
+
+            font-size: 15px;
         }
 
         .summary-total {
-            border-top: 1px solid #eee;
-            padding-top: 18px;
-            margin-top: 15px;
             display: flex;
             justify-content: space-between;
+
+            border-top: 1px solid #eee;
+
+            padding-top: 20px;
+            margin-top: 20px;
+
             font-size: 21px;
-            font-weight: bold;
-            color: #444;
+            font-weight: 600;
         }
 
         .total-price {
-            color: #e89aa8;
+            color: #e58c9e;
         }
 
-        /* Buttons */
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
         .btn {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             width: 100%;
+
             border: none;
-            border-radius: 10px;
-            padding: 13px 20px;
-            text-align: center;
+            border-radius: 13px;
+
+            padding: 14px 20px;
+
             text-decoration: none;
+
             cursor: pointer;
+
+            font-family: inherit;
             font-size: 16px;
-            margin-top: 15px;
+
+            margin-top: 16px;
+
+            transition: all 0.25s ease;
         }
 
         .btn-primary {
-            background: #e89aa8;
+            background: linear-gradient(
+                135deg,
+                #eda4b2,
+                #e88d9f
+            );
+
             color: white;
+
+            box-shadow:
+                0 7px 18px rgba(232, 141, 159, 0.25);
         }
 
         .btn-primary:hover {
-            background: #d77f8e;
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 22px rgba(232, 141, 159, 0.35);
         }
 
         .btn-secondary {
-            background: #f7e1e5;
-            color: #555;
+            background: #fff0f2;
+            color: #b87581;
         }
 
         .btn-secondary:hover {
-            background: #f0d0d6;
+            background: #fbe1e5;
         }
 
         .clear-btn {
             border: none;
-            background: transparent;
-            color: #999;
+            background: none;
+
+            color: #aaa;
+
             cursor: pointer;
+
             width: 100%;
-            margin-top: 18px;
-            font-size: 14px;
+
+            margin-top: 20px;
+
+            font-family: inherit;
+            font-size: 13px;
         }
 
         .clear-btn:hover {
-            color: #d66;
+            color: #d86c7d;
         }
 
-        /* Responsive */
-        @media (max-width: 800px) {
+
+        /* =========================
+           EMPTY CART
+        ========================= */
+
+        .empty-cart {
+            background: white;
+
+            border-radius: 25px;
+
+            padding: 80px 25px;
+
+            text-align: center;
+
+            border: 1px solid #f9e7ea;
+
+            box-shadow:
+                0 8px 30px rgba(200, 120, 135, 0.08);
+        }
+
+        .empty-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .empty-cart h2 {
+            font-size: 25px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .empty-cart p {
+            color: #aaa;
+            margin-bottom: 28px;
+        }
+
+        .empty-cart .btn {
+            max-width: 260px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 1000px) {
+
             .navbar {
-                padding: 0 15px;
+                padding: 0 25px;
             }
 
             .nav-left,
             .nav-right {
-                gap: 10px;
+                gap: 13px;
             }
 
             .navbar a {
                 font-size: 13px;
             }
 
-            .logo {
-                display: none;
+            .logo img {
+                width: 85px;
             }
 
             .cart-wrapper {
                 grid-template-columns: 1fr;
             }
 
-            .cart-item {
+            .summary {
+                position: static;
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                height: auto;
+                min-height: 70px;
+
+                padding: 12px 18px;
+
                 flex-wrap: wrap;
+                justify-content: center;
+
+                gap: 8px;
+            }
+
+            .logo {
+                position: static;
+                transform: none;
+
+                order: -1;
+
+                width: 100%;
+
+                display: flex;
+                justify-content: center;
+            }
+
+            .logo img {
+                width: 85px;
+            }
+
+            .nav-left,
+            .nav-right {
+                gap: 14px;
+
+                justify-content: center;
+
+                flex-wrap: wrap;
+            }
+
+            .nav-left a,
+            .nav-right a {
+                font-size: 12px;
+            }
+
+            .nav-right a:nth-child(1) {
+                display: none;
+            }
+
+            .container {
+                width: 94%;
+                margin: 35px auto;
+            }
+
+            .page-title {
+                margin-bottom: 25px;
+            }
+
+            .page-title h1 {
+                font-size: 29px;
+            }
+
+            .cart-items {
+                padding: 5px 18px;
+            }
+
+            .cart-item {
+                display: grid;
+
+                grid-template-columns: 90px 1fr;
+
+                gap: 15px;
+
+                padding: 20px 0;
             }
 
             .cart-item img {
                 width: 90px;
                 height: 90px;
+
+                grid-row: span 2;
+            }
+
+            .item-info h3 {
+                font-size: 17px;
+            }
+
+            .item-price {
+                font-size: 15px;
+            }
+
+            .item-total {
+                grid-column: 2;
+
+                text-align: left;
+
+                min-width: 0;
+
+                font-size: 16px;
+            }
+
+            .quantity-box {
+                margin-top: 9px;
             }
 
             .summary {
-                position: static;
+                padding: 24px;
             }
         }
+
+
+        /* =========================
+           SMALL MOBILE
+        ========================= */
+
+        @media (max-width: 420px) {
+
+            .nav-left,
+            .nav-right {
+                gap: 9px;
+            }
+
+            .nav-left a,
+            .nav-right a {
+                font-size: 11px;
+            }
+
+            .cart-item {
+                grid-template-columns: 75px 1fr;
+                gap: 12px;
+            }
+
+            .cart-item img {
+                width: 75px;
+                height: 75px;
+            }
+
+            .item-info h3 {
+                font-size: 15px;
+            }
+
+            .quantity-box button {
+                width: 28px;
+                height: 28px;
+            }
+
+            .summary-total {
+                font-size: 18px;
+            }
+
+            .btn {
+                font-size: 15px;
+            }
+        }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- Navbar -->
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
     <nav class="navbar">
 
         <div class="nav-left">
+
             <a href="index.html">หน้าหลัก</a>
             <a href="products.html">สินค้า</a>
             <a href="cart.html">ตะกร้า</a>
             <a href="orders.html">คำสั่งซื้อ</a>
+
         </div>
+
 
         <div class="logo">
+
             <a href="index.html">
-                <img src="images/MELLY.png" alt="MELLY">
+
+                <img
+                    src="images/MELLY.png"
+                    alt="MELLY"
+                >
+
             </a>
+
         </div>
 
+
         <div class="nav-right">
+
             <a href="orders.html">คำสั่งซื้อ</a>
             <a href="profile.html">โปรไฟล์</a>
             <a href="subscribe.html">สมาชิก</a>
             <a href="login.html">เข้าสู่ระบบ</a>
             <a href="register.html">สมัครสมาชิก</a>
+
         </div>
 
     </nav>
 
 
-    <!-- Main -->
+
+    <!-- =========================
+         CONTENT
+    ========================== -->
+
     <main class="container">
 
+
         <div class="page-title">
+
             <h1>ตะกร้าสินค้า</h1>
-            <p>ตรวจสอบสินค้าและจำนวนสินค้าของคุณ</p>
+
+            <p>
+                ตรวจสอบสินค้าและจำนวนสินค้าของคุณ
+            </p>
+
         </div>
 
 
-        <!-- Cart Content -->
         <div id="cartContent"></div>
+
 
     </main>
 
 
+
     <script>
 
-        // ดึงข้อมูลตะกร้าจาก localStorage
-        let cart = JSON.parse(localStorage.getItem("mellyCart")) || [];
+        /* =========================
+           LOAD CART
+        ========================== */
+
+        let cart =
+            JSON.parse(
+                localStorage.getItem("mellyCart")
+            ) || [];
 
 
-        // บันทึกตะกร้า
+        /* =========================
+           SAVE CART
+        ========================== */
+
         function saveCart() {
-            localStorage.setItem("mellyCart", JSON.stringify(cart));
+
+            localStorage.setItem(
+                "mellyCart",
+                JSON.stringify(cart)
+            );
+
         }
 
 
-        // แสดงตะกร้า
+        /* =========================
+           DISPLAY CART
+        ========================== */
+
         function displayCart() {
 
-            const cartContent = document.getElementById("cartContent");
+            const cartContent =
+                document.getElementById("cartContent");
 
-            // ถ้าไม่มีสินค้า
+
+            /* EMPTY */
+
             if (cart.length === 0) {
 
                 cartContent.innerHTML = `
-                    <div class="empty-cart">
-                        <h2>ตะกร้าสินค้าว่าง</h2>
-                        <p>ยังไม่มีสินค้าในตะกร้าของคุณ</p>
 
-                        <a href="products.html" class="btn btn-primary"
-                           style="max-width:250px;margin:0 auto;">
+                    <div class="empty-cart">
+
+                        <div class="empty-icon">
+                            🧸
+                        </div>
+
+                        <h2>
+                            ตะกร้าสินค้าว่าง
+                        </h2>
+
+                        <p>
+                            ยังไม่มีสินค้าในตะกร้าของคุณ
+                        </p>
+
+                        <a
+                            href="products.html"
+                            class="btn btn-primary"
+                        >
                             เลือกซื้อสินค้า
                         </a>
+
                     </div>
+
                 `;
 
                 return;
@@ -398,207 +764,322 @@
 
             let total = 0;
             let totalItems = 0;
+
             let itemsHTML = "";
 
 
+            /* CREATE ITEMS */
+
             cart.forEach((item, index) => {
 
-                const quantity = Number(item.quantity) || 1;
-                const price = Number(item.price) || 0;
+                const quantity =
+                    Number(item.quantity) || 1;
 
-                const itemTotal = price * quantity;
+                const price =
+                    Number(item.price) || 0;
+
+                const itemTotal =
+                    price * quantity;
+
 
                 total += itemTotal;
+
                 totalItems += quantity;
 
 
                 itemsHTML += `
+
                     <div class="cart-item">
 
                         <img
                             src="images/${item.image}"
                             alt="${item.name}"
-                            onerror="this.src='images/MELLY.png'"
+                            onerror="
+                                this.src='images/MELLY.png'
+                            "
                         >
+
 
                         <div class="item-info">
 
-                            <h3>${item.name}</h3>
+                            <h3>
+                                ${item.name}
+                            </h3>
 
                             <div class="item-price">
                                 ฿${price.toLocaleString()}
                             </div>
 
+
                             <div class="quantity-box">
 
-                                <button onclick="decreaseQuantity(${index})">
+                                <button
+                                    onclick="
+                                        decreaseQuantity(${index})
+                                    "
+                                >
                                     −
                                 </button>
+
 
                                 <span class="quantity">
                                     ${quantity}
                                 </span>
 
-                                <button onclick="increaseQuantity(${index})">
+
+                                <button
+                                    onclick="
+                                        increaseQuantity(${index})
+                                    "
+                                >
                                     +
                                 </button>
 
+
                                 <button
                                     class="remove-btn"
-                                    onclick="removeItem(${index})">
-                                    ลบสินค้า
+                                    onclick="
+                                        removeItem(${index})
+                                    "
+                                >
+                                    ลบ
                                 </button>
 
                             </div>
 
                         </div>
 
-                        <div style="
-                            font-weight:bold;
-                            color:#555;
-                            min-width:100px;
-                            text-align:right;
-                        ">
+
+                        <div class="item-total">
+
                             ฿${itemTotal.toLocaleString()}
+
                         </div>
 
                     </div>
+
                 `;
+
             });
 
+
+            /* PAGE */
 
             cartContent.innerHTML = `
 
                 <div class="cart-wrapper">
 
+
+                    <!-- ITEMS -->
+
                     <div class="cart-items">
+
                         ${itemsHTML}
+
                     </div>
 
 
+
+                    <!-- SUMMARY -->
+
                     <div class="summary">
 
-                        <h2>สรุปคำสั่งซื้อ</h2>
+                        <h2>
+                            สรุปคำสั่งซื้อ
+                        </h2>
+
 
                         <div class="summary-row">
-                            <span>จำนวนสินค้า</span>
-                            <span>${totalItems} ชิ้น</span>
+
+                            <span>
+                                จำนวนสินค้า
+                            </span>
+
+                            <span>
+                                ${totalItems} ชิ้น
+                            </span>
+
                         </div>
 
-                        <div class="summary-row">
-                            <span>ราคาสินค้า</span>
-                            <span>฿${total.toLocaleString()}</span>
-                        </div>
 
                         <div class="summary-row">
-                            <span>ค่าจัดส่ง</span>
-                            <span>คำนวณตอนชำระเงิน</span>
+
+                            <span>
+                                ราคาสินค้า
+                            </span>
+
+                            <span>
+                                ฿${total.toLocaleString()}
+                            </span>
+
                         </div>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                ค่าจัดส่ง
+                            </span>
+
+                            <span>
+                                คำนวณตอนชำระเงิน
+                            </span>
+
+                        </div>
+
 
                         <div class="summary-total">
-                            <span>รวมทั้งหมด</span>
+
+                            <span>
+                                รวมทั้งหมด
+                            </span>
+
                             <span class="total-price">
                                 ฿${total.toLocaleString()}
                             </span>
+
                         </div>
 
 
-                        <a href="checkout.html"
-                           class="btn btn-primary">
+                        <a
+                            href="checkout.html"
+                            class="btn btn-primary"
+                        >
                             ดำเนินการสั่งซื้อ
                         </a>
 
 
-                        <a href="products.html"
-                           class="btn btn-secondary">
+                        <a
+                            href="products.html"
+                            class="btn btn-secondary"
+                        >
                             เลือกซื้อสินค้าต่อ
                         </a>
 
 
                         <button
                             class="clear-btn"
-                            onclick="clearCart()">
+                            onclick="clearCart()"
+                        >
                             ล้างตะกร้าสินค้าทั้งหมด
                         </button>
 
                     </div>
 
                 </div>
+
             `;
+
         }
 
 
-        // เพิ่มจำนวนสินค้า
+        /* =========================
+           INCREASE
+        ========================== */
+
         function increaseQuantity(index) {
 
             if (!cart[index]) return;
 
+
             cart[index].quantity =
                 (Number(cart[index].quantity) || 0) + 1;
 
+
             saveCart();
+
             displayCart();
+
         }
 
 
-        // ลดจำนวนสินค้า
+        /* =========================
+           DECREASE
+        ========================== */
+
         function decreaseQuantity(index) {
 
             if (!cart[index]) return;
 
+
             const quantity =
                 Number(cart[index].quantity) || 1;
 
+
             if (quantity > 1) {
 
-                cart[index].quantity = quantity - 1;
+                cart[index].quantity =
+                    quantity - 1;
 
             } else {
 
                 cart.splice(index, 1);
+
             }
 
+
             saveCart();
+
             displayCart();
+
         }
 
 
-        // ลบสินค้า
+        /* =========================
+           REMOVE
+        ========================== */
+
         function removeItem(index) {
 
             if (!cart[index]) return;
 
+
             cart.splice(index, 1);
 
+
             saveCart();
+
             displayCart();
+
         }
 
 
-        // ล้างตะกร้า
+        /* =========================
+           CLEAR CART
+        ========================== */
+
         function clearCart() {
 
             if (cart.length === 0) return;
 
+
             const confirmClear =
-                confirm("คุณต้องการล้างสินค้าทั้งหมดออกจากตะกร้าหรือไม่?");
+                confirm(
+                    "คุณต้องการล้างสินค้าทั้งหมดออกจากตะกร้าหรือไม่?"
+                );
+
 
             if (!confirmClear) return;
 
+
             cart = [];
 
+
             saveCart();
+
             displayCart();
+
         }
 
 
-        // เริ่มต้นแสดงตะกร้า
+        /* =========================
+           START
+        ========================== */
+
         displayCart();
 
     </script>
 
 </body>
 </html>
-
-
 
