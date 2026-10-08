@@ -1,0 +1,1388 @@
+
+<!DOCTYPE html>
+
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Welcome to MELLY</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background: #fff8f8;
+
+    color: #555;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 40px 20px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   DECORATIVE HEARTS
+===================================================== */
+
+.heart {
+
+    position: absolute;
+
+    color: #f3cccc;
+
+    font-size: 45px;
+
+    opacity: 0.55;
+
+    pointer-events: none;
+}
+
+
+.heart.one {
+
+    top: 8%;
+
+    left: 13%;
+}
+
+
+.heart.two {
+
+    top: 18%;
+
+    right: 14%;
+
+    font-size: 30px;
+}
+
+
+.heart.three {
+
+    bottom: 12%;
+
+    left: 17%;
+
+    font-size: 32px;
+}
+
+
+.heart.four {
+
+    bottom: 10%;
+
+    right: 17%;
+
+    font-size: 50px;
+}
+
+
+/* =====================================================
+   MAIN CARD
+===================================================== */
+
+.success-card {
+
+    width: 100%;
+
+    max-width: 760px;
+
+    background: white;
+
+    border-radius: 32px;
+
+    padding: 45px 40px;
+
+    text-align: center;
+
+    box-shadow:
+        0 12px 40px
+        rgba(210, 150, 150, 0.17);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo-wrap {
+
+    width: 115px;
+
+    height: 115px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    padding: 7px;
+
+    background: #fff0f0;
+
+    box-shadow:
+        0 7px 20px
+        rgba(210, 150, 150, 0.15);
+}
+
+
+.logo {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+
+/* =====================================================
+   WELCOME
+===================================================== */
+
+.welcome {
+
+    color: #d98d8d;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+h1 {
+
+    color: #c77b7b;
+
+    margin: 0;
+
+    font-size: 30px;
+}
+
+
+.shop-name {
+
+    color: #999;
+
+    font-size: 14px;
+
+    margin-top: 8px;
+}
+
+
+/* =====================================================
+   GREETING
+===================================================== */
+
+.greeting {
+
+    font-size: 16px;
+
+    margin-top: 22px;
+
+    color: #666;
+}
+
+
+/* =====================================================
+   SUCCESS BADGE
+===================================================== */
+
+.success-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 9px 18px;
+
+    border-radius: 30px;
+
+    background: #fff1f1;
+
+    color: #c77b7b;
+
+    font-size: 13px;
+
+    margin: 15px 0 8px;
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.message {
+
+    margin: 10px auto;
+
+    max-width: 500px;
+
+    color: #888;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+.email {
+
+    color: #c77b7b;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.divider {
+
+    width: 70px;
+
+    height: 1px;
+
+    background: #ead1d1;
+
+    margin: 25px auto;
+}
+
+
+/* =====================================================
+   INTEREST TITLE
+===================================================== */
+
+.interest-title {
+
+    color: #c77b7b;
+
+    font-size: 20px;
+
+    margin-bottom: 5px;
+}
+
+
+.interest-subtitle {
+
+    color: #aaa;
+
+    font-size: 13px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =====================================================
+   PRODUCT GRID
+
+   ใช้ FLEX เพื่อให้จำนวน 1 / 2 / 3 ตัว
+   อยู่ตรงกลางโดยอัตโนมัติ
+===================================================== */
+
+.product-grid {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    margin: 15px auto 0;
+
+    max-width: 650px;
+}
+
+
+/* =====================================================
+   PRODUCT CARD
+===================================================== */
+
+.product-card {
+
+    width: 190px;
+
+    background: #fffafa;
+
+    border: 1px solid #f0dddd;
+
+    border-radius: 20px;
+
+    padding: 10px;
+
+    transition: 0.3s;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+}
+
+
+.product-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(210, 150, 150, 0.15);
+
+    border-color: #e1bcbc;
+}
+
+
+/* =====================================================
+   PRODUCT IMAGE
+===================================================== */
+
+.product-image {
+
+    width: 100%;
+
+    height: 155px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    background: #fff;
+
+    display: block;
+}
+
+
+/* =====================================================
+   PRODUCT NAME
+===================================================== */
+
+.product-name {
+
+    color: #c77b7b;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+
+    min-height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    line-height: 1.4;
+}
+
+
+/* =====================================================
+   PRODUCT PRICE
+===================================================== */
+
+.product-price {
+
+    color: #999;
+
+    font-size: 12px;
+
+    margin-top: 4px;
+}
+
+
+/* =====================================================
+   OTHER INTERESTS
+===================================================== */
+
+.other-interests {
+
+    margin-top: 22px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 8px;
+}
+
+
+.interest-tag {
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: #fff2f2;
+
+    color: #c77b7b;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.buttons {
+
+    display: flex;
+
+    gap: 12px;
+
+    justify-content: center;
+
+    margin-top: 30px;
+}
+
+
+.btn {
+
+    text-decoration: none;
+
+    padding: 13px 24px;
+
+    border-radius: 18px;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+
+/* ปุ่มหลัก */
+
+.btn-primary {
+
+    background: #d98d8d;
+
+    color: white;
+}
+
+
+.btn-primary:hover {
+
+    background: #c77b7b;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px
+        rgba(199, 123, 123, 0.2);
+}
+
+
+/* ปุ่มรอง */
+
+.btn-secondary {
+
+    border: 1px solid #e4caca;
+
+    color: #c77b7b;
+
+    background: white;
+}
+
+
+.btn-secondary:hover {
+
+    background: #fff5f5;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   FOOTER MESSAGE
+===================================================== */
+
+.next-message {
+
+    margin-top: 25px;
+
+    font-size: 12px;
+
+    color: #aaa;
+}
+
+
+/* =====================================================
+   TABLET / MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .success-card {
+
+        padding: 35px 20px;
+    }
+
+
+    h1 {
+
+        font-size: 25px;
+    }
+
+
+    .product-grid {
+
+        gap: 12px;
+
+        max-width: 430px;
+    }
+
+
+    .product-card {
+
+        width: 180px;
+    }
+
+
+    .product-image {
+
+        height: 145px;
+    }
+
+
+    .buttons {
+
+        flex-direction: column;
+    }
+
+
+    .btn {
+
+        width: 100%;
+    }
+
+
+    .heart {
+
+        display: none;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 430px) {
+
+    .product-grid {
+
+        gap: 12px;
+    }
+
+
+    .product-card {
+
+        width: 160px;
+    }
+
+
+    .product-image {
+
+        height: 135px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <!-- =================================================
+         DECORATIVE HEARTS
+    ================================================= -->
+
+    <div class="heart one">
+        ♡
+    </div>
+
+    <div class="heart two">
+        ♡
+    </div>
+
+    <div class="heart three">
+        ♡
+    </div>
+
+    <div class="heart four">
+        ♡
+    </div>
+
+
+    <!-- =================================================
+         MAIN CARD
+    ================================================= -->
+
+    <div class="success-card">
+
+
+        <!-- LOGO -->
+
+        <div class="logo-wrap">
+
+            <img
+                src="images/MELLY.png"
+                class="logo"
+                alt="MELLY"
+            >
+
+        </div>
+
+
+        <!-- WELCOME -->
+
+        <div class="welcome">
+            WELCOME TO MELLY
+        </div>
+
+
+        <!-- TITLE -->
+
+        <h1>
+            🎉 สมัครสำเร็จแล้ว!
+        </h1>
+
+
+        <div class="shop-name">
+            MELLY DOLL SHOP
+        </div>
+
+
+        <!-- GREETING -->
+
+        <div class="greeting">
+
+            ยินดีต้อนรับคุณ
+
+            <strong id="fullname">
+                -
+            </strong>
+
+            💕
+
+        </div>
+
+
+        <!-- SUCCESS -->
+
+        <div class="success-badge">
+
+            ✓ บันทึกข้อมูลสำเร็จ
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div class="message">
+
+            ขอบคุณที่เข้ามาเป็นส่วนหนึ่ง
+            ของครอบครัว MELLY ✨
+
+            <br>
+
+            เราจะคอยส่งข่าวสาร โปรโมชั่น
+            และสิ่งน่ารัก ๆ ให้คุณทางอีเมล
+
+            <br><br>
+
+            <span
+                class="email"
+                id="email"
+            >
+                -
+            </span>
+
+        </div>
+
+
+        <div class="divider"></div>
+
+
+        <!-- =================================================
+             FAVORITE PRODUCTS
+        ================================================= -->
+
+        <div id="favoriteSection" style="display:none;">
+
+            <div class="interest-title">
+
+                🧸 ตุ๊กตาที่คุณสนใจ
+
+            </div>
+
+
+            <div class="interest-subtitle">
+
+                เราจำความชอบของคุณไว้แล้ว 💕
+
+            </div>
+
+
+            <div
+                class="product-grid"
+                id="productGrid"
+            ></div>
+
+        </div>
+
+
+        <!-- =================================================
+             OTHER INTERESTS
+        ================================================= -->
+
+        <div
+            class="other-interests"
+            id="otherInterests"
+            style="display:none;"
+        ></div>
+
+
+        <!-- =================================================
+             NO INTEREST
+        ================================================= -->
+
+        <div
+            class="message"
+            id="noInterest"
+            style="display:none;"
+        >
+
+            💕 ยังไม่ได้เลือกสิ่งที่สนใจ
+
+            <br>
+
+            ไม่เป็นไร สามารถเลือกได้ในภายหลัง
+
+        </div>
+
+
+        <div class="divider"></div>
+
+
+        <!-- =================================================
+             FINAL MESSAGE
+        ================================================= -->
+
+        <div class="message">
+
+            🧸 เตรียมพบกับเพื่อนตัวน้อย ๆ
+            และคอลเลกชันใหม่จาก MELLY ได้เลย!
+
+        </div>
+
+
+        <!-- =================================================
+             BUTTONS
+        ================================================= -->
+
+        <div class="buttons">
+
+
+            <a
+                href="products.html"
+                class="btn btn-primary"
+            >
+
+                🧸 ดูคอลเลกชัน
+
+            </a>
+
+
+            <a
+                href="index.html"
+                class="btn btn-secondary"
+            >
+
+                🏠 กลับหน้าแรก
+
+            </a>
+
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================= -->
+
+        <div class="next-message">
+
+            💌 พบกันใหม่ในอีเมลฉบับหน้า
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   รับข้อมูลจาก URL
+===================================================== */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const urlFullname =
+    params.get("fullname") || "";
+
+
+const urlEmail =
+    params.get("email") || "";
+
+
+const urlSubscriberId =
+    params.get("subscriber_id") || "";
+
+
+/* =====================================================
+   อ่าน Subscriber ล่าสุด
+===================================================== */
+
+let lastSubscriber = null;
+
+
+try {
+
+    const storedSubscriber =
+        localStorage.getItem(
+            "mellyLastSubscriber"
+        );
+
+
+    if (storedSubscriber) {
+
+        lastSubscriber =
+            JSON.parse(
+                storedSubscriber
+            );
+
+    }
+
+}
+
+catch (error) {
+
+    lastSubscriber = null;
+
+}
+
+
+/* =====================================================
+   ใช้ข้อมูลจาก URL ก่อน
+   เพราะรองรับการเปิด Subscriber เก่า
+===================================================== */
+
+const fullname =
+    urlFullname ||
+    (
+        lastSubscriber
+            ? lastSubscriber.fullname
+            : ""
+    );
+
+
+const email =
+    urlEmail ||
+    (
+        lastSubscriber
+            ? lastSubscriber.email
+            : ""
+    );
+
+
+const subscriberId =
+    urlSubscriberId ||
+    (
+        lastSubscriber
+            ? lastSubscriber.id
+            : ""
+    );
+
+
+/* =====================================================
+   ถ้าข้อมูลไม่ครบ
+===================================================== */
+
+if (
+    fullname === "" ||
+    email === "" ||
+    subscriberId === ""
+) {
+
+    window.location.href =
+        "subscribe.html";
+
+}
+
+
+/* =====================================================
+   แสดงข้อมูลสมาชิก
+===================================================== */
+
+document.getElementById(
+    "fullname"
+).textContent =
+    fullname;
+
+
+document.getElementById(
+    "email"
+).textContent =
+    email;
+
+
+/* =====================================================
+   ข้อมูลตุ๊กตาที่เชื่อมกับความสนใจ
+   คงข้อมูลเดิมจาก PHP
+===================================================== */
+
+const interestProducts = {
+
+    "ตุ๊กตาหมี": {
+
+        name: "Melly Teddy Bear",
+
+        image: "ตุ๊กตาหมี.jpg",
+
+        price: 490
+
+    },
+
+
+    "ตุ๊กตากระต่าย": {
+
+        name: "Melly Bunny",
+
+        image: "กระต่าย.webp",
+
+        price: 450
+
+    },
+
+
+    "ตุ๊กตาแมว": {
+
+        name: "Little Cat",
+
+        image: "แมว.jpeg",
+
+        price: 350
+
+    },
+
+
+    "ตุ๊กตาสุนัข": {
+
+        name: "Melly Dog",
+
+        image: "หมา.jpg",
+
+        price: 420
+
+    },
+
+
+    "ตุ๊กตาเป็ด": {
+
+        name: "Melly Duck",
+
+        image: "เป็ด.jpg",
+
+        price: 390
+
+    },
+
+
+    "ตุ๊กตาม้า": {
+
+        name: "White Horse",
+
+        image: "ม้า.jpg",
+
+        price: 480
+
+    }
+
+};
+
+
+/* =====================================================
+   อ่านความสนใจจาก localStorage
+
+   รูปแบบ:
+
+   {
+       "1": ["ตุ๊กตาหมี", "โปรโมชั่น"],
+       "2": ["ตุ๊กตาแมว"],
+       "3": ["ของขวัญ"]
+   }
+
+   แต่ละ Subscriber ID แยกกัน
+   ดังนั้นสมัครอีเมลซ้ำได้
+===================================================== */
+
+let allInterests = {};
+
+
+try {
+
+    const storedInterests =
+        localStorage.getItem(
+            "mellySubscriberInterests"
+        );
+
+
+    if (storedInterests) {
+
+        allInterests =
+            JSON.parse(
+                storedInterests
+            );
+
+    }
+
+
+    if (
+        typeof allInterests !== "object" ||
+        allInterests === null ||
+        Array.isArray(allInterests)
+    ) {
+
+        allInterests = {};
+
+    }
+
+}
+
+catch (error) {
+
+    allInterests = {};
+
+}
+
+
+/* =====================================================
+   ดึงความสนใจของ Subscriber นี้เท่านั้น
+===================================================== */
+
+const selectedInterests =
+    Array.isArray(
+        allInterests[
+            String(subscriberId)
+        ]
+    )
+        ? allInterests[
+            String(subscriberId)
+        ]
+        : [];
+
+
+/* =====================================================
+   แยกสินค้า / ความสนใจอื่น
+===================================================== */
+
+const favoriteProducts = [];
+
+const otherInterests = [];
+
+
+selectedInterests.forEach(
+    function(interest) {
+
+        if (
+            Object.prototype.hasOwnProperty.call(
+                interestProducts,
+                interest
+            )
+        ) {
+
+            favoriteProducts.push(
+                interestProducts[
+                    interest
+                ]
+            );
+
+        }
+
+        else {
+
+            otherInterests.push(
+                interest
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   แสดงสินค้า
+===================================================== */
+
+const favoriteSection =
+    document.getElementById(
+        "favoriteSection"
+    );
+
+
+const productGrid =
+    document.getElementById(
+        "productGrid"
+    );
+
+
+if (
+    favoriteProducts.length > 0
+) {
+
+    favoriteSection.style.display =
+        "block";
+
+
+    favoriteProducts.forEach(
+        function(product) {
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "product-card";
+
+
+            const image =
+                document.createElement(
+                    "img"
+                );
+
+
+            image.src =
+                "images/" +
+                product.image;
+
+
+            image.className =
+                "product-image";
+
+
+            image.alt =
+                product.name;
+
+
+            const name =
+                document.createElement(
+                    "div"
+                );
+
+
+            name.className =
+                "product-name";
+
+
+            name.textContent =
+                product.name;
+
+
+            const price =
+                document.createElement(
+                    "div"
+                );
+
+
+            price.className =
+                "product-price";
+
+
+            price.textContent =
+                Number(
+                    product.price
+                ).toLocaleString(
+                    "th-TH"
+                ) +
+                " บาท";
+
+
+            card.appendChild(
+                image
+            );
+
+
+            card.appendChild(
+                name
+            );
+
+
+            card.appendChild(
+                price
+            );
+
+
+            productGrid.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   แสดงความสนใจอื่น
+===================================================== */
+
+const otherInterestsBox =
+    document.getElementById(
+        "otherInterests"
+    );
+
+
+if (
+    otherInterests.length > 0
+) {
+
+    otherInterestsBox.style.display =
+        "flex";
+
+
+    otherInterests.forEach(
+        function(interest) {
+
+            const tag =
+                document.createElement(
+                    "div"
+                );
+
+
+            tag.className =
+                "interest-tag";
+
+
+            tag.textContent =
+                "♡ " +
+                interest;
+
+
+            otherInterestsBox.appendChild(
+                tag
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ถ้าไม่ได้เลือกอะไรเลย
+===================================================== */
+
+const noInterest =
+    document.getElementById(
+        "noInterest"
+    );
+
+
+if (
+    favoriteProducts.length === 0 &&
+    otherInterests.length === 0
+) {
+
+    noInterest.style.display =
+        "block";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+
