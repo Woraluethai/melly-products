@@ -1,5 +1,396 @@
 
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>เลือกสิ่งที่สนใจ | MELLY</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff8f8;
+    color: #555;
+}
+
+.page {
+    min-height: 100vh;
+    padding: 45px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 760px;
+    background: white;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(210,150,150,0.15);
+    text-align: center;
+}
+
+/* Logo */
+
+.logo {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.step {
+    color: #d98d8d;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    margin: 0;
+    color: #c77b7b;
+    font-size: 28px;
+}
+
+.shop {
+    color: #999;
+    font-size: 13px;
+    margin-top: 7px;
+}
+
+.greeting {
+    margin: 20px auto 8px;
+    font-size: 15px;
+}
+
+.info {
+    color: #999;
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+/* Step bar */
+
+.steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 30px;
+    max-width: 500px;
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    color: #d98d8d;
+    font-size: 12px;
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #d98d8d;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 7px;
+    font-weight: bold;
+}
+
+.line {
+    width: 80px;
+    height: 1px;
+    background: #ead0d0;
+    margin: 0 15px;
+}
+
+/* Interest grid */
+
+.interest-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px;
+    text-align: left;
+}
+
+/* ซ่อน checkbox */
+
+.interest-input {
+    display: none;
+}
+
+/* การ์ด */
+
+.interest-card {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 15px;
+    border: 1px solid #eedada;
+    border-radius: 18px;
+    background: #fffafa;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.interest-card:hover {
+    transform: translateY(-2px);
+    border-color: #d98d8d;
+    box-shadow: 0 5px 15px rgba(210,150,150,0.12);
+}
+
+.interest-input:checked + .interest-card {
+    background: #fff0f0;
+    border-color: #d98d8d;
+    box-shadow: 0 5px 15px rgba(210,150,150,0.12);
+}
+
+.interest-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    flex-shrink: 0;
+}
+
+.interest-name {
+    color: #777;
+    font-size: 14px;
+}
+
+.check {
+    margin-left: auto;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #e2caca;
+    border-radius: 50%;
+}
+
+.interest-input:checked + .interest-card .check {
+    background: #d98d8d;
+    border-color: #d98d8d;
+    position: relative;
+}
+
+.interest-input:checked + .interest-card .check::after {
+    content: "✓";
+    color: white;
+    font-size: 13px;
+    position: absolute;
+    left: 4px;
+    top: 1px;
+}
+
+/* Error */
+
+.error {
+    background: #fff0f0;
+    border: 1px solid #efcccc;
+    color: #c66;
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    font-size: 13px;
+    display: none;
+}
+
+/* Button */
+
+.save-button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    border: none;
+    border-radius: 18px;
+    background: #d98d8d;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.save-button:hover {
+    background: #c77b7b;
+    transform: translateY(-2px);
+}
+
+.skip {
+    display: inline-block;
+    margin-top: 15px;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.skip:hover {
+    color: #c77b7b;
+}
+
+@media (max-width: 600px) {
+
+    .card {
+        padding: 30px 20px;
+    }
+
+    .interest-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .line {
+        width: 40px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+<div class="card">
+
+    <img
+        src="images/MELLY.png"
+        class="logo"
+        alt="MELLY"
+    >
+
+    <div class="step">
+        STEP 2 OF 2
+    </div>
+
+    <h1>
+        ♡ เลือกสิ่งที่คุณสนใจ
+    </h1>
+
+    <div class="shop">
+        MELLY DOLL SHOP
+    </div>
+
+
+    <!-- ขั้นตอน -->
+
+    <div class="steps">
+
+        <div class="step-item">
+            <div class="circle">✓</div>
+            สมัครสำเร็จ
+        </div>
+
+        <div class="line"></div>
+
+        <div class="step-item">
+            <div class="circle">2</div>
+            ความสนใจ
+        </div>
+
+    </div>
+
+
+    <div class="greeting">
+
+        สวัสดีคุณ
+
+        <strong id="fullname">
+            -
+        </strong>
+
+        💕
+
+    </div>
+
+    <div class="info">
+
+        เลือกสิ่งที่คุณสนใจได้มากกว่า 1 รายการ<br>
+
+        MELLY จะได้ส่งข่าวสารที่ตรงกับความชอบของคุณ ✨
+
+    </div>
+
+
+    <!-- ERROR -->
+
+    <div
+        class="error"
+        id="errorMessage"
+    ></div>
+
+
+    <!-- FORM -->
+
+    <form id="interestForm">
+
+        <div
+            class="interest-grid"
+            id="interestGrid"
+        ></div>
+
+
+        <button
+            type="submit"
+            class="save-button"
+        >
+
+            💾 บันทึกสิ่งที่สนใจ
+
+        </button>
+
+    </form>
+
+
+    <a
+        href="index.html"
+        class="skip"
+    >
+
+        ข้ามไปก่อน →
+
+    </a>
+
+</div>
+
+</div>
+
+
 <script>
+
+/* =====================================================
+   MELLY SUBSCRIBE SUCCESS
+   Static HTML + JavaScript + localStorage
+
+   - ใช้ subscriber_id แยกแต่ละการสมัคร
+   - อีเมลซ้ำได้
+   - ข้อมูล Subscriber เดิมไม่ถูกลบ
+   - ความสนใจของ Subscriber แต่ละ ID แยกกัน
+===================================================== */
+
 
 /* =====================================================
    รับข้อมูลจาก URL
@@ -11,93 +402,90 @@ const params =
     );
 
 
-const subscriberId =
-    params.get("subscriber_id");
+const urlEmail =
+    params.get("email") || "";
 
 
-const email =
-    params.get("email");
+const urlFullname =
+    params.get("fullname") || "";
 
 
-const fullname =
-    params.get("fullname");
-
-
-/* =====================================================
-   ตรวจ Subscriber ID
-===================================================== */
-
-if (!subscriberId) {
-
-    window.location.href =
-        "subscribe.html";
-
-}
+const urlSubscriberId =
+    params.get("subscriber_id") || "";
 
 
 /* =====================================================
-   อ่าน Subscriber จาก mellySubscribers
-   โดยใช้ ID ไม่ใช่อีเมล
+   อ่าน Subscriber ล่าสุด
 ===================================================== */
 
-let subscribers = [];
+let lastSubscriber = null;
+
 
 try {
 
-    subscribers =
-        JSON.parse(
-            localStorage.getItem(
-                "mellySubscribers"
-            )
-        ) || [];
+    const storedSubscriber =
+        localStorage.getItem(
+            "mellyLastSubscriber"
+        );
+
+
+    if (storedSubscriber) {
+
+        lastSubscriber =
+            JSON.parse(
+                storedSubscriber
+            );
+
+    }
 
 }
 
 catch (error) {
 
-    subscribers = [];
+    lastSubscriber = null;
 
 }
 
 
-const subscriber =
-    subscribers.find(function(item) {
-
-        return String(item.id) ===
-            String(subscriberId);
-
-    });
-
-
 /* =====================================================
-   ใช้ข้อมูลตาม ID
+   ข้อมูล Subscriber
 ===================================================== */
 
-const finalFullname =
-    fullname ||
+const email =
+    urlEmail ||
     (
-        subscriber
-        ? subscriber.fullname
-        : ""
+        lastSubscriber
+            ? lastSubscriber.email
+            : ""
     );
 
 
-const finalEmail =
-    email ||
+const fullname =
+    urlFullname ||
     (
-        subscriber
-        ? subscriber.email
-        : ""
+        lastSubscriber
+            ? lastSubscriber.fullname
+            : ""
+    );
+
+
+const subscriberId =
+    urlSubscriberId ||
+    (
+        lastSubscriber
+            ? lastSubscriber.id
+            : ""
     );
 
 
 /* =====================================================
-   ตรวจข้อมูล
+   ตรวจสอบข้อมูล
 ===================================================== */
 
 if (
-    !finalFullname ||
-    !finalEmail
+    email === "" ||
+    fullname === "" ||
+    subscriberId === ""
 ) {
 
     window.location.href =
@@ -107,248 +495,433 @@ if (
 
 
 /* =====================================================
-   แสดงข้อมูล
+   แสดงชื่อ
 ===================================================== */
 
 document.getElementById(
     "fullname"
 ).textContent =
-    finalFullname;
-
-
-document.getElementById(
-    "email"
-).textContent =
-    finalEmail;
+    fullname;
 
 
 /* =====================================================
-   อ่านความสนใจตาม Subscriber ID
+   รายการความสนใจ
 ===================================================== */
 
-let allInterests = {};
+const interests = [
 
-try {
+    "ตุ๊กตาหมี",
 
-    allInterests =
-        JSON.parse(
-            localStorage.getItem(
-                "mellySubscriberInterests"
-            )
-        ) || {};
+    "ตุ๊กตากระต่าย",
 
-}
+    "ตุ๊กตาแมว",
 
-catch (error) {
+    "ตุ๊กตาสุนัข",
 
-    allInterests = {};
+    "ตุ๊กตาเป็ด",
 
-}
+    "ตุ๊กตาม้า",
 
+    "ของขวัญ",
 
-const selectedInterests =
-    Array.isArray(
-        allInterests[String(subscriberId)]
-    )
-        ? allInterests[String(subscriberId)]
-        : [];
+    "ตกแต่งห้อง",
+
+    "โปรโมชั่น",
+
+    "สินค้าใหม่"
+
+];
 
 
 /* =====================================================
-   ข้อมูลตุ๊กตา
+   ICON
 ===================================================== */
 
-const interestProducts = {
+const icons = {
 
-    "ตุ๊กตาหมี": {
-        name: "Melly Teddy Bear",
-        image: "ตุ๊กตาหมี.jpg",
-        price: 490
-    },
+    "ตุ๊กตาหมี": "🧸",
 
-    "ตุ๊กตากระต่าย": {
-        name: "Melly Bunny",
-        image: "กระต่าย.webp",
-        price: 450
-    },
+    "ตุ๊กตากระต่าย": "🐰",
 
-    "ตุ๊กตาแมว": {
-        name: "Little Cat",
-        image: "แมว.jpeg",
-        price: 350
-    },
+    "ตุ๊กตาแมว": "🐱",
 
-    "ตุ๊กตาสุนัข": {
-        name: "Melly Dog",
-        image: "หมา.jpg",
-        price: 420
-    },
+    "ตุ๊กตาสุนัข": "🐶",
 
-    "ตุ๊กตาเป็ด": {
-        name: "Melly Duck",
-        image: "เป็ด.jpg",
-        price: 390
-    },
+    "ตุ๊กตาเป็ด": "🐤",
 
-    "ตุ๊กตาม้า": {
-        name: "White Horse",
-        image: "ม้า.jpg",
-        price: 480
-    }
+    "ตุ๊กตาม้า": "🐴",
+
+    "ของขวัญ": "🎁",
+
+    "ตกแต่งห้อง": "🏠",
+
+    "โปรโมชั่น": "🎉",
+
+    "สินค้าใหม่": "✨"
 
 };
 
 
 /* =====================================================
-   แยกสินค้า / ความสนใจอื่น
+   อ่านข้อมูลความสนใจเดิม
 ===================================================== */
 
-const favoriteProducts = [];
-
-const otherInterests = [];
+let subscriberInterests = {};
 
 
-selectedInterests.forEach(
+try {
+
+    const storedInterests =
+        localStorage.getItem(
+            "mellySubscriberInterests"
+        );
+
+
+    if (storedInterests) {
+
+        subscriberInterests =
+            JSON.parse(
+                storedInterests
+            );
+
+    }
+
+
+    if (
+        typeof subscriberInterests !== "object" ||
+        subscriberInterests === null ||
+        Array.isArray(subscriberInterests)
+    ) {
+
+        subscriberInterests = {};
+
+    }
+
+}
+
+catch (error) {
+
+    subscriberInterests = {};
+
+}
+
+
+/* =====================================================
+   ความสนใจของ Subscriber นี้
+===================================================== */
+
+const selectedInterests =
+    Array.isArray(
+        subscriberInterests[
+            String(subscriberId)
+        ]
+    )
+        ? subscriberInterests[
+            String(subscriberId)
+        ]
+        : [];
+
+
+/* =====================================================
+   สร้างรายการความสนใจ
+===================================================== */
+
+const interestGrid =
+    document.getElementById(
+        "interestGrid"
+    );
+
+
+interests.forEach(
     function(interest) {
 
+        const wrapper =
+            document.createElement(
+                "label"
+            );
+
+
+        const checkbox =
+            document.createElement(
+                "input"
+            );
+
+
+        checkbox.type =
+            "checkbox";
+
+
+        checkbox.name =
+            "interests[]";
+
+
+        checkbox.value =
+            interest;
+
+
+        checkbox.className =
+            "interest-input";
+
+
+        /* =============================================
+           แสดงข้อมูลเดิมของ Subscriber ID นี้
+        ============================================= */
+
         if (
-            interestProducts[interest]
+            selectedInterests.includes(
+                interest
+            )
         ) {
 
-            favoriteProducts.push(
-                interestProducts[interest]
-            );
-
-        } else {
-
-            otherInterests.push(
-                interest
-            );
+            checkbox.checked =
+                true;
 
         }
 
-    }
-);
-
-
-/* =====================================================
-   แสดงสินค้า
-===================================================== */
-
-const productGrid =
-    document.getElementById(
-        "productGrid"
-    );
-
-
-favoriteProducts.forEach(
-    function(product) {
 
         const card =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
 
         card.className =
-            "product-card";
+            "interest-card";
 
 
-        card.innerHTML = `
-
-            <img
-                src="images/${product.image}"
-                class="product-image"
-                alt="${product.name}"
-            >
-
-            <div class="product-name">
-
-                ${product.name}
-
-            </div>
-
-            <div class="product-price">
-
-                ${Number(product.price)
-                    .toLocaleString("th-TH")}
-
-                บาท
-
-            </div>
-
-        `;
+        const icon =
+            document.createElement(
+                "div"
+            );
 
 
-        productGrid.appendChild(card);
-
-    }
-);
+        icon.className =
+            "interest-icon";
 
 
-/* =====================================================
-   ซ่อน Section ถ้าไม่มีสินค้า
-===================================================== */
-
-const favoriteSection =
-    document.getElementById(
-        "favoriteSection"
-    );
+        icon.textContent =
+            icons[interest];
 
 
-if (
-    favoriteProducts.length === 0
-) {
-
-    favoriteSection.style.display =
-        "none";
-
-}
+        const name =
+            document.createElement(
+                "div"
+            );
 
 
-/* =====================================================
-   แสดงความสนใจอื่น
-===================================================== */
-
-const otherInterestsBox =
-    document.getElementById(
-        "otherInterests"
-    );
+        name.className =
+            "interest-name";
 
 
-otherInterests.forEach(
-    function(interest) {
-
-        const tag =
-            document.createElement("div");
+        name.textContent =
+            interest;
 
 
-        tag.className =
-            "interest-tag";
+        const check =
+            document.createElement(
+                "div"
+            );
 
 
-        tag.textContent =
-            "♡ " + interest;
+        check.className =
+            "check";
 
 
-        otherInterestsBox.appendChild(tag);
+        card.appendChild(
+            icon
+        );
+
+
+        card.appendChild(
+            name
+        );
+
+
+        card.appendChild(
+            check
+        );
+
+
+        wrapper.appendChild(
+            checkbox
+        );
+
+
+        wrapper.appendChild(
+            card
+        );
+
+
+        interestGrid.appendChild(
+            wrapper
+        );
 
     }
 );
 
 
 /* =====================================================
-   ไม่มีความสนใจ
+   FORM SUBMIT
 ===================================================== */
 
-if (
-    favoriteProducts.length === 0 &&
-    otherInterests.length === 0
-) {
+document
+    .getElementById(
+        "interestForm"
+    )
+    .addEventListener(
+        "submit",
+        function(event) {
 
-    document.getElementById(
-        "noInterest"
-    ).style.display = "block";
+            event.preventDefault();
 
-}
+
+            /* =============================================
+               เก็บรายการที่เลือก
+            ============================================= */
+
+            const selected =
+                Array.from(
+                    document.querySelectorAll(
+                        'input[name="interests[]"]:checked'
+                    )
+                ).map(
+                    function(input) {
+
+                        return input.value;
+
+                    }
+                );
+
+
+            /* =============================================
+               บันทึกตาม Subscriber ID
+               
+               ไม่ลบข้อมูลของ ID อื่น
+               
+               ตัวอย่าง:
+               
+               ID 1 → ["ตุ๊กตาหมี"]
+               ID 2 → ["ตุ๊กตาแมว"]
+               
+               ใช้อีเมลเดียวกันได้
+            ============================================= */
+
+            subscriberInterests[
+                String(subscriberId)
+            ] = selected;
+
+
+            localStorage.setItem(
+                "mellySubscriberInterests",
+                JSON.stringify(
+                    subscriberInterests
+                )
+            );
+
+
+            /* =============================================
+               อัปเดต Subscriber ล่าสุด
+            ============================================= */
+
+            let subscribers = [];
+
+
+            try {
+
+                subscribers =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "mellySubscribers"
+                        )
+                    ) || [];
+
+
+                if (
+                    !Array.isArray(
+                        subscribers
+                    )
+                ) {
+
+                    subscribers = [];
+
+                }
+
+            }
+
+            catch (error) {
+
+                subscribers = [];
+
+            }
+
+
+            const subscriberIndex =
+                subscribers.findIndex(
+                    function(item) {
+
+                        return String(item.id) ===
+                            String(subscriberId);
+
+                    }
+                );
+
+
+            if (
+                subscriberIndex !== -1
+            ) {
+
+                subscribers[
+                    subscriberIndex
+                ].interests =
+                    selected;
+
+
+                localStorage.setItem(
+                    "mellySubscribers",
+                    JSON.stringify(
+                        subscribers
+                    )
+                );
+
+
+                localStorage.setItem(
+                    "mellyLastSubscriber",
+                    JSON.stringify(
+                        subscribers[
+                            subscriberIndex
+                        ]
+                    )
+                );
+
+            }
+
+
+            /* =============================================
+               ไปหน้าถัดไป
+            ============================================= */
+
+            window.location.href =
+                "subscribe_saved.html"
+                + "?subscriber_id="
+                + encodeURIComponent(
+                    subscriberId
+                )
+                + "&email="
+                + encodeURIComponent(
+                    email
+                )
+                + "&fullname="
+                + encodeURIComponent(
+                    fullname
+                );
+
+        }
+    );
+
 
 </script>
+
+</body>
+
+</html>
 
