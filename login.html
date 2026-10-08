@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>MELLY | Login</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background: #fff9f7;
+
+    color: #594944;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+}
+
+
+/* =====================================================
+   LOGIN BOX
+===================================================== */
+
+.login-box {
+
+    width: 100%;
+
+    max-width: 400px;
+
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 25px rgba(0,0,0,0.08);
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+
+    text-align: center;
+
+    margin-bottom: 15px;
+
+}
+
+
+.logo img {
+
+    width: 150px;
+
+    height: 70px;
+
+    object-fit: contain;
+
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+h1 {
+
+    text-align: center;
+
+    font-family: Georgia, serif;
+
+    font-size: 30px;
+
+    font-weight: 400;
+
+    color: #594944;
+
+    margin-bottom: 8px;
+
+}
+
+
+.subtitle {
+
+    text-align: center;
+
+    color: #9b8982;
+
+    font-size: 13px;
+
+    margin-bottom: 28px;
+
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.error {
+
+    background: #fff0f0;
+
+    color: #c05c5c;
+
+    padding: 11px 15px;
+
+    border-radius: 8px;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    margin-bottom: 18px;
+
+}
+
+
+/* =====================================================
+   FORM GROUP
+===================================================== */
+
+.form-group {
+
+    margin-bottom: 18px;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    font-size: 13px;
+
+    color: #594944;
+
+    margin-bottom: 7px;
+
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.form-group input {
+
+    width: 100%;
+
+    padding: 12px 15px;
+
+    border: 1px solid #e4d5d1;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    color: #594944;
+
+    outline: none;
+
+    transition: 0.2s;
+
+}
+
+
+.form-group input:focus {
+
+    border-color: #d88e91;
+
+    box-shadow:
+        0 0 0 2px rgba(216,142,145,0.10);
+
+}
+
+
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+
+.login-button {
+
+    width: 100%;
+
+    border: none;
+
+    background: #d88e91;
+
+    color: white;
+
+    padding: 13px;
+
+    border-radius: 25px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    margin-top: 5px;
+
+    transition: 0.3s;
+
+}
+
+
+.login-button:hover {
+
+    background: #c77679;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =====================================================
+   REGISTER
+===================================================== */
+
+.register {
+
+    text-align: center;
+
+    margin-top: 22px;
+
+    font-size: 13px;
+
+    color: #9b8982;
+
+}
+
+
+.register a {
+
+    color: #c77b7b;
+
+    text-decoration: none;
+
+}
+
+
+.register a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =====================================================
+   BACK
+===================================================== */
+
+.back {
+
+    text-align: center;
+
+    margin-top: 15px;
+
+}
+
+
+.back a {
+
+    color: #9b8982;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+}
+
+
+.back a:hover {
+
+    color: #c77b7b;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .login-box {
+
+        padding: 30px 25px;
+
+    }
+
+    h1 {
+
+        font-size: 27px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="login-box">
+
+
+    <!-- =================================================
+         LOGO
+    ================================================== -->
+
+    <div class="logo">
+
+        <img
+            src="images/MELLY.png"
+            alt="MELLY"
+        >
+
+    </div>
+
+
+    <!-- =================================================
+         TITLE
+    ================================================== -->
+
+    <h1>
+        Welcome Back
+    </h1>
+
+
+    <p class="subtitle">
+        เข้าสู่ระบบ MELLY Doll Shop
+    </p>
+
+
+    <!-- =================================================
+         ERROR
+    ================================================== -->
+
+    <div
+        class="error"
+        id="errorMessage"
+        style="display: none;"
+    ></div>
+
+
+    <!-- =================================================
+         LOGIN FORM
+    ================================================== -->
+
+    <form
+        id="loginForm"
+        autocomplete="on"
+    >
+
+
+        <!-- USERNAME -->
+
+        <div class="form-group">
+
+            <label>
+                Username
+            </label>
+
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="กรอก Username"
+                required
+                autocomplete="username"
+            >
+
+        </div>
+
+
+        <!-- PASSWORD -->
+
+        <div class="form-group">
+
+            <label>
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="กรอก Password"
+                required
+                autocomplete="current-password"
+            >
+
+        </div>
+
+
+        <!-- LOGIN -->
+
+        <button
+            type="submit"
+            class="login-button"
+        >
+
+            เข้าสู่ระบบ
+
+        </button>
+
+
+    </form>
+
+
+    <!-- =================================================
+         REGISTER
+    ================================================== -->
+
+    <div class="register">
+
+        ยังไม่มีบัญชี?
+
+        <a href="register.html">
+            สมัครสมาชิก
+        </a>
+
+    </div>
+
+
+    <!-- =================================================
+         BACK
+    ================================================== -->
+
+    <div class="back">
+
+        <a href="index.html">
+            ← กลับหน้าแรก
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   LOGIN SYSTEM
+   ใช้ localStorage แทน PHP Session + MySQL
+===================================================== */
+
+const loginForm =
+    document.getElementById("loginForm");
+
+const errorMessage =
+    document.getElementById("errorMessage");
+
+
+// =====================================================
+// แสดง Error
+// =====================================================
+
+function showError(message) {
+
+    errorMessage.textContent = message;
+
+    errorMessage.style.display = "block";
+
+}
+
+
+// =====================================================
+// ซ่อน Error
+// =====================================================
+
+function hideError() {
+
+    errorMessage.textContent = "";
+
+    errorMessage.style.display = "none";
+
+}
+
+
+// =====================================================
+// LOGIN
+// =====================================================
+
+loginForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+        hideError();
+
+
+        const username =
+            document
+                .getElementById("username")
+                .value
+                .trim();
+
+
+        const password =
+            document
+                .getElementById("password")
+                .value;
+
+
+        // =================================================
+        // ตรวจสอบข้อมูล
+        // =================================================
+
+        if (
+            username === "" ||
+            password === ""
+        ) {
+
+            showError(
+                "กรุณากรอก Username และ Password"
+            );
+
+            return;
+
+        }
+
+
+        // =================================================
+        // ดึงข้อมูลสมาชิก
+        // =================================================
+
+        let users = [];
+
+        try {
+
+            users =
+                JSON.parse(
+                    localStorage.getItem(
+                        "mellyUsers"
+                    )
+                ) || [];
+
+        }
+
+        catch (error) {
+
+            users = [];
+
+        }
+
+
+        // =================================================
+        // ค้นหา Username
+        // =================================================
+
+        const user =
+            users.find(function(item) {
+
+                return String(
+                    item.username || ""
+                ).toLowerCase()
+                ===
+                username.toLowerCase();
+
+            });
+
+
+        // =================================================
+        // ไม่พบ Username
+        // =================================================
+
+        if (!user) {
+
+            showError(
+                "ไม่พบ Username นี้ในระบบ"
+            );
+
+            return;
+
+        }
+
+
+        // =================================================
+        // ตรวจสอบ Password
+        // =================================================
+
+        if (
+            String(user.password || "")
+            !==
+            password
+        ) {
+
+            showError(
+                "Password ไม่ถูกต้อง"
+            );
+
+            return;
+
+        }
+
+
+        // =================================================
+        // LOGIN สำเร็จ
+        // =================================================
+
+        localStorage.setItem(
+            "mellyUser",
+            JSON.stringify(user)
+        );
+
+
+        localStorage.setItem(
+            "mellyUserId",
+            String(user.id)
+        );
+
+
+        // =================================================
+        // ไปหน้าแรก
+        // =================================================
+
+        window.location.href =
+            "index.html";
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
