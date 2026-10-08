@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>MELLY | สมัครสมาชิก</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background: #fff9f7;
+
+    color: #594944;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px 15px;
+
+}
+
+
+/* =====================================================
+   REGISTER BOX
+===================================================== */
+
+.register-box {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    background: white;
+
+    padding: 40px 45px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 25px rgba(0,0,0,0.08);
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+
+    text-align: center;
+
+    margin-bottom: 15px;
+
+}
+
+
+.logo img {
+
+    width: 150px;
+
+    height: 70px;
+
+    object-fit: contain;
+
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+h1 {
+
+    text-align: center;
+
+    font-family: Georgia, serif;
+
+    font-size: 30px;
+
+    font-weight: 400;
+
+    color: #594944;
+
+    margin-bottom: 8px;
+
+}
+
+
+.subtitle {
+
+    text-align: center;
+
+    color: #9b8982;
+
+    font-size: 13px;
+
+    margin-bottom: 28px;
+
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.error {
+
+    background: #fff0f0;
+
+    color: #c05c5c;
+
+    padding: 11px 15px;
+
+    border-radius: 8px;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    margin-bottom: 18px;
+
+}
+
+
+/* =====================================================
+   SUCCESS
+===================================================== */
+
+.success {
+
+    background: #f0fff5;
+
+    color: #5c9b72;
+
+    padding: 11px 15px;
+
+    border-radius: 8px;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.success a {
+
+    color: #5c9b72;
+
+    text-decoration: underline;
+
+}
+
+
+/* =====================================================
+   FORM GROUP
+===================================================== */
+
+.form-group {
+
+    margin-bottom: 17px;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    font-size: 13px;
+
+    color: #594944;
+
+    margin-bottom: 7px;
+
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.form-group input,
+.form-group textarea {
+
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #e4d5d1;
+
+    border-radius: 8px;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    font-size: 14px;
+
+    color: #594944;
+
+    outline: none;
+
+    transition: 0.2s;
+
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+
+    border-color: #d88e91;
+
+    box-shadow:
+        0 0 0 2px rgba(216,142,145,0.10);
+
+}
+
+
+.form-group textarea {
+
+    height: 90px;
+
+    resize: vertical;
+
+}
+
+
+/* =====================================================
+   REGISTER BUTTON
+===================================================== */
+
+.register-button {
+
+    width: 100%;
+
+    border: none;
+
+    background: #d88e91;
+
+    color: white;
+
+    padding: 13px;
+
+    border-radius: 25px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    margin-top: 5px;
+
+    transition: 0.3s;
+
+}
+
+
+.register-button:hover {
+
+    background: #c77679;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+.login-link {
+
+    text-align: center;
+
+    margin-top: 22px;
+
+    font-size: 13px;
+
+    color: #9b8982;
+
+}
+
+
+.login-link a {
+
+    color: #c77b7b;
+
+    text-decoration: none;
+
+}
+
+
+.login-link a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =====================================================
+   BACK
+===================================================== */
+
+.back {
+
+    text-align: center;
+
+    margin-top: 15px;
+
+}
+
+
+.back a {
+
+    color: #9b8982;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+}
+
+
+.back a:hover {
+
+    color: #c77b7b;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 550px) {
+
+    .register-box {
+
+        padding: 30px 25px;
+
+    }
+
+    h1 {
+
+        font-size: 27px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="register-box">
+
+
+    <!-- =================================================
+         LOGO
+    ================================================== -->
+
+    <div class="logo">
+
+        <img
+            src="images/MELLY.png"
+            alt="MELLY"
+        >
+
+    </div>
+
+
+    <!-- =================================================
+         TITLE
+    ================================================== -->
+
+    <h1>
+        Create Account
+    </h1>
+
+
+    <p class="subtitle">
+        สมัครสมาชิก MELLY Doll Shop
+    </p>
+
+
+    <!-- =================================================
+         ERROR
+    ================================================== -->
+
+    <div
+        class="error"
+        id="errorMessage"
+        style="display: none;"
+    ></div>
+
+
+    <!-- =================================================
+         SUCCESS
+    ================================================== -->
+
+    <div
+        class="success"
+        id="successMessage"
+        style="display: none;"
+    >
+
+        สมัครสมาชิกสำเร็จ 🎉
+
+        <br>
+
+        <span id="successText"></span>
+
+        <br><br>
+
+        <a href="login.html">
+            ไปหน้าเข้าสู่ระบบ
+        </a>
+
+    </div>
+
+
+    <!-- =================================================
+         FORM
+    ================================================== -->
+
+    <form
+        id="registerForm"
+        autocomplete="off"
+    >
+
+
+        <!-- USERNAME -->
+
+        <div class="form-group">
+
+            <label>
+                Username
+            </label>
+
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="กรอก Username"
+                required
+                autocomplete="username"
+            >
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <div class="form-group">
+
+            <label>
+                อีเมล
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="เช่น example@gmail.com"
+                required
+                autocomplete="email"
+            >
+
+        </div>
+
+
+        <!-- PASSWORD -->
+
+        <div class="form-group">
+
+            <label>
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="กรอก Password"
+                required
+                autocomplete="new-password"
+            >
+
+        </div>
+
+
+        <!-- CONFIRM PASSWORD -->
+
+        <div class="form-group">
+
+            <label>
+                ยืนยัน Password
+            </label>
+
+            <input
+                type="password"
+                id="confirm_password"
+                name="confirm_password"
+                placeholder="กรอก Password อีกครั้ง"
+                required
+                autocomplete="new-password"
+            >
+
+        </div>
+
+
+        <!-- FULLNAME -->
+
+        <div class="form-group">
+
+            <label>
+                ชื่อ - นามสกุล
+            </label>
+
+            <input
+                type="text"
+                id="fullname"
+                name="fullname"
+                placeholder="เช่น นภัสสร ใจดี"
+                required
+            >
+
+        </div>
+
+
+        <!-- ADDRESS -->
+
+        <div class="form-group">
+
+            <label>
+                ที่อยู่
+            </label>
+
+            <textarea
+                id="address"
+                name="address"
+                placeholder="กรอกที่อยู่สำหรับจัดส่งสินค้า"
+                required
+            ></textarea>
+
+        </div>
+
+
+        <!-- PHONE -->
+
+        <div class="form-group">
+
+            <label>
+                เบอร์โทรศัพท์
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="เช่น 0812345678"
+                required
+            >
+
+        </div>
+
+
+        <!-- SUBMIT -->
+
+        <button
+            type="submit"
+            class="register-button"
+        >
+
+            สมัครสมาชิก
+
+        </button>
+
+
+    </form>
+
+
+    <!-- =================================================
+         LOGIN LINK
+    ================================================== -->
+
+    <div class="login-link">
+
+        มีบัญชีอยู่แล้ว?
+
+        <a href="login.html">
+            เข้าสู่ระบบ
+        </a>
+
+    </div>
+
+
+    <!-- =================================================
+         BACK
+    ================================================== -->
+
+    <div class="back">
+
+        <a href="index.html">
+            ← กลับหน้าแรก
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   REGISTER SYSTEM
+   ใช้ localStorage แทน PHP + MySQL
+===================================================== */
+
+const registerForm =
+    document.getElementById("registerForm");
+
+const errorMessage =
+    document.getElementById("errorMessage");
+
+const successMessage =
+    document.getElementById("successMessage");
+
+const successText =
+    document.getElementById("successText");
+
+
+// =====================================================
+// แสดง Error
+// =====================================================
+
+function showError(message) {
+
+    errorMessage.textContent = message;
+
+    errorMessage.style.display = "block";
+
+    successMessage.style.display = "none";
+
+}
+
+
+// =====================================================
+// ซ่อน Error
+// =====================================================
+
+function hideError() {
+
+    errorMessage.textContent = "";
+
+    errorMessage.style.display = "none";
+
+}
+
+
+// =====================================================
+// ดึง Users เดิม
+// =====================================================
+
+function getUsers() {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem("mellyUsers")
+        ) || [];
+
+    }
+
+    catch (error) {
+
+        return [];
+
+    }
+
+}
+
+
+// =====================================================
+// สร้าง ID สมาชิกใหม่
+// =====================================================
+
+function generateUserId(users) {
+
+    let maxId = 0;
+
+
+    users.forEach(function(user) {
+
+        const id =
+            parseInt(user.id, 10);
+
+
+        if (
+            !isNaN(id) &&
+            id > maxId
+        ) {
+
+            maxId = id;
+
+        }
+
+    });
+
+
+    return maxId + 1;
+
+}
+
+
+// =====================================================
+// REGISTER
+// =====================================================
+
+registerForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+        hideError();
+
+
+        // =================================================
+        // รับค่าจากฟอร์ม
+        // =================================================
+
+        const username =
+            document
+                .getElementById("username")
+                .value
+                .trim();
+
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim();
+
+
+        const password =
+            document
+                .getElementById("password")
+                .value;
+
+
+        const confirmPassword =
+            document
+                .getElementById("confirm_password")
+                .value;
+
+
+        const fullname =
+            document
+                .getElementById("fullname")
+                .value
+                .trim();
+
+
+        const address =
+            document
+                .getElementById("address")
+                .value
+                .trim();
+
+
+        const phone =
+            document
+                .getElementById("phone")
+                .value
+                .trim();
+
+
+        // =================================================
+        // ตรวจสอบข้อมูล
+        // =================================================
+
+        if (
+            username === "" ||
+            email === "" ||
+            password === "" ||
+            confirmPassword === "" ||
+            fullname === "" ||
+            address === "" ||
+            phone === ""
+        ) {
+
+            showError(
+                "กรุณากรอกข้อมูลให้ครบทุกช่อง"
+            );
+
+            return;
+
+        }
+
+
+        // =================================================
+        // ตรวจสอบ Email
+        // =================================================
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+        if (
+            !emailPattern.test(email)
+        ) {
+
+            showError(
+                "กรุณากรอกอีเมลให้ถูกต้อง"
+            );
+
+            return;
+
+        }
+
+
+        // =================================================
+        // ตรวจสอบ Password
+        // =================================================
+
+        if (
+            password !== confirmPassword
+        ) {
+
+            showError(
+                "รหัสผ่านและยืนยันรหัสผ่านไม่ตรงกัน"
+            );
+
+            return;
+
+        }
+
+
+        // =================================================
+        // ดึงข้อมูลสมาชิกเดิม
+        // =================================================
+
+        const users = getUsers();
+
+
+        // =================================================
+        // ตรวจสอบ Username ซ้ำ
+        // =================================================
+
+        const usernameExists =
+            users.some(function(user) {
+
+                return String(
+                    user.username || ""
+                ).toLowerCase()
+                ===
+                username.toLowerCase();
+
+            });
+
+
+        if (usernameExists) {
+
+            showError(
+                "Username นี้มีผู้ใช้งานแล้ว กรุณาใช้ Username อื่น"
+            );
+
+            return;
+
+        }
+
+
+        // =================================================
+        // ตรวจสอบ Email ซ้ำ
+        // =================================================
+
+        const emailExists =
+            users.some(function(user) {
+
+                return String(
+                    user.email || ""
+                ).toLowerCase()
+                ===
+                email.toLowerCase();
+
+            });
+
+
+        if (emailExists) {
+
+            showError(
+                "อีเมลนี้มีผู้ใช้งานแล้ว กรุณาใช้อีเมลอื่น"
+            );
+
+            return;
+
+        }
+
+
+        // =================================================
+        // สร้างสมาชิกใหม่
+        // =================================================
+
+        const newUser = {
+
+            id: generateUserId(users),
+
+            username: username,
+
+            email: email,
+
+            password: password,
+
+            fullname: fullname,
+
+            address: address,
+
+            phone: phone
+
+        };
+
+
+        // =================================================
+        // เพิ่มสมาชิกใหม่
+        // ไม่ลบข้อมูลสมาชิกเดิม
+        // =================================================
+
+        users.push(newUser);
+
+
+        // =================================================
+        // บันทึกลง localStorage
+        // =================================================
+
+        localStorage.setItem(
+            "mellyUsers",
+            JSON.stringify(users)
+        );
+
+
+        // =================================================
+        // แสดงข้อความสมัครสำเร็จ
+        // =================================================
+
+        successText.textContent =
+            "สมัครสมาชิกสำเร็จแล้วสำหรับ " +
+            email;
+
+
+        successMessage.style.display =
+            "block";
+
+
+        errorMessage.style.display =
+            "none";
+
+
+        // =================================================
+        // ล้างฟอร์ม
+        // =================================================
+
+        registerForm.reset();
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
