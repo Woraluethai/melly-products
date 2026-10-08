@@ -1,656 +1,8 @@
 
-<!DOCTYPE html>
-<html lang="th">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<title>สมัครรับข่าวสารสำเร็จ | MELLY</title>
-
-
-<style>
-
-/* =====================================================
-   RESET
-===================================================== */
-
-* {
-    box-sizing: border-box;
-}
-
-
-/* =====================================================
-   BODY
-===================================================== */
-
-body {
-
-    margin: 0;
-
-    font-family: Arial, sans-serif;
-
-    background: #fff8f8;
-
-    color: #555;
-
-}
-
-
-/* =====================================================
-   PAGE
-===================================================== */
-
-.page {
-
-    min-height: 100vh;
-
-    padding: 45px 20px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    position: relative;
-
-    overflow: hidden;
-
-}
-
-
-.page::before,
-.page::after {
-
-    content: "♡";
-
-    position: absolute;
-
-    font-size: 150px;
-
-    color: #f8dddd;
-
-    opacity: 0.35;
-
-}
-
-
-.page::before {
-
-    top: -40px;
-
-    left: -20px;
-
-}
-
-
-.page::after {
-
-    bottom: -50px;
-
-    right: -20px;
-
-}
-
-
-/* =====================================================
-   กล่องหลัก
-===================================================== */
-
-.success-box {
-
-    width: 100%;
-
-    max-width: 720px;
-
-    background: white;
-
-    border-radius: 30px;
-
-    padding: 45px 40px;
-
-    text-align: center;
-
-    box-shadow:
-        0 10px 35px
-        rgba(210, 150, 150, 0.15);
-
-    position: relative;
-
-    z-index: 2;
-
-}
-
-
-/* =====================================================
-   LOGO
-===================================================== */
-
-.logo {
-
-    width: 100px;
-
-    height: 100px;
-
-    object-fit: cover;
-
-    object-position: center;
-
-    border-radius: 50%;
-
-    display: block;
-
-    margin: 0 auto 18px;
-
-}
-
-
-/* =====================================================
-   TITLE
-===================================================== */
-
-.small-title {
-
-    color: #d98d8d;
-
-    font-size: 13px;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 8px;
-
-}
-
-
-h1 {
-
-    margin: 0;
-
-    color: #c77b7b;
-
-    font-size: 30px;
-
-}
-
-
-.shop-name {
-
-    margin-top: 8px;
-
-    color: #999;
-
-    font-size: 14px;
-
-}
-
-
-/* =====================================================
-   SUCCESS ICON
-===================================================== */
-
-.success-icon {
-
-    width: 75px;
-
-    height: 75px;
-
-    margin: 25px auto 18px;
-
-    border-radius: 50%;
-
-    background: #fff0f0;
-
-    border: 2px solid #f1cccc;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    color: #d98d8d;
-
-    font-size: 35px;
-
-}
-
-
-/* =====================================================
-   MESSAGE
-===================================================== */
-
-.success-title {
-
-    color: #c77b7b;
-
-    font-size: 23px;
-
-    font-weight: bold;
-
-    margin-bottom: 10px;
-
-}
-
-
-.success-text {
-
-    max-width: 540px;
-
-    margin: 0 auto;
-
-    color: #777;
-
-    font-size: 14px;
-
-    line-height: 1.8;
-
-}
-
-
-/* =====================================================
-   USER INFO
-===================================================== */
-
-.user-info {
-
-    max-width: 500px;
-
-    margin: 25px auto 0;
-
-    padding: 18px 20px;
-
-    background: #fff7f7;
-
-    border: 1px solid #f4dddd;
-
-    border-radius: 18px;
-
-    text-align: left;
-
-}
-
-
-.info-row {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    gap: 20px;
-
-    padding: 8px 0;
-
-    border-bottom: 1px solid #f1dfdf;
-
-    font-size: 13px;
-
-}
-
-
-.info-row:last-child {
-
-    border-bottom: none;
-
-}
-
-
-.info-label {
-
-    color: #999;
-
-}
-
-
-.info-value {
-
-    color: #666;
-
-    font-weight: bold;
-
-    text-align: right;
-
-    word-break: break-word;
-
-}
-
-
-/* =====================================================
-   NEXT
-===================================================== */
-
-.next-text {
-
-    margin-top: 25px;
-
-    color: #999;
-
-    font-size: 13px;
-
-    line-height: 1.6;
-
-}
-
-
-/* =====================================================
-   BUTTON
-===================================================== */
-
-.next-button {
-
-    display: block;
-
-    width: 100%;
-
-    max-width: 500px;
-
-    margin: 18px auto 0;
-
-    padding: 14px;
-
-    border: none;
-
-    border-radius: 18px;
-
-    background: #d98d8d;
-
-    color: white;
-
-    text-decoration: none;
-
-    font-size: 15px;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-
-}
-
-
-.next-button:hover {
-
-    background: #c77b7b;
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 7px 18px
-        rgba(199, 123, 123, 0.2);
-
-}
-
-
-/* =====================================================
-   HOME
-===================================================== */
-
-.back-home {
-
-    display: inline-block;
-
-    margin-top: 18px;
-
-    color: #aaa;
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    transition: 0.3s;
-
-}
-
-
-.back-home:hover {
-
-    color: #c77b7b;
-
-}
-
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
-@media (max-width: 600px) {
-
-    .success-box {
-
-        padding: 35px 20px;
-
-    }
-
-
-    h1 {
-
-        font-size: 25px;
-
-    }
-
-
-    .success-title {
-
-        font-size: 20px;
-
-    }
-
-
-    .info-row {
-
-        flex-direction: column;
-
-        gap: 3px;
-
-    }
-
-
-    .info-value {
-
-        text-align: left;
-
-    }
-
-}
-
-</style>
-
-</head>
-
-
-<body>
-
-
-<div class="page">
-
-
-<div class="success-box">
-
-
-    <!-- =================================================
-         LOGO
-    ================================================== -->
-
-    <img
-        src="images/MELLY.png"
-        class="logo"
-        alt="MELLY"
-    >
-
-
-    <!-- =================================================
-         TITLE
-    ================================================== -->
-
-    <div class="small-title">
-
-        WELCOME TO MELLY
-
-    </div>
-
-
-    <h1>
-
-        💌 สมัครรับข่าวสาร
-
-    </h1>
-
-
-    <div class="shop-name">
-
-        MELLY DOLL SHOP
-
-    </div>
-
-
-    <!-- =================================================
-         SUCCESS ICON
-    ================================================== -->
-
-    <div class="success-icon">
-
-        ✓
-
-    </div>
-
-
-    <!-- =================================================
-         SUCCESS MESSAGE
-    ================================================== -->
-
-    <div class="success-title">
-
-        สมัครรับข่าวสารสำเร็จแล้ว 💕
-
-    </div>
-
-
-    <div class="success-text">
-
-        ขอบคุณที่มาเป็นส่วนหนึ่งของครอบครัว MELLY
-        <br>
-        เราจะอัปเดตข่าวสาร โปรโมชั่น
-        และสินค้าใหม่ ๆ ให้คุณทราบ
-
-    </div>
-
-
-    <!-- =================================================
-         USER INFO
-    ================================================== -->
-
-    <div class="user-info">
-
-
-        <div class="info-row">
-
-            <div class="info-label">
-                ชื่อ
-            </div>
-
-            <div
-                class="info-value"
-                id="fullname"
-            >
-                -
-            </div>
-
-        </div>
-
-
-        <div class="info-row">
-
-            <div class="info-label">
-                อีเมล
-            </div>
-
-            <div
-                class="info-value"
-                id="email"
-            >
-                -
-            </div>
-
-        </div>
-
-
-        <div class="info-row">
-
-            <div class="info-label">
-                Subscriber ID
-            </div>
-
-            <div
-                class="info-value"
-                id="subscriberId"
-            >
-                -
-            </div>
-
-        </div>
-
-
-    </div>
-
-
-    <!-- =================================================
-         NEXT
-    ================================================== -->
-
-    <div class="next-text">
-
-        ขั้นตอนต่อไป ✨
-        <br>
-        เลือกสิ่งที่คุณสนใจ เพื่อให้ MELLY
-        ส่งข่าวสารที่ตรงกับความชอบของคุณ
-
-    </div>
-
-
-    <a
-        href="#"
-        class="next-button"
-        id="nextButton"
-    >
-
-        ✨ เลือกสิ่งที่ฉันสนใจ
-
-    </a>
-
-
-    <!-- =================================================
-         HOME
-    ================================================== -->
-
-    <a
-        href="index.html"
-        class="back-home"
-    >
-
-        ← กลับหน้าแรก
-
-    </a>
-
-
-</div>
-
-</div>
-
-
 <script>
 
 /* =====================================================
-   MELLY SUBSCRIBE SUCCESS
-   Static HTML + localStorage
-===================================================== */
-
-
-/* =====================================================
-   อ่านข้อมูลจาก URL
+   รับข้อมูลจาก URL
 ===================================================== */
 
 const params =
@@ -659,20 +11,20 @@ const params =
     );
 
 
-const subscriberId =
+const urlSubscriberId =
     params.get("subscriber_id");
 
 
-const email =
+const urlEmail =
     params.get("email");
 
 
-const fullname =
+const urlFullname =
     params.get("fullname");
 
 
 /* =====================================================
-   อ่านข้อมูลล่าสุดจาก localStorage
+   อ่าน Subscriber ล่าสุด
 ===================================================== */
 
 let subscriber = null;
@@ -680,16 +32,16 @@ let subscriber = null;
 
 try {
 
-    const storedSubscriber =
+    const stored =
         localStorage.getItem(
             "mellyLastSubscriber"
         );
 
 
-    if (storedSubscriber) {
+    if (stored) {
 
         subscriber =
-            JSON.parse(storedSubscriber);
+            JSON.parse(stored);
 
     }
 
@@ -707,84 +59,260 @@ catch (error) {
 ===================================================== */
 
 const finalSubscriberId =
-    subscriberId ||
-    (subscriber && subscriber.id) ||
-    "-";
+    urlSubscriberId ||
+    (
+        subscriber
+        ? subscriber.id
+        : ""
+    );
 
 
 const finalEmail =
-    email ||
-    (subscriber && subscriber.email) ||
-    "-";
+    urlEmail ||
+    (
+        subscriber
+        ? subscriber.email
+        : ""
+    );
 
 
 const finalFullname =
-    fullname ||
-    (subscriber && subscriber.fullname) ||
-    "-";
+    urlFullname ||
+    (
+        subscriber
+        ? subscriber.fullname
+        : ""
+    );
 
 
 /* =====================================================
-   แสดงข้อมูล
+   ตรวจข้อมูล
 ===================================================== */
 
-document.getElementById("fullname").textContent =
+if (
+    !finalSubscriberId ||
+    !finalEmail ||
+    !finalFullname
+) {
+
+    window.location.href =
+        "subscribe.html";
+
+}
+
+
+/* =====================================================
+   แสดงชื่อ
+===================================================== */
+
+document.getElementById(
+    "fullname"
+).textContent =
     finalFullname;
 
 
-document.getElementById("email").textContent =
-    finalEmail;
+/* =====================================================
+   รายการความสนใจ
+===================================================== */
+
+const interests = [
+
+    "ตุ๊กตาหมี",
+    "ตุ๊กตากระต่าย",
+    "ตุ๊กตาแมว",
+    "ตุ๊กตาสุนัข",
+    "ตุ๊กตาเป็ด",
+    "ตุ๊กตาม้า",
+    "ของขวัญ",
+    "ตกแต่งห้อง",
+    "โปรโมชั่น",
+    "สินค้าใหม่"
+
+];
 
 
-document.getElementById("subscriberId").textContent =
-    finalSubscriberId;
+const icons = {
+
+    "ตุ๊กตาหมี": "🧸",
+    "ตุ๊กตากระต่าย": "🐰",
+    "ตุ๊กตาแมว": "🐱",
+    "ตุ๊กตาสุนัข": "🐶",
+    "ตุ๊กตาเป็ด": "🐤",
+    "ตุ๊กตาม้า": "🐴",
+    "ของขวัญ": "🎁",
+    "ตกแต่งห้อง": "🏠",
+    "โปรโมชั่น": "🎉",
+    "สินค้าใหม่": "✨"
+
+};
 
 
 /* =====================================================
-   ไปหน้าความสนใจ
+   อ่านความสนใจที่เคยเลือกของ Subscriber ID นี้
 ===================================================== */
 
-document.getElementById("nextButton")
-    .addEventListener("click", function(event) {
-
-        event.preventDefault();
+let allInterests = {};
 
 
-        if (
-            finalSubscriberId === "-" ||
-            finalEmail === "-" ||
-            finalFullname === "-"
-        ) {
+try {
 
-            window.location.href =
-                "subscribe.html";
-
-            return;
-
-        }
-
-
-        window.location.href =
-            "subscribe_interest.html"
-            + "?subscriber_id="
-            + encodeURIComponent(
-                finalSubscriberId
+    allInterests =
+        JSON.parse(
+            localStorage.getItem(
+                "mellySubscriberInterests"
             )
-            + "&email="
-            + encodeURIComponent(
-                finalEmail
-            )
-            + "&fullname="
-            + encodeURIComponent(
-                finalFullname
+        ) || {};
+
+}
+
+catch (error) {
+
+    allInterests = {};
+
+}
+
+
+const savedInterests =
+    Array.isArray(
+        allInterests[String(finalSubscriberId)]
+    )
+        ? allInterests[String(finalSubscriberId)]
+        : [];
+
+
+/* =====================================================
+   สร้างรายการ Checkbox
+===================================================== */
+
+const container =
+    document.getElementById(
+        "interestContainer"
+    );
+
+
+interests.forEach(function(interest) {
+
+    const label =
+        document.createElement("label");
+
+
+    label.className =
+        "interest-card";
+
+
+    label.innerHTML = `
+
+        <input
+            type="checkbox"
+            name="interests"
+            value="${interest}"
+            ${savedInterests.includes(interest)
+                ? "checked"
+                : ""}
+        >
+
+        <span class="interest-icon">
+
+            ${icons[interest] || "♡"}
+
+        </span>
+
+        <span>
+
+            ${interest}
+
+        </span>
+
+    `;
+
+
+    container.appendChild(label);
+
+});
+
+
+/* =====================================================
+   Submit
+===================================================== */
+
+document
+    .getElementById("interestForm")
+    .addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const selected =
+                Array.from(
+                    document.querySelectorAll(
+                        'input[name="interests"]:checked'
+                    )
+                ).map(function(input) {
+
+                    return input.value;
+
+                });
+
+
+            /* =============================================
+               เก็บตาม Subscriber ID
+               
+               อีเมลซ้ำได้ เพราะ ID ไม่ซ้ำ
+            ============================================= */
+
+            allInterests[
+                String(finalSubscriberId)
+            ] = selected;
+
+
+            localStorage.setItem(
+                "mellySubscriberInterests",
+                JSON.stringify(allInterests)
             );
 
-    });
+
+            /* =============================================
+               อัปเดต Subscriber ล่าสุด
+            ============================================= */
+
+            if (subscriber) {
+
+                subscriber.interests =
+                    selected;
+
+
+                localStorage.setItem(
+                    "mellyLastSubscriber",
+                    JSON.stringify(subscriber)
+                );
+
+            }
+
+
+            /* =============================================
+               ไปหน้าสำเร็จ
+            ============================================= */
+
+            window.location.href =
+                "subscribe_saved.html"
+                + "?subscriber_id="
+                + encodeURIComponent(
+                    finalSubscriberId
+                )
+                + "&email="
+                + encodeURIComponent(
+                    finalEmail
+                )
+                + "&fullname="
+                + encodeURIComponent(
+                    finalFullname
+                );
+
+        }
+    );
+
 
 </script>
-
-
-</body>
-
-</html>
 
