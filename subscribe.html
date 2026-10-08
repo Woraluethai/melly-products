@@ -1,170 +1,1056 @@
 
+<!DOCTYPE html>
+
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>สมัครรับข่าวสาร | MELLY</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background: #fff8f8;
+
+    color: #555;
+
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.page {
+
+    min-height: 100vh;
+
+    padding: 45px 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.page::before,
+.page::after {
+
+    content: "♡";
+
+    position: absolute;
+
+    font-size: 150px;
+
+    color: #f8dddd;
+
+    opacity: 0.35;
+
+}
+
+
+.page::before {
+
+    top: -40px;
+
+    left: -20px;
+
+}
+
+
+.page::after {
+
+    bottom: -50px;
+
+    right: -20px;
+
+}
+
+
+/* =====================================================
+   กล่องหลัก
+===================================================== */
+
+.subscribe-box {
+
+    width: 100%;
+
+    max-width: 720px;
+
+    background: white;
+
+    border-radius: 30px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 35px
+        rgba(210, 150, 150, 0.15);
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+
+    width: 100px;
+
+    height: 100px;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border-radius: 50%;
+
+    display: block;
+
+    margin: 0 auto 18px;
+
+}
+
+
+/* =====================================================
+   หัวข้อ
+===================================================== */
+
+.small-title {
+
+    color: #d98d8d;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+
+}
+
+
+h1 {
+
+    margin: 0;
+
+    color: #c77b7b;
+
+    font-size: 30px;
+
+}
+
+
+.shop-name {
+
+    margin-top: 8px;
+
+    color: #999;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.description {
+
+    margin: 18px auto 25px;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+
+    max-width: 550px;
+
+}
+
+
+/* =====================================================
+   BENEFITS
+===================================================== */
+
+.benefits {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin: 25px 0 30px;
+
+}
+
+
+.benefit-card {
+
+    background: #fff7f7;
+
+    border: 1px solid #f4dddd;
+
+    border-radius: 18px;
+
+    padding: 18px 10px;
+
+    transition: 0.3s;
+
+}
+
+
+.benefit-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 7px 18px
+        rgba(210, 150, 150, 0.15);
+
+}
+
+
+.benefit-icon {
+
+    font-size: 28px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.benefit-title {
+
+    color: #c77b7b;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+}
+
+
+.benefit-text {
+
+    font-size: 12px;
+
+    color: #999;
+
+    margin-top: 5px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.error {
+
+    background: #fff0f0;
+
+    color: #c66;
+
+    border: 1px solid #f0cccc;
+
+    border-radius: 12px;
+
+    padding: 10px;
+
+    margin-bottom: 18px;
+
+    font-size: 13px;
+
+    display: none;
+
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-group {
+
+    text-align: left;
+
+    margin-bottom: 18px;
+
+}
+
+
+label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #777;
+
+    font-size: 13px;
+
+}
+
+
+input {
+
+    width: 100%;
+
+    padding: 13px 16px;
+
+    border: 1px solid #ead6d6;
+
+    border-radius: 15px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+
+}
+
+
+input:focus {
+
+    border-color: #d98d8d;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(217, 141, 141, 0.08);
+
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.subscribe-button {
+
+    width: 100%;
+
+    border: none;
+
+    background: #d98d8d;
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 18px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    margin-top: 5px;
+
+}
+
+
+.subscribe-button:hover {
+
+    background: #c77b7b;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px
+        rgba(199, 123, 123, 0.2);
+
+}
+
+
+/* =====================================================
+   PRIVACY
+===================================================== */
+
+.privacy {
+
+    font-size: 11px;
+
+    color: #aaa;
+
+    line-height: 1.6;
+
+    margin-top: 15px;
+
+}
+
+
+/* =====================================================
+   BACK HOME
+===================================================== */
+
+.back-home {
+
+    display: inline-block;
+
+    margin-top: 18px;
+
+    color: #c77b7b;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+
+}
+
+
+.back-home:hover {
+
+    color: #a96363;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .subscribe-box {
+
+        padding: 30px 20px;
+
+    }
+
+
+    .benefits {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    h1 {
+
+        font-size: 25px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+<div class="subscribe-box">
+
+
+    <!-- =================================================
+         LOGO
+    ================================================== -->
+
+    <img
+        src="images/MELLY.png"
+        class="logo"
+        alt="MELLY"
+    >
+
+
+    <!-- =================================================
+         TITLE
+    ================================================== -->
+
+    <div class="small-title">
+
+        STAY WITH MELLY
+
+    </div>
+
+
+    <h1>
+
+        💌 สมัครรับข่าวสาร
+
+    </h1>
+
+
+    <div class="shop-name">
+
+        MELLY DOLL SHOP
+
+    </div>
+
+
+    <div class="description">
+
+        มาเป็นส่วนหนึ่งของครอบครัว MELLY 💕
+        รับข่าวสารสินค้าใหม่ โปรโมชั่นพิเศษ
+        และเรื่องราวน่ารัก ๆ
+        ส่งตรงถึงอีเมลของคุณ
+
+    </div>
+
+
+    <!-- =================================================
+         BENEFITS
+    ================================================== -->
+
+    <div class="benefits">
+
+
+        <div class="benefit-card">
+
+            <div class="benefit-icon">
+
+                ✨
+
+            </div>
+
+            <div class="benefit-title">
+
+                ข่าวสาร
+
+            </div>
+
+            <div class="benefit-text">
+
+                อัปเดตเรื่องราวใหม่ ๆ จาก MELLY
+
+            </div>
+
+        </div>
+
+
+        <div class="benefit-card">
+
+            <div class="benefit-icon">
+
+                🎁
+
+            </div>
+
+            <div class="benefit-title">
+
+                โปรโมชั่น
+
+            </div>
+
+            <div class="benefit-text">
+
+                สิทธิพิเศษและโปรโมชั่นน่ารัก ๆ
+
+            </div>
+
+        </div>
+
+
+        <div class="benefit-card">
+
+            <div class="benefit-icon">
+
+                🧸
+
+            </div>
+
+            <div class="benefit-title">
+
+                สินค้าใหม่
+
+            </div>
+
+            <div class="benefit-text">
+
+                รู้ก่อนใครเมื่อมีคอลเลกชันใหม่
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         ERROR
+    ================================================== -->
+
+    <div
+        class="error"
+        id="errorMessage"
+    ></div>
+
+
+    <!-- =================================================
+         FORM
+    ================================================== -->
+
+    <form
+        id="subscribeForm"
+        method="POST"
+        action=""
+    >
+
+
+        <!-- ชื่อ -->
+
+        <div class="form-group">
+
+            <label>
+
+                ชื่อ - นามสกุล
+
+            </label>
+
+
+            <input
+                type="text"
+                id="fullname"
+                name="fullname"
+                placeholder="กรอกชื่อ - นามสกุล"
+                required
+                autocomplete="name"
+            >
+
+        </div>
+
+
+        <!-- อีเมล -->
+
+        <div class="form-group">
+
+            <label>
+
+                อีเมล
+
+            </label>
+
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="example@email.com"
+                required
+                autocomplete="email"
+            >
+
+        </div>
+
+
+        <!-- ปุ่ม -->
+
+        <button
+            type="submit"
+            class="subscribe-button"
+        >
+
+            💕 สมัครรับข่าวสาร
+
+        </button>
+
+
+    </form>
+
+
+    <!-- =================================================
+         PRIVACY
+    ================================================== -->
+
+    <div class="privacy">
+
+        🔒 เราเคารพความเป็นส่วนตัวของคุณ
+        และจะส่งเฉพาะข่าวสารที่เกี่ยวข้องกับ MELLY เท่านั้น
+
+    </div>
+
+
+    <!-- =================================================
+         BACK HOME
+    ================================================== -->
+
+    <a
+        href="index.html"
+        class="back-home"
+    >
+
+        ← กลับหน้าแรก
+
+    </a>
+
+
+</div>
+
+</div>
+
+
 <script>
 
-const form = document.getElementById("subscribeForm");
+/* =====================================================
+   MELLY SUBSCRIBE
+   Static HTML + JavaScript + localStorage
 
-form.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-
-    const fullname =
-        document.getElementById("fullname").value.trim();
-
-    const email =
-        document.getElementById("email").value.trim();
+   สำคัญ:
+   - ไม่ตรวจอีเมลซ้ำ
+   - อีเมลเดิมสมัครซ้ำได้
+   - ทุกการสมัครจะได้ subscriber_id ใหม่
+   - ข้อมูลเก่าจะไม่ถูกลบ
+===================================================== */
 
 
-    /* =====================================================
-       ตรวจข้อมูล
-    ===================================================== */
+/* =====================================================
+   ELEMENTS
+===================================================== */
 
-    if (fullname === "") {
-
-        alert("กรุณากรอกชื่อ");
-
-        return;
-
-    }
+const form =
+    document.getElementById(
+        "subscribeForm"
+    );
 
 
-    if (email === "") {
-
-        alert("กรุณากรอกอีเมล");
-
-        return;
-
-    }
+const fullnameInput =
+    document.getElementById(
+        "fullname"
+    );
 
 
-    const emailPattern =
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const emailInput =
+    document.getElementById(
+        "email"
+    );
 
 
-    if (!emailPattern.test(email)) {
-
-        alert("กรุณากรอกอีเมลให้ถูกต้อง");
-
-        return;
-
-    }
+const errorMessage =
+    document.getElementById(
+        "errorMessage"
+    );
 
 
-    /* =====================================================
-       อ่านสมาชิกเดิม
-       
-       ไม่ตรวจ duplicate email แล้ว
-       ดังนั้นอีเมลเดิมสามารถสมัครซ้ำได้
-    ===================================================== */
+/* =====================================================
+   แสดง Error
+===================================================== */
 
-    let subscribers = [];
+function showError(message) {
 
-    try {
+    errorMessage.textContent =
+        message;
 
-        subscribers =
-            JSON.parse(
-                localStorage.getItem(
-                    "mellySubscribers"
-                )
-            ) || [];
+    errorMessage.style.display =
+        "block";
 
-    }
-
-    catch (error) {
-
-        subscribers = [];
-
-    }
+}
 
 
-    /* =====================================================
-       สร้าง Subscriber ID ใหม่ทุกครั้ง
-    ===================================================== */
+/* =====================================================
+   ซ่อน Error
+===================================================== */
 
-    let subscriberId = 1;
+function hideError() {
 
+    errorMessage.textContent =
+        "";
 
-    if (subscribers.length > 0) {
+    errorMessage.style.display =
+        "none";
 
-        const ids = subscribers
-            .map(function(item) {
-
-                return Number(item.id) || 0;
-
-            })
-            .filter(function(id) {
-
-                return id > 0;
-
-            });
+}
 
 
-        if (ids.length > 0) {
+/* =====================================================
+   Submit
+===================================================== */
 
-            subscriberId =
-                Math.max(...ids) + 1;
+form.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        hideError();
+
+
+        /* =================================================
+           รับข้อมูล
+        ================================================= */
+
+        const fullname =
+            fullnameInput.value.trim();
+
+
+        const email =
+            emailInput.value.trim();
+
+
+        /* =================================================
+           ตรวจสอบชื่อ
+        ================================================= */
+
+        if (fullname === "") {
+
+            showError(
+                "กรุณากรอกชื่อ-นามสกุล"
+            );
+
+            fullnameInput.focus();
+
+            return;
 
         }
 
+
+        /* =================================================
+           ตรวจสอบอีเมล
+        ================================================= */
+
+        if (email === "") {
+
+            showError(
+                "กรุณากรอกอีเมล"
+            );
+
+            emailInput.focus();
+
+            return;
+
+        }
+
+
+        /* =================================================
+           ตรวจสอบรูปแบบอีเมล
+        ================================================= */
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+        if (
+            !emailPattern.test(email)
+        ) {
+
+            showError(
+                "รูปแบบอีเมลไม่ถูกต้อง"
+            );
+
+            emailInput.focus();
+
+            return;
+
+        }
+
+
+        /* =================================================
+           อ่าน Subscribers เดิม
+           
+           ห้ามลบข้อมูลเก่า
+        ================================================= */
+
+        let subscribers = [];
+
+
+        try {
+
+            const stored =
+                localStorage.getItem(
+                    "mellySubscribers"
+                );
+
+
+            if (stored) {
+
+                subscribers =
+                    JSON.parse(stored);
+
+            }
+
+
+            if (
+                !Array.isArray(
+                    subscribers
+                )
+            ) {
+
+                subscribers = [];
+
+            }
+
+        }
+
+        catch (error) {
+
+            subscribers = [];
+
+        }
+
+
+        /* =================================================
+           สร้าง ID ใหม่
+           
+           ใช้ ID ที่มากที่สุด + 1
+           เพื่อไม่ให้ซ้ำกับข้อมูลเดิม
+        ================================================= */
+
+        let subscriberId = 1;
+
+
+        if (
+            subscribers.length > 0
+        ) {
+
+            const ids =
+                subscribers
+                    .map(function(item) {
+
+                        return Number(
+                            item.id
+                        ) || 0;
+
+                    })
+                    .filter(function(id) {
+
+                        return id > 0;
+
+                    });
+
+
+            if (
+                ids.length > 0
+            ) {
+
+                subscriberId =
+                    Math.max(...ids) + 1;
+
+            }
+
+        }
+
+
+        /* =================================================
+           สร้างข้อมูล Subscriber ใหม่
+           
+           ไม่ตรวจ duplicate email
+           ดังนั้น email เดิมสมัครซ้ำได้
+        ================================================= */
+
+        const subscriber = {
+
+            id: subscriberId,
+
+            fullname: fullname,
+
+            email: email,
+
+            created_at:
+                new Date().toISOString()
+
+        };
+
+
+        /* =================================================
+           เพิ่มข้อมูลใหม่ต่อท้ายข้อมูลเดิม
+           
+           ไม่แทนที่ข้อมูลเดิม
+        ================================================= */
+
+        subscribers.push(
+            subscriber
+        );
+
+
+        localStorage.setItem(
+            "mellySubscribers",
+            JSON.stringify(
+                subscribers
+            )
+        );
+
+
+        /* =================================================
+           เก็บสมาชิกที่สมัครล่าสุด
+           
+           ใช้สำหรับหน้าถัดไป
+        ================================================= */
+
+        localStorage.setItem(
+            "mellyLastSubscriber",
+            JSON.stringify(
+                subscriber
+            )
+        );
+
+
+        /* =================================================
+           ไปหน้าสมัครสำเร็จ
+        ================================================= */
+
+        window.location.href =
+            "subscribe_success.html"
+            + "?subscriber_id="
+            + encodeURIComponent(
+                subscriberId
+            )
+            + "&email="
+            + encodeURIComponent(
+                email
+            )
+            + "&fullname="
+            + encodeURIComponent(
+                fullname
+            );
+
     }
-
-
-    /* =====================================================
-       ข้อมูลสมาชิกใหม่
-    ===================================================== */
-
-    const subscriber = {
-
-        id: subscriberId,
-
-        fullname: fullname,
-
-        email: email,
-
-        created_at:
-            new Date().toISOString()
-
-    };
-
-
-    /* =====================================================
-       เพิ่มสมาชิกใหม่
-       ไม่แทนที่สมาชิกเดิม
-    ===================================================== */
-
-    subscribers.push(subscriber);
-
-
-    localStorage.setItem(
-        "mellySubscribers",
-        JSON.stringify(subscribers)
-    );
-
-
-    /* =====================================================
-       จำสมาชิกที่สมัครครั้งล่าสุด
-    ===================================================== */
-
-    localStorage.setItem(
-        "mellyLastSubscriber",
-        JSON.stringify(subscriber)
-    );
-
-
-    /* =====================================================
-       ไปหน้าสำเร็จ
-    ===================================================== */
-
-    window.location.href =
-        "subscribe_success.html"
-        + "?subscriber_id="
-        + encodeURIComponent(subscriberId)
-        + "&email="
-        + encodeURIComponent(email)
-        + "&fullname="
-        + encodeURIComponent(fullname);
-
-});
+);
 
 </script>
+
+
+</body>
+
+</html>
 
