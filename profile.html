@@ -1,0 +1,953 @@
+
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MELLY | โปรไฟล์</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background: #fffdfc;
+
+    color: #554742;
+
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+
+    height: 68px;
+
+    background: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+
+    z-index: 10;
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    height: 52px;
+
+    width: auto;
+
+    object-fit: contain;
+
+}
+
+
+/* =====================================================
+   MENU LEFT
+===================================================== */
+
+.menu-left {
+
+    position: absolute;
+
+    left: 40px;
+
+    display: flex;
+
+    gap: 25px;
+
+}
+
+
+.menu-left a {
+
+    text-decoration: none;
+
+    color: #6b5b56;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+
+}
+
+
+.menu-left a:hover {
+
+    color: #d79595;
+
+}
+
+
+/* =====================================================
+   MENU RIGHT
+===================================================== */
+
+.menu-right {
+
+    position: absolute;
+
+    right: 40px;
+
+    display: flex;
+
+    gap: 20px;
+
+    align-items: center;
+
+}
+
+
+.menu-right a {
+
+    text-decoration: none;
+
+    color: #6b5b56;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+
+}
+
+
+.menu-right a:hover {
+
+    color: #d79595;
+
+}
+
+
+/* =====================================================
+   PROFILE SECTION
+===================================================== */
+
+.profile-section {
+
+    min-height: calc(100vh - 68px);
+
+    padding: 60px 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: #fffdfc;
+
+}
+
+
+/* =====================================================
+   PROFILE BOX
+===================================================== */
+
+.profile-box {
+
+    width: 100%;
+
+    max-width: 700px;
+
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 45px 50px;
+
+    box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+
+}
+
+
+/* =====================================================
+   PROFILE HEADER
+===================================================== */
+
+.profile-header {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+}
+
+
+.profile-icon {
+
+    width: 80px;
+
+    height: 80px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    background: #f4d4d6;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 35px;
+
+}
+
+
+.profile-header h1 {
+
+    font-family: Georgia, serif;
+
+    font-size: 34px;
+
+    font-weight: 400;
+
+    color: #594944;
+
+    margin-bottom: 8px;
+
+}
+
+
+.profile-header p {
+
+    font-size: 13px;
+
+    color: #9b8982;
+
+}
+
+
+/* =====================================================
+   PROFILE INFORMATION
+===================================================== */
+
+.profile-info {
+
+    border-top: 1px solid #f1e5e2;
+
+}
+
+
+.info-row {
+
+    display: grid;
+
+    grid-template-columns: 180px 1fr;
+
+    padding: 18px 5px;
+
+    border-bottom: 1px solid #f1e5e2;
+
+}
+
+
+.info-label {
+
+    color: #9b8982;
+
+    font-size: 14px;
+
+}
+
+
+.info-value {
+
+    color: #594944;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    word-break: break-word;
+
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.profile-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 35px;
+
+}
+
+
+.back-button {
+
+    display: inline-block;
+
+    padding: 12px 30px;
+
+    border: 1px solid #d98d8d;
+
+    border-radius: 25px;
+
+    color: #c77b7b;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+
+}
+
+
+.back-button:hover {
+
+    background: #d98d8d;
+
+    color: white;
+
+}
+
+
+.logout-button {
+
+    display: inline-block;
+
+    padding: 12px 30px;
+
+    background: #d88e91;
+
+    border: 1px solid #d88e91;
+
+    border-radius: 25px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+
+}
+
+
+.logout-button:hover {
+
+    background: #c77679;
+
+    border-color: #c77679;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    text-align: center;
+
+    padding: 25px;
+
+    background: #fff9f7;
+
+    color: #9b8982;
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .navbar {
+
+        height: auto;
+
+        padding: 15px;
+
+        flex-direction: column;
+
+    }
+
+
+    .logo {
+
+        position: static;
+
+        transform: none;
+
+        margin-bottom: 10px;
+
+    }
+
+
+    .menu-left,
+
+    .menu-right {
+
+        position: static;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 12px;
+
+    }
+
+
+    .profile-section {
+
+        padding: 30px 15px;
+
+    }
+
+
+    .profile-box {
+
+        padding: 30px 20px;
+
+    }
+
+
+    .profile-header h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .info-row {
+
+        grid-template-columns: 1fr;
+
+        gap: 5px;
+
+    }
+
+
+    .profile-buttons {
+
+        flex-direction: column;
+
+    }
+
+
+    .back-button,
+
+    .logout-button {
+
+        text-align: center;
+
+        width: 100%;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+
+    <!-- เมนูซ้าย -->
+
+    <nav class="menu-left">
+
+        <a href="index.html">
+            หน้าแรก
+        </a>
+
+
+        <a href="products.html">
+            สินค้า
+        </a>
+
+
+        <a href="cart.html">
+            ตะกร้า
+        </a>
+
+
+        <a href="checkout.html">
+            สั่งซื้อ
+        </a>
+
+    </nav>
+
+
+    <!-- LOGO -->
+
+    <img
+        src="images/MELLY.png"
+        class="logo"
+        alt="MELLY"
+    >
+
+
+    <!-- เมนูขวา -->
+
+    <nav class="menu-right">
+
+        <a href="orders.html">
+            ประวัติการซื้อ
+        </a>
+
+
+        <a href="profile.html">
+            โปรไฟล์
+        </a>
+
+
+        <a href="login.html" id="logoutLink">
+            ออกจากระบบ
+        </a>
+
+    </nav>
+
+
+</header>
+
+
+
+<!-- =====================================================
+     PROFILE
+===================================================== -->
+
+<section class="profile-section">
+
+
+    <div class="profile-box">
+
+
+        <!-- HEADER -->
+
+        <div class="profile-header">
+
+            <div class="profile-icon">
+                👤
+            </div>
+
+
+            <h1>
+                โปรไฟล์ของฉัน
+            </h1>
+
+
+            <p>
+                ข้อมูลส่วนตัวของสมาชิก MELLY
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             INFORMATION
+        ================================================== -->
+
+        <div class="profile-info">
+
+
+            <!-- USERNAME -->
+
+            <div class="info-row">
+
+                <div class="info-label">
+                    Username
+                </div>
+
+                <div
+                    class="info-value"
+                    id="username"
+                >
+                    -
+                </div>
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div class="info-row">
+
+                <div class="info-label">
+                    อีเมล
+                </div>
+
+                <div
+                    class="info-value"
+                    id="email"
+                >
+                    -
+                </div>
+
+            </div>
+
+
+
+            <!-- FULLNAME -->
+
+            <div class="info-row">
+
+                <div class="info-label">
+                    ชื่อ - นามสกุล
+                </div>
+
+                <div
+                    class="info-value"
+                    id="fullname"
+                >
+                    -
+                </div>
+
+            </div>
+
+
+
+            <!-- ADDRESS -->
+
+            <div class="info-row">
+
+                <div class="info-label">
+                    ที่อยู่
+                </div>
+
+                <div
+                    class="info-value"
+                    id="address"
+                >
+                    -
+                </div>
+
+            </div>
+
+
+
+            <!-- PHONE -->
+
+            <div class="info-row">
+
+                <div class="info-label">
+                    เบอร์โทรศัพท์
+                </div>
+
+                <div
+                    class="info-value"
+                    id="phone"
+                >
+                    -
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             BUTTONS
+        ================================================== -->
+
+        <div class="profile-buttons">
+
+
+            <a
+                href="index.html"
+                class="back-button"
+            >
+                ← กลับหน้าแรก
+            </a>
+
+
+            <a
+                href="login.html"
+                class="logout-button"
+                id="logoutButton"
+            >
+                ออกจากระบบ
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    © 2026 MELLY Doll Shop
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   MELLY PROFILE
+   Static HTML + localStorage
+===================================================== */
+
+
+/* =====================================================
+   ตรวจสอบข้อมูลผู้ใช้
+===================================================== */
+
+let user = null;
+
+
+/*
+    รองรับทั้ง mellyUser และ
+    ข้อมูลสมาชิกที่อาจเก็บเป็น JSON
+*/
+
+try {
+
+    const storedUser =
+        localStorage.getItem("mellyUser");
+
+    if (storedUser) {
+
+        user = JSON.parse(storedUser);
+
+    }
+
+}
+
+catch (error) {
+
+    user = null;
+
+}
+
+
+/* =====================================================
+   ถ้าไม่มี mellyUser
+   ลองใช้ mellyUserId + mellyUsers
+===================================================== */
+
+if (!user) {
+
+    try {
+
+        const userId =
+            localStorage.getItem("mellyUserId");
+
+        const users =
+            JSON.parse(
+                localStorage.getItem("mellyUsers") || "[]"
+            );
+
+
+        if (userId && Array.isArray(users)) {
+
+            user =
+                users.find(function(item) {
+
+                    return String(item.id) === String(userId);
+
+                }) || null;
+
+        }
+
+    }
+
+    catch (error) {
+
+        user = null;
+
+    }
+
+}
+
+
+/* =====================================================
+   ถ้าไม่มีข้อมูลผู้ใช้
+===================================================== */
+
+if (!user) {
+
+    window.location.href = "login.html";
+
+}
+
+
+/* =====================================================
+   ฟังก์ชันป้องกัน HTML
+===================================================== */
+
+function escapeHTML(value) {
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =====================================================
+   แสดงข้อมูลผู้ใช้
+===================================================== */
+
+if (user) {
+
+    const username =
+        user.username || "-";
+
+    const email =
+        user.email || "-";
+
+    const fullname =
+        user.fullname || "-";
+
+    const address =
+        user.address || "-";
+
+    const phone =
+        user.phone || "-";
+
+
+    document.getElementById("username").textContent =
+        username;
+
+    document.getElementById("email").textContent =
+        email;
+
+    document.getElementById("fullname").textContent =
+        fullname;
+
+    document.getElementById("address").textContent =
+        address;
+
+    document.getElementById("phone").textContent =
+        phone;
+
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function logout() {
+
+    localStorage.removeItem("mellyUser");
+
+    localStorage.removeItem("mellyUserId");
+
+    window.location.href = "login.html";
+
+}
+
+
+/* =====================================================
+   ปุ่มออกจากระบบ
+===================================================== */
+
+document.getElementById("logoutLink")
+    .addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        logout();
+
+    });
+
+
+document.getElementById("logoutButton")
+    .addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        logout();
+
+    });
+
+
+</script>
+
+
+</body>
+
+</html>
+
