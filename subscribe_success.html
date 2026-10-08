@@ -1,0 +1,354 @@
+
+<script>
+
+/* =====================================================
+   รับข้อมูลจาก URL
+===================================================== */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const subscriberId =
+    params.get("subscriber_id");
+
+
+const email =
+    params.get("email");
+
+
+const fullname =
+    params.get("fullname");
+
+
+/* =====================================================
+   ตรวจ Subscriber ID
+===================================================== */
+
+if (!subscriberId) {
+
+    window.location.href =
+        "subscribe.html";
+
+}
+
+
+/* =====================================================
+   อ่าน Subscriber จาก mellySubscribers
+   โดยใช้ ID ไม่ใช่อีเมล
+===================================================== */
+
+let subscribers = [];
+
+try {
+
+    subscribers =
+        JSON.parse(
+            localStorage.getItem(
+                "mellySubscribers"
+            )
+        ) || [];
+
+}
+
+catch (error) {
+
+    subscribers = [];
+
+}
+
+
+const subscriber =
+    subscribers.find(function(item) {
+
+        return String(item.id) ===
+            String(subscriberId);
+
+    });
+
+
+/* =====================================================
+   ใช้ข้อมูลตาม ID
+===================================================== */
+
+const finalFullname =
+    fullname ||
+    (
+        subscriber
+        ? subscriber.fullname
+        : ""
+    );
+
+
+const finalEmail =
+    email ||
+    (
+        subscriber
+        ? subscriber.email
+        : ""
+    );
+
+
+/* =====================================================
+   ตรวจข้อมูล
+===================================================== */
+
+if (
+    !finalFullname ||
+    !finalEmail
+) {
+
+    window.location.href =
+        "subscribe.html";
+
+}
+
+
+/* =====================================================
+   แสดงข้อมูล
+===================================================== */
+
+document.getElementById(
+    "fullname"
+).textContent =
+    finalFullname;
+
+
+document.getElementById(
+    "email"
+).textContent =
+    finalEmail;
+
+
+/* =====================================================
+   อ่านความสนใจตาม Subscriber ID
+===================================================== */
+
+let allInterests = {};
+
+try {
+
+    allInterests =
+        JSON.parse(
+            localStorage.getItem(
+                "mellySubscriberInterests"
+            )
+        ) || {};
+
+}
+
+catch (error) {
+
+    allInterests = {};
+
+}
+
+
+const selectedInterests =
+    Array.isArray(
+        allInterests[String(subscriberId)]
+    )
+        ? allInterests[String(subscriberId)]
+        : [];
+
+
+/* =====================================================
+   ข้อมูลตุ๊กตา
+===================================================== */
+
+const interestProducts = {
+
+    "ตุ๊กตาหมี": {
+        name: "Melly Teddy Bear",
+        image: "ตุ๊กตาหมี.jpg",
+        price: 490
+    },
+
+    "ตุ๊กตากระต่าย": {
+        name: "Melly Bunny",
+        image: "กระต่าย.webp",
+        price: 450
+    },
+
+    "ตุ๊กตาแมว": {
+        name: "Little Cat",
+        image: "แมว.jpeg",
+        price: 350
+    },
+
+    "ตุ๊กตาสุนัข": {
+        name: "Melly Dog",
+        image: "หมา.jpg",
+        price: 420
+    },
+
+    "ตุ๊กตาเป็ด": {
+        name: "Melly Duck",
+        image: "เป็ด.jpg",
+        price: 390
+    },
+
+    "ตุ๊กตาม้า": {
+        name: "White Horse",
+        image: "ม้า.jpg",
+        price: 480
+    }
+
+};
+
+
+/* =====================================================
+   แยกสินค้า / ความสนใจอื่น
+===================================================== */
+
+const favoriteProducts = [];
+
+const otherInterests = [];
+
+
+selectedInterests.forEach(
+    function(interest) {
+
+        if (
+            interestProducts[interest]
+        ) {
+
+            favoriteProducts.push(
+                interestProducts[interest]
+            );
+
+        } else {
+
+            otherInterests.push(
+                interest
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   แสดงสินค้า
+===================================================== */
+
+const productGrid =
+    document.getElementById(
+        "productGrid"
+    );
+
+
+favoriteProducts.forEach(
+    function(product) {
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "product-card";
+
+
+        card.innerHTML = `
+
+            <img
+                src="images/${product.image}"
+                class="product-image"
+                alt="${product.name}"
+            >
+
+            <div class="product-name">
+
+                ${product.name}
+
+            </div>
+
+            <div class="product-price">
+
+                ${Number(product.price)
+                    .toLocaleString("th-TH")}
+
+                บาท
+
+            </div>
+
+        `;
+
+
+        productGrid.appendChild(card);
+
+    }
+);
+
+
+/* =====================================================
+   ซ่อน Section ถ้าไม่มีสินค้า
+===================================================== */
+
+const favoriteSection =
+    document.getElementById(
+        "favoriteSection"
+    );
+
+
+if (
+    favoriteProducts.length === 0
+) {
+
+    favoriteSection.style.display =
+        "none";
+
+}
+
+
+/* =====================================================
+   แสดงความสนใจอื่น
+===================================================== */
+
+const otherInterestsBox =
+    document.getElementById(
+        "otherInterests"
+    );
+
+
+otherInterests.forEach(
+    function(interest) {
+
+        const tag =
+            document.createElement("div");
+
+
+        tag.className =
+            "interest-tag";
+
+
+        tag.textContent =
+            "♡ " + interest;
+
+
+        otherInterestsBox.appendChild(tag);
+
+    }
+);
+
+
+/* =====================================================
+   ไม่มีความสนใจ
+===================================================== */
+
+if (
+    favoriteProducts.length === 0 &&
+    otherInterests.length === 0
+) {
+
+    document.getElementById(
+        "noInterest"
+    ).style.display = "block";
+
+}
+
+</script>
+
